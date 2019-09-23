@@ -139,9 +139,8 @@
 		0EA2EEFB2338E7470090555A /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				0EA2EF3A2338FB680090555A /* Structure */,
 				0EA2EF372338FB520090555A /* Util */,
-				0EA2EF1F2338FB2E0090555A /* Beverage */,
+				0EA2EF1F2338FB2E0090555A /* Model */,
 				0EA2EEFC2338E7470090555A /* AppDelegate.swift */,
 				0EA2EEFE2338E7470090555A /* ViewController.swift */,
 				0EA2EF002338E7470090555A /* Main.storyboard */,
@@ -162,15 +161,16 @@
 			path = VendingMachineAppTests;
 			sourceTree = "<group>";
 		};
-		0EA2EF1F2338FB2E0090555A /* Beverage */ = {
+		0EA2EF1F2338FB2E0090555A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0EA2EF3A2338FB680090555A /* Structure */,
 				0EA2EF202338FB2E0090555A /* Beverage.swift */,
 				0EA2EF212338FB2E0090555A /* Milk */,
 				0EA2EF252338FB2E0090555A /* Soda */,
 				0EA2EF292338FB2E0090555A /* Coffee */,
 			);
-			path = Beverage;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0EA2EF212338FB2E0090555A /* Milk */ = {
