@@ -12,7 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let cola = Cola()
+        let americano = Americano()
+        let cafeLatte = CafeLatte()
+        let inventory = Inventory.init(products: [cola, americano, cafeLatte])
+
+        let output = inventory.statistic
+            .filter { $0.productQuantity > 0 }
+            .reduce("") {
+                "\($0) \($1.productDescription) (\($1.productQuantity)개)"
+        }
+
+        print(output)
     }
 
 }
