@@ -23,7 +23,11 @@
 
   - 이 후 `RunLoop`가 실행된다.
 
+  
+
 <img width="340" alt="스크린샷 2019-09-23 오후 11 59 48" src="https://user-images.githubusercontent.com/39197978/65437268-79025980-de5e-11e9-9627-9122dadb0e57.png">
+
+<br>
 
 ![IMG_1006](https://user-images.githubusercontent.com/39197978/65477590-b946f380-dec1-11e9-8c7c-a71047c26e86.PNG)
 
