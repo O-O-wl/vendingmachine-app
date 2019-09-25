@@ -17,10 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yAW-xc-ZVY">
-                                <rect key="frame" x="0.0" y="337" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yAW-xc-ZVY">
+                                <rect key="frame" x="30" y="236" width="1093" height="301"/>
+                                <color key="backgroundColor" red="0.66585437349963483" green="1" blue="0.93272489794278379" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="PlQ-16-8Kq">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -38,25 +37,41 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSx-TG-9xy">
-                                <rect key="frame" x="345" y="352" width="44" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSx-TG-9xy">
+                                <rect key="frame" x="1204" y="236" width="51" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="+1000"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-BB-ljP">
-                                <rect key="frame" x="447" y="352" width="51" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-BB-ljP">
+                                <rect key="frame" x="1285" y="236" width="51" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="+ 5000"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액: 0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9l-Gc-SCX">
-                                <rect key="frame" x="372" y="444" width="80" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액: 0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9l-Gc-SCX">
+                                <rect key="frame" x="1204" y="290.5" width="132" height="21"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.93329508100844039" blue="0.56003079011212242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yAW-xc-ZVY" firstAttribute="top" secondItem="nSx-TG-9xy" secondAttribute="top" id="A6y-Te-WuC"/>
+                            <constraint firstItem="yAW-xc-ZVY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.3" id="B3O-gv-Y3a"/>
+                            <constraint firstItem="nSx-TG-9xy" firstAttribute="height" secondItem="v1T-BB-ljP" secondAttribute="height" id="Kh3-e3-qSD"/>
+                            <constraint firstItem="nSx-TG-9xy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.5" id="Ppg-jR-Nqx"/>
+                            <constraint firstItem="nSx-TG-9xy" firstAttribute="width" secondItem="v1T-BB-ljP" secondAttribute="width" id="QiF-l3-HaD"/>
+                            <constraint firstItem="i9l-Gc-SCX" firstAttribute="leading" secondItem="nSx-TG-9xy" secondAttribute="leading" id="VZV-Av-JiB"/>
+                            <constraint firstItem="v1T-BB-ljP" firstAttribute="top" secondItem="nSx-TG-9xy" secondAttribute="top" id="X5h-DO-cgT"/>
+                            <constraint firstItem="v1T-BB-ljP" firstAttribute="bottom" secondItem="nSx-TG-9xy" secondAttribute="bottom" id="b1W-1F-6Tj"/>
+                            <constraint firstItem="i9l-Gc-SCX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.6" id="c0x-kr-ISw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v1T-BB-ljP" secondAttribute="trailing" constant="30" id="eHp-RL-sA1"/>
+                            <constraint firstItem="yAW-xc-ZVY" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="hor-9t-cw8"/>
+                            <constraint firstItem="v1T-BB-ljP" firstAttribute="leading" secondItem="nSx-TG-9xy" secondAttribute="trailing" constant="30" id="nQN-EV-VjR"/>
+                            <constraint firstItem="yAW-xc-ZVY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="sAg-4R-3Y2"/>
+                            <constraint firstItem="v1T-BB-ljP" firstAttribute="trailing" secondItem="i9l-Gc-SCX" secondAttribute="trailing" id="v1M-BI-do6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
@@ -68,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="138.79941434846265" y="137.6953125"/>
         </scene>
     </scenes>
 </document>
