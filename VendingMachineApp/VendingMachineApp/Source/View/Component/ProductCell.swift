@@ -11,6 +11,7 @@ import UIKit
 class ProductCell: UICollectionViewCell {
 
     // MARK: Properties
+    static let reuseId = "ProductCell"
 
     // MARK: IBOutlet
     @IBOutlet weak var addQuantityButton: UIButton!
@@ -25,6 +26,7 @@ class ProductCell: UICollectionViewCell {
 
     func configure(_ product: Product) {
         productImageView.image = UIImage(named: "\(type(of: product))")
+        productImageView.backgroundColor = .green
     }
 
     // MARK: IBAction
