@@ -16,7 +16,9 @@ protocol VendingMachineView {
 class VendingMachineViewController: UIViewController {
     
     // MARK: Properties
-    
+    var vendingMachine = VendingMachine(balance: .init(value: 0),
+                                        inventory: Inventory.init(products: ProductFactory.createAll(quantity: 1)),
+                                        history: History())
     // MARK: IBOutlet
     @IBOutlet weak var productsCollectionView: UICollectionView!
     @IBOutlet weak var buttonToAdd1000Won: UIButton!
@@ -28,7 +30,21 @@ class VendingMachineViewController: UIViewController {
     // MARK: ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        productsCollectionView.dataSource = self
     }
+    
+}
+extension VendingMachineViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        var menuCount = 0
+        vendingMachine.handleProductStatistic({ _ in menuCount+=1 })
+        return menuCount
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        <#code#>
+    }
+    
     
 }
 // MARK: - + VendingMachineView
