@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFC2338E7470090555A /* AppDelegate.swift */; };
-		0EA2EEFF2338E7470090555A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* ViewController.swift */; };
+		0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */; };
 		0EA2EF022338E7470090555A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF002338E7470090555A /* Main.storyboard */; };
 		0EA2EF042338E7480090555A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF032338E7480090555A /* Assets.xcassets */; };
 		0EA2EF072338E7480090555A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF052338E7480090555A /* LaunchScreen.storyboard */; };
@@ -38,6 +38,7 @@
 		0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4B2338FB680090555A /* StateHandleable.swift */; };
 		0EA2EF5D2338FB680090555A /* MoneyInsertStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */; };
 		0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */; };
+		0EF335E9233B1A770066AE3D /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF335E5233B1A770066AE3D /* ProductFactory.swift */; };
 		B60138D1C243FF3FC295B67B /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */; };
 		EDC3E1984518478AA45F0CBA /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */; };
 /* End PBXBuildFile section */
@@ -55,7 +56,7 @@
 /* Begin PBXFileReference section */
 		0EA2EEF92338E7470090555A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EEFC2338E7470090555A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EA2EEFE2338E7470090555A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
 		0EA2EF012338E7470090555A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EA2EF032338E7480090555A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EA2EF062338E7480090555A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		0EA2EF4B2338FB680090555A /* StateHandleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHandleable.swift; sourceTree = "<group>"; };
 		0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyInsertStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseStrategy.swift; sourceTree = "<group>"; };
+		0EF335E5233B1A770066AE3D /* ProductFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC2B93A554CD41BD253CCC /* Pods-VendingMachineAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppTests.release.xcconfig"; path = "Target Support Files/Pods-VendingMachineAppTests/Pods-VendingMachineAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,15 +141,8 @@
 		0EA2EEFB2338E7470090555A /* VendingMachineApp */ = {
 			isa = PBXGroup;
 			children = (
-				0EA2EF372338FB520090555A /* Util */,
-				0EA2EF1F2338FB2E0090555A /* Model */,
-				0EA2EEFC2338E7470090555A /* AppDelegate.swift */,
-				0EA2EEFE2338E7470090555A /* ViewController.swift */,
-				0EA2EF002338E7470090555A /* Main.storyboard */,
-				0EA2EF032338E7480090555A /* Assets.xcassets */,
-				0EA2EF052338E7480090555A /* LaunchScreen.storyboard */,
-				0EA2EF082338E7480090555A /* Info.plist */,
-				0EA2EF1D2338F0080090555A /* .swiftline.yml */,
+				0EA2EF76233A48010090555A /* Resource */,
+				0EA2EF75233A47F30090555A /* Source */,
 			);
 			path = VendingMachineApp;
 			sourceTree = "<group>";
@@ -214,6 +209,7 @@
 		0EA2EF3A2338FB680090555A /* Structure */ = {
 			isa = PBXGroup;
 			children = (
+				0EF335E3233B1A770066AE3D /* Factory */,
 				0EA2EF3B2338FB680090555A /* Errorhandler.swift */,
 				0EA2EF3C2338FB680090555A /* Money.swift */,
 				0EA2EF3D2338FB680090555A /* SaleProductDTO.swift */,
@@ -237,6 +233,53 @@
 				0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */,
 			);
 			path = Strategy;
+			sourceTree = "<group>";
+		};
+		0EA2EF73233A47DD0090555A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0EA2EF74233A47E80090555A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		0EA2EF75233A47F30090555A /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2EF74233A47E80090555A /* Presenter */,
+				0EA2EF73233A47DD0090555A /* View */,
+				0EA2EF372338FB520090555A /* Util */,
+				0EA2EF1F2338FB2E0090555A /* Model */,
+				0EA2EEFC2338E7470090555A /* AppDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		0EA2EF76233A48010090555A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2EF002338E7470090555A /* Main.storyboard */,
+				0EA2EF032338E7480090555A /* Assets.xcassets */,
+				0EA2EF052338E7480090555A /* LaunchScreen.storyboard */,
+				0EA2EF082338E7480090555A /* Info.plist */,
+				0EA2EF1D2338F0080090555A /* .swiftline.yml */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		0EF335E3233B1A770066AE3D /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				0EF335E5233B1A770066AE3D /* ProductFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 		18A5594FF6CEA7DDC3BEAA9E /* Pods */ = {
@@ -436,9 +479,10 @@
 				0EA2EF2D2338FB2E0090555A /* Beverage.swift in Sources */,
 				0EA2EF2E2338FB2E0090555A /* StrawberryMilk.swift in Sources */,
 				0EA2EF342338FB2E0090555A /* CafeLatte.swift in Sources */,
+				0EF335E9233B1A770066AE3D /* ProductFactory.swift in Sources */,
 				0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */,
 				0EA2EF4F2338FB680090555A /* Money.swift in Sources */,
-				0EA2EEFF2338E7470090555A /* ViewController.swift in Sources */,
+				0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */,
 				0EA2EF322338FB2E0090555A /* Cola.swift in Sources */,
 				0EA2EF302338FB2E0090555A /* ChocolateMilk.swift in Sources */,
 				0EA2EF532338FB680090555A /* VendingMachine.swift in Sources */,
@@ -618,7 +662,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
-				INFOPLIST_FILE = VendingMachineApp/Info.plist;
+				INFOPLIST_FILE = VendingMachineApp/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,7 +681,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
-				INFOPLIST_FILE = VendingMachineApp/Info.plist;
+				INFOPLIST_FILE = VendingMachineApp/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
