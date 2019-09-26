@@ -19,19 +19,23 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSx-TG-9xy">
                                 <rect key="frame" x="1204" y="236" width="51" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="+1000"/>
+                                <color key="backgroundColor" red="0.6470588235294118" green="0.74509803921568629" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="+1000">
+                                    <color key="titleColor" red="0.16862745098039217" green="0.17254901960784313" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1T-BB-ljP">
                                 <rect key="frame" x="1285" y="236" width="51" height="30"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="+ 5000"/>
+                                <color key="backgroundColor" red="0.87450980392156863" green="0.83529411764705885" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="+ 5000">
+                                    <color key="titleColor" red="0.44705882352941179" green="0.40392156862745099" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="잔액: 0000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9l-Gc-SCX">
                                 <rect key="frame" x="1204" y="290.5" width="132" height="21"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yAW-xc-ZVY">
@@ -54,12 +58,25 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="240" text="Drink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVg-P3-tLz">
+                                <rect key="frame" x="488" y="40" width="390" height="156"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hVg-P3-tLz" secondAttribute="height" multiplier="2.5" id="nQJ-B8-p9L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.93329508100844039" blue="0.56003079011212242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="yAW-xc-ZVY" firstAttribute="top" secondItem="hVg-P3-tLz" secondAttribute="bottom" constant="40" id="1Qk-AJ-LrA"/>
+                            <constraint firstItem="hVg-P3-tLz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="6Lh-mx-wRy"/>
                             <constraint firstItem="yAW-xc-ZVY" firstAttribute="top" secondItem="nSx-TG-9xy" secondAttribute="top" id="A6y-Te-WuC"/>
                             <constraint firstItem="yAW-xc-ZVY" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.3" id="B3O-gv-Y3a"/>
                             <constraint firstItem="nSx-TG-9xy" firstAttribute="height" secondItem="v1T-BB-ljP" secondAttribute="height" id="Kh3-e3-qSD"/>
+                            <constraint firstItem="hVg-P3-tLz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MAG-H8-Bjb"/>
                             <constraint firstItem="nSx-TG-9xy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.5" id="Ppg-jR-Nqx"/>
                             <constraint firstItem="nSx-TG-9xy" firstAttribute="width" secondItem="v1T-BB-ljP" secondAttribute="width" id="QiF-l3-HaD"/>
                             <constraint firstItem="i9l-Gc-SCX" firstAttribute="leading" secondItem="nSx-TG-9xy" secondAttribute="leading" id="VZV-Av-JiB"/>
