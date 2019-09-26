@@ -10,12 +10,14 @@ import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
 
-protocol VendingMachinePresenterType {
+protocol VendingMachinePresenterType: MoneyHandleable {
     var numOfRow: Int { get }
-    func congifure(cell: ProductCellType, index: Int)
+    func configure(cell: ProductCellType, index: Int)
+    func setStrategy(_ strategy: StateHandleable?)
+    func execute() throws
 }
 
-struct VendingMachinePresenter {
+class VendingMachinePresenter {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
@@ -23,7 +25,7 @@ struct VendingMachinePresenter {
     private var inventory: Storable
     private var history: History
     private var strategy: StateHandleable?
-
+    
     init(balance: Money,
          inventory: Storable,
          history: History) {
@@ -31,27 +33,27 @@ struct VendingMachinePresenter {
         self.inventory = inventory
         self.history = history
     }
-
-    mutating func setStrategy(_ strategy: StateHandleable?) {
+    
+    func setStrategy(_ strategy: StateHandleable?) {
         self.strategy = strategy
     }
-
-    mutating func execute() throws {
+    
+    func execute() throws {
         let state = (balance: balance, inventory: inventory, history: history)
         guard
             let result = strategy?.handle(state)
             else { return }
         try resultHandle(result)
     }
-
+    
     func handleStrategy(_ handler: (StateHandleable) -> Void) {
         guard
             let strategy = strategy
             else { return }
         handler(strategy)
     }
-
-    mutating func resultHandle(_ result: Result<State, Error>) throws {
+    
+    func resultHandle(_ result: Result<State, Error>) throws {
         switch result {
         case .success(let newState):
             (self.balance, self.inventory, self.history) = newState
@@ -60,32 +62,33 @@ struct VendingMachinePresenter {
             throw error
         }
     }
-
+    
 }
 // MARK: - + MoneyHandleable
 extension VendingMachinePresenter: MoneyHandleable {
-
+    
     func handleMoney(_ handler: (Money) -> Void) {
         handler(balance)
     }
-
+    
 }
 // MARK: - + MoneyHandleable
 extension VendingMachinePresenter: ProductStatisticHandleable {
-
+    
     func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void) {
-          handler(inventory.statistic)
+        handler(inventory.statistic)
     }
 }
 extension VendingMachinePresenter: VendingMachinePresenterType {
+    
     var numOfRow: Int {
         return inventory.statistic.count
     }
-
-    func congifure(cell: ProductCellType, index: Int) {
+    
+    func configure(cell: ProductCellType, index: Int) {
         let product = inventory.statistic[index]
         cell.displayProductImage(imageName: product.productName)
         cell.displayProductStock(quantity: product.productQuantity)
     }
-
+    
 }
