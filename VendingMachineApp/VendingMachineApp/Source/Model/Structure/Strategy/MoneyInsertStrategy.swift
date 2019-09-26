@@ -12,7 +12,7 @@ struct MoneyInsertStrategy: StateHandleable {
     private let moneyToAdd: Money
     private let completion: (Money) -> Void
 
-    init(moneyToAdd: Money, completion: @escaping (Money) -> Void) {
+    init(moneyToAdd: Money, completion: @escaping ((Money) -> Void) = { _ in }) {
         self.moneyToAdd = moneyToAdd
         self.completion = completion
     }
