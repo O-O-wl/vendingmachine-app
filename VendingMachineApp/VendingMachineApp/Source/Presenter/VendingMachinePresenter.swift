@@ -9,12 +9,16 @@
 import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
-
+protocol ProductCellType {
+    func displayProductImage(imageName: String)
+    func displayProductStock(quantity: Int)
+}
 protocol VendingMachinePresenterType {
     var numOfRow: Int { get }
+    func congifure(cell: ProductCellType, index: Int)
 }
 
-struct VendingMachine {
+struct VendingMachinePresenter {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
@@ -62,7 +66,7 @@ struct VendingMachine {
 
 }
 // MARK: - + MoneyHandleable
-extension VendingMachine: MoneyHandleable {
+extension VendingMachinePresenter: MoneyHandleable {
 
     func handleMoney(_ handler: (Money) -> Void) {
         handler(balance)
@@ -70,16 +74,21 @@ extension VendingMachine: MoneyHandleable {
 
 }
 // MARK: - + MoneyHandleable
-extension VendingMachine: ProductStatisticHandleable {
+extension VendingMachinePresenter: ProductStatisticHandleable {
 
     func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void) {
           handler(inventory.statistic)
     }
 }
-extension VendingMachine: VendingMachinePresenterType {
-
+extension VendingMachinePresenter: VendingMachinePresenterType {
     var numOfRow: Int {
         return inventory.statistic.count
+    }
+
+    func congifure(cell: ProductCellType, index: Int) {
+        let product = inventory.statistic[index]
+        cell.displayProductImage(imageName: product.productName)
+        cell.displayProductStock(quantity: product.productQuantity)
     }
 
 }
