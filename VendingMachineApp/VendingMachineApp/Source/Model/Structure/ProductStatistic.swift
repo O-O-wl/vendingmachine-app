@@ -19,6 +19,7 @@ struct ProductStatistic {
     let productQuantity: Int
 }
 extension ProductStatistic: ProductDisplayable {
+    
     var productName: String {
         return String(productDescription.split(separator: " ")[0])
     }

@@ -16,10 +16,7 @@ protocol VendingMachineView {
 class VendingMachineViewController: UIViewController {
     
     // MARK: Properties
-    lazy var presenter: VendingMachinePresenterType!
-        = VendingMachinePresenter(balance: Money(value: 0),
-                                  inventory: Inventory(products: ProductFactory.createAll(quantity: 1)),
-                                  history: History())
+    var presenter: VendingMachinePresenterType!
     
     // MARK: IBOutlet
     @IBOutlet weak var productsCollectionView: UICollectionView!
@@ -28,22 +25,25 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel!
     
     // MARK: Methods
-    // MARK: IBAction
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    // MARK: IBAction
     @IBAction func addBalanceButton(_ sender: UIButton) {
         let amount = Int(sender.titleLabel!.text!)
         let strategy = MoneyInsertStrategy(moneyToAdd: Money(value: amount!),
-                                           completion: { _ in () } )
+                                           completion: { _ in ()})
         presenter.setStrategy(strategy)
         try? presenter.execute()
         displayBalance()
     }
-
+    
     // MARK: ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        displayBalance() 
     }
     
     func setupCollectionView() {
@@ -60,16 +60,20 @@ class VendingMachineViewController: UIViewController {
 }
 // MARK: - + VendingMachineView
 extension VendingMachineViewController: VendingMachineView {
+    
     func displayProducts() {
         productsCollectionView.reloadData()
     }
+    
     func displayBalance() {
         presenter.handleMoney { self.balanceLabel.text = $0.description }
     }
 }
 
 extension VendingMachineViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         guard
             let selected = ProductFactory.create(index: indexPath.row)
             else { return }
