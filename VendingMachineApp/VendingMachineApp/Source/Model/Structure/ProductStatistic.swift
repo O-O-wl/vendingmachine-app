@@ -22,9 +22,9 @@ extension ProductStatistic: ProductDisplayable {
     var productName: String {
         return String(productDescription.split(separator: " ")[0])
     }
-    
+
     var productPrice: String {
        return String(productDescription.split(separator: " ")[1])
     }
-    
+
 }

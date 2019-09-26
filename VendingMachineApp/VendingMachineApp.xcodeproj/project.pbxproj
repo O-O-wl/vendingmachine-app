@@ -27,10 +27,9 @@
 		0EA2EF392338FB530090555A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF382338FB520090555A /* Extensions.swift */; };
 		0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3B2338FB680090555A /* Errorhandler.swift */; };
 		0EA2EF4F2338FB680090555A /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3C2338FB680090555A /* Money.swift */; };
-		0EA2EF502338FB680090555A /* SaleProductDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3D2338FB680090555A /* SaleProductDTO.swift */; };
 		0EA2EF512338FB680090555A /* Handleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3E2338FB680090555A /* Handleable.swift */; };
 		0EA2EF522338FB680090555A /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3F2338FB680090555A /* Inventory.swift */; };
-		0EA2EF532338FB680090555A /* VendingMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF402338FB680090555A /* VendingMachine.swift */; };
+		0EA2EF532338FB680090555A /* VendingMachinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF402338FB680090555A /* VendingMachinePresenter.swift */; };
 		0EA2EF542338FB680090555A /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF412338FB680090555A /* History.swift */; };
 		0EA2EF592338FB680090555A /* ProductStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF472338FB680090555A /* ProductStatistic.swift */; };
 		0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF492338FB680090555A /* InStockStrategy.swift */; };
@@ -38,6 +37,8 @@
 		0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4B2338FB680090555A /* StateHandleable.swift */; };
 		0EA2EF5D2338FB680090555A /* MoneyInsertStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */; };
 		0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */; };
+		0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB044D9233BA8EB00185ED5 /* ProductCell.swift */; };
+		0EB044DC233BA8EB00185ED5 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB044DA233BA8EB00185ED5 /* ProductCell.xib */; };
 		0EF335E9233B1A770066AE3D /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF335E5233B1A770066AE3D /* ProductFactory.swift */; };
 		B60138D1C243FF3FC295B67B /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */; };
 		EDC3E1984518478AA45F0CBA /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */; };
@@ -78,10 +79,9 @@
 		0EA2EF382338FB520090555A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0EA2EF3B2338FB680090555A /* Errorhandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errorhandler.swift; sourceTree = "<group>"; };
 		0EA2EF3C2338FB680090555A /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
-		0EA2EF3D2338FB680090555A /* SaleProductDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleProductDTO.swift; sourceTree = "<group>"; };
 		0EA2EF3E2338FB680090555A /* Handleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handleable.swift; sourceTree = "<group>"; };
 		0EA2EF3F2338FB680090555A /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		0EA2EF402338FB680090555A /* VendingMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachine.swift; sourceTree = "<group>"; };
+		0EA2EF402338FB680090555A /* VendingMachinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachinePresenter.swift; sourceTree = "<group>"; };
 		0EA2EF412338FB680090555A /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		0EA2EF472338FB680090555A /* ProductStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductStatistic.swift; sourceTree = "<group>"; };
 		0EA2EF492338FB680090555A /* InStockStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InStockStrategy.swift; sourceTree = "<group>"; };
@@ -89,6 +89,8 @@
 		0EA2EF4B2338FB680090555A /* StateHandleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHandleable.swift; sourceTree = "<group>"; };
 		0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyInsertStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseStrategy.swift; sourceTree = "<group>"; };
+		0EB044D9233BA8EB00185ED5 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		0EB044DA233BA8EB00185ED5 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		0EF335E5233B1A770066AE3D /* ProductFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,10 +214,8 @@
 				0EF335E3233B1A770066AE3D /* Factory */,
 				0EA2EF3B2338FB680090555A /* Errorhandler.swift */,
 				0EA2EF3C2338FB680090555A /* Money.swift */,
-				0EA2EF3D2338FB680090555A /* SaleProductDTO.swift */,
 				0EA2EF3E2338FB680090555A /* Handleable.swift */,
 				0EA2EF3F2338FB680090555A /* Inventory.swift */,
-				0EA2EF402338FB680090555A /* VendingMachine.swift */,
 				0EA2EF412338FB680090555A /* History.swift */,
 				0EA2EF472338FB680090555A /* ProductStatistic.swift */,
 				0EA2EF482338FB680090555A /* Strategy */,
@@ -238,6 +238,7 @@
 		0EA2EF73233A47DD0090555A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0EB044DD233BA8F500185ED5 /* Component */,
 				0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */,
 			);
 			path = View;
@@ -246,6 +247,7 @@
 		0EA2EF74233A47E80090555A /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				0EA2EF402338FB680090555A /* VendingMachinePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -272,6 +274,15 @@
 				0EA2EF1D2338F0080090555A /* .swiftline.yml */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		0EB044DD233BA8F500185ED5 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				0EB044D9233BA8EB00185ED5 /* ProductCell.swift */,
+				0EB044DA233BA8EB00185ED5 /* ProductCell.xib */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		0EF335E3233B1A770066AE3D /* Factory */ = {
@@ -388,6 +399,7 @@
 			files = (
 				0EA2EF072338E7480090555A /* LaunchScreen.storyboard in Resources */,
 				0EA2EF1E2338F0080090555A /* .swiftline.yml in Resources */,
+				0EB044DC233BA8EB00185ED5 /* ProductCell.xib in Resources */,
 				0EA2EF042338E7480090555A /* Assets.xcassets in Resources */,
 				0EA2EF022338E7470090555A /* Main.storyboard in Resources */,
 			);
@@ -476,6 +488,7 @@
 				0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */,
 				0EA2EF352338FB2E0090555A /* Coffee.swift in Sources */,
 				0EA2EF512338FB680090555A /* Handleable.swift in Sources */,
+				0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */,
 				0EA2EF2D2338FB2E0090555A /* Beverage.swift in Sources */,
 				0EA2EF2E2338FB2E0090555A /* StrawberryMilk.swift in Sources */,
 				0EA2EF342338FB2E0090555A /* CafeLatte.swift in Sources */,
@@ -485,7 +498,7 @@
 				0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */,
 				0EA2EF322338FB2E0090555A /* Cola.swift in Sources */,
 				0EA2EF302338FB2E0090555A /* ChocolateMilk.swift in Sources */,
-				0EA2EF532338FB680090555A /* VendingMachine.swift in Sources */,
+				0EA2EF532338FB680090555A /* VendingMachinePresenter.swift in Sources */,
 				0EA2EF592338FB680090555A /* ProductStatistic.swift in Sources */,
 				0EA2EF392338FB530090555A /* Extensions.swift in Sources */,
 				0EA2EF522338FB680090555A /* Inventory.swift in Sources */,
@@ -493,7 +506,6 @@
 				0EA2EF5D2338FB680090555A /* MoneyInsertStrategy.swift in Sources */,
 				0EA2EF5B2338FB680090555A /* DeStockStrategy.swift in Sources */,
 				0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */,
-				0EA2EF502338FB680090555A /* SaleProductDTO.swift in Sources */,
 				0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */,
 				0EA2EF362338FB2E0090555A /* Americano.swift in Sources */,
 				0EA2EF332338FB2E0090555A /* EnergyDrink.swift in Sources */,

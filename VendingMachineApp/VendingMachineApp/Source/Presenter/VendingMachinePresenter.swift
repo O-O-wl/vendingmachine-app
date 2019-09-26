@@ -9,10 +9,7 @@
 import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
-protocol ProductCellType {
-    func displayProductImage(imageName: String)
-    func displayProductStock(quantity: Int)
-}
+
 protocol VendingMachinePresenterType {
     var numOfRow: Int { get }
     func congifure(cell: ProductCellType, index: Int)
