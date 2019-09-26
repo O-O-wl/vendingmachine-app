@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 func print<T: Beverage>(beverage: T) {
     print("\(type(of: beverage)) - \(beverage.description)")
@@ -56,5 +57,11 @@ extension Array where Element == Product {
 extension Dictionary where Key == String, Value == Int {
     var sortedList: [(String, Int)] {
         return self.sorted(by: <)
+    }
+}
+
+extension UIView {
+    func edgeTrim() {
+        self.layer.cornerRadius = 10
     }
 }
