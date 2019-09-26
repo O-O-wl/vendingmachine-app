@@ -9,12 +9,12 @@
 import Foundation
 
 struct ProductFactory {
-    static let supportedTypes = [StrawberryMilk.self,
-                                 Americano.self,
-                                 EnergyDrink.self,
-                                 ChocolateMilk.self,
+    static let supportedTypes = [Americano.self,
                                  CafeLatte.self,
-                                 Cola.self]
+                                 ChocolateMilk.self,
+                                 Cola.self,
+                                 EnergyDrink.self,
+                                 StrawberryMilk.self]
 
     static func createAll(quantity: Int) -> [Product] {
         return Array.init(0..<quantity)
@@ -30,6 +30,6 @@ struct ProductFactory {
         guard
             index < supportedTypes.count
             else { return nil }
-        return supportedTypes[index-1].init()
+        return supportedTypes[index].init()
     }
 }
