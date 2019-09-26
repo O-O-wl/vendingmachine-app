@@ -48,7 +48,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="200" verticalCompressionResistancePriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="U1n-OI-BiC">
-                                <rect key="frame" x="1133" y="206" width="223" height="331"/>
+                                <rect key="frame" x="1133" y="176" width="223" height="361"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSx-TG-9xy">
@@ -97,7 +97,7 @@
                             <constraint firstItem="v1T-BB-ljP" firstAttribute="top" secondItem="nSx-TG-9xy" secondAttribute="top" id="X5h-DO-cgT"/>
                             <constraint firstItem="v1T-BB-ljP" firstAttribute="bottom" secondItem="nSx-TG-9xy" secondAttribute="bottom" id="b1W-1F-6Tj"/>
                             <constraint firstItem="i9l-Gc-SCX" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.6" id="c0x-kr-ISw"/>
-                            <constraint firstItem="U1n-OI-BiC" firstAttribute="height" secondItem="yAW-xc-ZVY" secondAttribute="height" multiplier="1.1" id="dsS-Ip-T7v"/>
+                            <constraint firstItem="U1n-OI-BiC" firstAttribute="height" secondItem="yAW-xc-ZVY" secondAttribute="height" multiplier="1.2" id="dsS-Ip-T7v"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v1T-BB-ljP" secondAttribute="trailing" constant="30" id="eHp-RL-sA1"/>
                             <constraint firstItem="U1n-OI-BiC" firstAttribute="bottom" secondItem="yAW-xc-ZVY" secondAttribute="bottom" id="f3X-n6-0HL"/>
                             <constraint firstItem="yAW-xc-ZVY" firstAttribute="width" secondItem="6Tk-OE-BBY" secondAttribute="width" multiplier="0.8" id="hor-9t-cw8"/>
