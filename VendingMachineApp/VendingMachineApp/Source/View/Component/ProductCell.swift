@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol ProductCellType {
+    func displayProductImage(imageName: String)
+    func displayProductStock(quantity: Int)
+}
+
 class ProductCell: UICollectionViewCell {
 
     // MARK: Properties
     static let reuseId = "ProductCell"
+    static let nibName = URL(fileURLWithPath: #file).deletingPathExtension().lastPathComponent
 
     // MARK: IBOutlet
     @IBOutlet weak var addQuantityButton: UIButton!
@@ -21,16 +27,20 @@ class ProductCell: UICollectionViewCell {
     // MARK: Method
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
 
-    func configure(_ product: Product) {
-        productImageView.image = UIImage(named: "\(type(of: product))")
-        productImageView.backgroundColor = .green
     }
 
     // MARK: IBAction
     @IBAction func addQuantityButtonDidTap(_ sender: UIButton) {
 
+    }
+}
+extension ProductCell: ProductCellType {
+    func displayProductImage(imageName: String) {
+        productImageView.image = UIImage(named: imageName)
+    }
+
+    func displayProductStock(quantity: Int) {
+        productQuantityLabel.text = quantity.description
     }
 }
