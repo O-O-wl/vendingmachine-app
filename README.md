@@ -2,7 +2,9 @@
 
 <br>
 
-### Step1 
+## Step1 
+
+---
 
 #### iOS App Launch
 
@@ -44,3 +46,11 @@
 
 ---
 
+<br>
+
+## Step2
+
+---
+
+<img width="1680" alt="스크린샷 2019-09-26 오후 7 48 34" src="https://user-images.githubusercontent.com/39197978/65682833-bc470d00-e096-11e9-9c47-0b8ef9892910.png">
+<img width="1680" alt="스크린샷 2019-09-26 오후 7 48 48" src="https://user-images.githubusercontent.com/39197978/65682834-bc470d00-e096-11e9-9772-d9f41b438c9d.png">
