@@ -10,6 +10,10 @@ import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
 
+protocol VendingMachinePresenterType {
+    var numOfRow: Int { get }
+}
+
 struct VendingMachine {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
@@ -71,4 +75,11 @@ extension VendingMachine: ProductStatisticHandleable {
     func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void) {
           handler(inventory.statistic)
     }
+}
+extension VendingMachine: VendingMachinePresenterType {
+
+    var numOfRow: Int {
+        return inventory.statistic.count
+    }
+
 }

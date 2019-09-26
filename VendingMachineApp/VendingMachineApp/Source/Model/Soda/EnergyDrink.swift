@@ -34,7 +34,7 @@ class EnergyDrink: Soda {
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = recommendedConsumerPrice,
-         name: String = "에너지드링크",
+         name: String = "EnergyDrink",
          productDate: Date = Date(),
          temperature: Int = standardTemperature,
          storeDuration: Int = 30,
@@ -54,6 +54,6 @@ class EnergyDrink: Soda {
 
     required convenience init () {
         self.init(price: EnergyDrink.recommendedConsumerPrice,
-                  name: "에너지드링크")
+                  name: "EnergyDrink")
     }
 }

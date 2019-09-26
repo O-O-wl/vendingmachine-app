@@ -34,7 +34,7 @@ class Americano: Coffee {
     init(brand: String = "제조사",
          capacity: Int = 500,
          price: Int = recommendedConsumerPrice,
-         name: String = "아메리카노",
+         name: String = "Americano",
          productDate: Date = Date(),
          storeDuration: Int = 15,
          temperature: Int = standardTemperature,
@@ -54,6 +54,6 @@ class Americano: Coffee {
 
     required convenience init () {
         self.init(price: Americano.recommendedConsumerPrice,
-                  name: "아메리카노")
+                  name: "Americano")
     }
 }

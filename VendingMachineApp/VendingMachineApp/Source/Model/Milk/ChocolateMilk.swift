@@ -33,7 +33,7 @@ class ChocolateMilk: Milk, Sweetable {
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = recommendedConsumerPrice,
-         name: String = "초코우유",
+         name: String = "ChocolateMilk",
          productDate: Date = Date(),
          storeDuration: Int = 7,
          temperature: Int = standardTemperature,
@@ -54,6 +54,6 @@ class ChocolateMilk: Milk, Sweetable {
 
     required convenience init () {
         self.init(price: ChocolateMilk.recommendedConsumerPrice,
-                  name: "초코우유")
+                  name: "ChocolateMilk")
     }
 }
