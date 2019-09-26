@@ -21,14 +21,6 @@
                         <rect key="frame" x="19" y="25" width="89" height="89"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgj-zm-oQF">
-                        <rect key="frame" x="48.5" y="-5" width="30" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="추가"/>
-                        <connections>
-                            <action selector="addQuantityButtonDidTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="viy-wP-dbn"/>
-                        </connections>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07Z-rY-jEB">
                         <rect key="frame" x="42.5" y="114" width="42" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -41,7 +33,6 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="127" height="139"/>
             <connections>
-                <outlet property="addQuantityButton" destination="Jgj-zm-oQF" id="fRF-Eh-J9q"/>
                 <outlet property="productImageView" destination="3Eq-PU-WkB" id="0LV-sm-C8g"/>
                 <outlet property="productQuantityLabel" destination="07Z-rY-jEB" id="2bo-bi-T9h"/>
             </connections>

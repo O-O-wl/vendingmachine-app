@@ -13,7 +13,6 @@
 		0EA2EF042338E7480090555A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF032338E7480090555A /* Assets.xcassets */; };
 		0EA2EF072338E7480090555A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF052338E7480090555A /* LaunchScreen.storyboard */; };
 		0EA2EF122338E7480090555A /* VendingMachineAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF112338E7480090555A /* VendingMachineAppTests.swift */; };
-		0EA2EF1E2338F0080090555A /* .swiftline.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF1D2338F0080090555A /* .swiftline.yml */; };
 		0EA2EF2D2338FB2E0090555A /* Beverage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF202338FB2E0090555A /* Beverage.swift */; };
 		0EA2EF2E2338FB2E0090555A /* StrawberryMilk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF222338FB2E0090555A /* StrawberryMilk.swift */; };
 		0EA2EF2F2338FB2E0090555A /* Milk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF232338FB2E0090555A /* Milk.swift */; };
@@ -39,6 +38,7 @@
 		0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */; };
 		0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB044D9233BA8EB00185ED5 /* ProductCell.swift */; };
 		0EB044DC233BA8EB00185ED5 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB044DA233BA8EB00185ED5 /* ProductCell.xib */; };
+		0EB044DF233C929A00185ED5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EB044DE233C929A00185ED5 /* .swiftlint.yml */; };
 		0EF335E9233B1A770066AE3D /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF335E5233B1A770066AE3D /* ProductFactory.swift */; };
 		B60138D1C243FF3FC295B67B /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */; };
 		EDC3E1984518478AA45F0CBA /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */; };
@@ -65,7 +65,6 @@
 		0EA2EF0D2338E7480090555A /* VendingMachineAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VendingMachineAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EF112338E7480090555A /* VendingMachineAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineAppTests.swift; sourceTree = "<group>"; };
 		0EA2EF132338E7480090555A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0EA2EF1D2338F0080090555A /* .swiftline.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftline.yml; sourceTree = "<group>"; };
 		0EA2EF202338FB2E0090555A /* Beverage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beverage.swift; sourceTree = "<group>"; };
 		0EA2EF222338FB2E0090555A /* StrawberryMilk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrawberryMilk.swift; sourceTree = "<group>"; };
 		0EA2EF232338FB2E0090555A /* Milk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Milk.swift; sourceTree = "<group>"; };
@@ -91,6 +90,7 @@
 		0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseStrategy.swift; sourceTree = "<group>"; };
 		0EB044D9233BA8EB00185ED5 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		0EB044DA233BA8EB00185ED5 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		0EB044DE233C929A00185ED5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		0EF335E5233B1A770066AE3D /* ProductFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
 		10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +123,7 @@
 		0EA2EEF02338E7470090555A = {
 			isa = PBXGroup;
 			children = (
+				0EB044DE233C929A00185ED5 /* .swiftlint.yml */,
 				0EA2EEFB2338E7470090555A /* VendingMachineApp */,
 				0EA2EF102338E7480090555A /* VendingMachineAppTests */,
 				0EA2EEFA2338E7470090555A /* Products */,
@@ -271,7 +272,6 @@
 				0EA2EF032338E7480090555A /* Assets.xcassets */,
 				0EA2EF052338E7480090555A /* LaunchScreen.storyboard */,
 				0EA2EF082338E7480090555A /* Info.plist */,
-				0EA2EF1D2338F0080090555A /* .swiftline.yml */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -397,8 +397,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB044DF233C929A00185ED5 /* .swiftlint.yml in Resources */,
 				0EA2EF072338E7480090555A /* LaunchScreen.storyboard in Resources */,
-				0EA2EF1E2338F0080090555A /* .swiftline.yml in Resources */,
 				0EB044DC233BA8EB00185ED5 /* ProductCell.xib in Resources */,
 				0EA2EF042338E7480090555A /* Assets.xcassets in Resources */,
 				0EA2EF022338E7470090555A /* Main.storyboard in Resources */,
@@ -430,7 +430,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint autocorrect\n";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
 		33F32D998C20CA03ACBB2EE2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

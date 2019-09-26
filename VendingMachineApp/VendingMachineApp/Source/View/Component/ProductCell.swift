@@ -14,33 +14,28 @@ protocol ProductCellType {
 }
 
 class ProductCell: UICollectionViewCell {
-
+    
     // MARK: Properties
     static let reuseId = "ProductCell"
     static let nibName = URL(fileURLWithPath: #file).deletingPathExtension().lastPathComponent
-
+    
     // MARK: IBOutlet
-    @IBOutlet weak var addQuantityButton: UIButton!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productQuantityLabel: UILabel!
-
     // MARK: Method
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        self.edgeTrim()
     }
-
-    // MARK: IBAction
-    @IBAction func addQuantityButtonDidTap(_ sender: UIButton) {
-
-    }
+    
 }
 extension ProductCell: ProductCellType {
+    
     func displayProductImage(imageName: String) {
         productImageView.image = UIImage(named: imageName)
     }
-
+    
     func displayProductStock(quantity: Int) {
-        productQuantityLabel.text = quantity.description
+        productQuantityLabel.text = "\(quantity)개"
     }
 }
