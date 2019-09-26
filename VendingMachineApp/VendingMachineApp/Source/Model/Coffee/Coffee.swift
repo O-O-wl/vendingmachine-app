@@ -22,7 +22,7 @@ class Coffee: Beverage {
     init(brand: String = "제조사",
          capacity: Int = 0,
          price: Int = 0,
-         name: String = "커피",
+         name: String = "Coffee",
          productDate: Date = Date(),
          storeDuration: Int = 10,
          temperature: Int = standardTemperature,
@@ -40,6 +40,6 @@ class Coffee: Beverage {
 
     required convenience init () {
         self.init(price: 0,
-                  name: "커피")
+                  name: "Coffee")
     }
 }
