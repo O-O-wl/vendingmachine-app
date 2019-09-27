@@ -52,5 +52,44 @@
 
 ---
 
-<img width="1680" alt="스크린샷 2019-09-26 오후 7 48 34" src="https://user-images.githubusercontent.com/39197978/65682833-bc470d00-e096-11e9-9c47-0b8ef9892910.png">
-<img width="1680" alt="스크린샷 2019-09-26 오후 7 48 48" src="https://user-images.githubusercontent.com/39197978/65682834-bc470d00-e096-11e9-9772-d9f41b438c9d.png">
+![iPad VendingMachine](https://user-images.githubusercontent.com/39197978/65745870-1ba92980-e138-11e9-8ed4-9004b5b7f8ee.gif)
+
+
+
+- **View**
+
+- ```swift
+  protocol VendingMachineView {
+      func displayProducts()
+      func displayBalance()
+  }
+  ```
+
+- **Presenter**
+
+- ```swift
+  protocol VendingMachinePresenterType: MoneyHandleable {
+      var numOfRow: Int { get }
+      func configure(cell: ProductCellType, index: Int)
+      func setStrategy(_ strategy: StateHandleable?)
+      func execute() throws
+  }
+  ```
+
+  
+
+
+
+MVP 패턴을 자판기 앱에 적용하면서 느낀 점은 내가 이전에 했던 콘솔프로젝트에서 가져온 클래스 **`VendingMahcine `**의 이름이 Presenter 만 아니었을 뿐이지 그 역할을 하기에 충분했다. 게다가 프레젠터가 뷰를 몰라도 되는 구조였다. 
+
+이러한 패턴은 어떤 패턴인지 모르겠으나, 이벤트핸들링(스트래티지)을 하는 로직을 생성하는 팩토리 객체가 있고,
+
+뷰는 팩토리와 협력해 스트래티지를 생성한 후 프레젠터에게 로직을 주입해주는 작업을 취했다. 
+
+프레젠터는 그 로직을 받아 모델의 데이터를 핸들링하고, 
+
+핸들링한 결과를 다시 뷰에게 전달해주는데 이 과정에서 뷰는 자신에게 어떻게 그려져야하는 지를 알고 있어서, 
+
+그걸 클로저로 주입해줘셔 사실상 **프레젠터와 뷰 간의 단방향 의존성**만 생기는 점에서 조금 다르게 느껴졌다.  
+
+셀프 체크리스트를 적용하지 못한 점이 아쉽다. 구현하고 싶은 마음이 커서 빠르게 하다보니 체크하지 못했다.
