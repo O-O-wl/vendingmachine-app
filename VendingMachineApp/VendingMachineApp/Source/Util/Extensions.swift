@@ -61,7 +61,5 @@ extension Dictionary where Key == String, Value == Int {
 }
 
 extension CALayer {
-    func edgeTrim() {
-        self.cornerRadius = self.bounds.width/3
-    }
+    
 }
