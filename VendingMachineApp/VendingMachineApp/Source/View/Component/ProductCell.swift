@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol ProductCellType {
-    func displayProductImage(imageName: String)
-    func displayProductStock(quantity: Int)
-}
-
 class ProductCell: UICollectionViewCell {
     
     // MARK: Properties
@@ -26,16 +21,53 @@ class ProductCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.edgeTrim()
+        self.clipsToBounds = true
+        self.contentView.backgroundColor = .white
+        setAutoLayout()
     }
     
-}
-extension ProductCell: ProductCellType {
-    
-    func displayProductImage(imageName: String) {
-        productImageView.image = UIImage(named: imageName)
+    func setAutoLayout() {
+        NSLayoutConstraint.activate([productImageView
+            .topAnchor
+            .constraint(equalToSystemSpacingBelow: self.contentView.topAnchor,
+                        multiplier: 0),
+        productImageView
+            .leadingAnchor
+            .constraint(equalToSystemSpacingAfter: self.contentView.leadingAnchor,
+                        multiplier: 0),
+        productImageView
+            .trailingAnchor
+            .constraint(equalToSystemSpacingAfter: self.contentView.trailingAnchor,
+                        multiplier: 0),
+        productImageView
+            .widthAnchor
+            .constraint(equalTo: self.contentView.widthAnchor,
+                        multiplier: 0.8),
+        productImageView
+            .heightAnchor
+            .constraint(equalTo: productImageView.widthAnchor, multiplier: 1),
+        productQuantityLabel
+            .topAnchor
+            .constraint(equalToSystemSpacingBelow: productImageView.topAnchor,
+                        multiplier: 0),
+        productQuantityLabel
+            .leadingAnchor
+            .constraint(equalToSystemSpacingAfter: self.contentView.leadingAnchor,
+                        multiplier: 0),
+        productQuantityLabel
+            .trailingAnchor
+            .constraint(equalToSystemSpacingAfter: self.contentView.trailingAnchor,
+                        multiplier: 0),
+        productQuantityLabel
+            .bottomAnchor
+            .constraint(equalTo: self.contentView.bottomAnchor,
+                        constant: -10)
+        ])
     }
     
-    func displayProductStock(quantity: Int) {
-        productQuantityLabel.text = "\(quantity)개"
+    func configure(product: ProductStatistic) {
+        self.productImageView.image = UIImage(named: product.productName)
+        self.productQuantityLabel.text = "\(product.productQuantity)개"
     }
+    
 }
