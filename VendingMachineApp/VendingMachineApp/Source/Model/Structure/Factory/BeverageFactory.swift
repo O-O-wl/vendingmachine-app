@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProductFactory {
+struct BeverageFactory {
     static let supportedTypes = [Americano.self,
                                  CafeLatte.self,
                                  ChocolateMilk.self,

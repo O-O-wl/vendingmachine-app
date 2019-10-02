@@ -67,7 +67,11 @@ extension Beverage: CustomStringConvertible {
 }
 // MARK: - + CustomStringConvertible
 extension Beverage: Product {
-
+    
+    static func == (lhs: Beverage, rhs: Beverage) -> Bool {
+        return lhs.name == rhs.name
+    }
+    
     var productName: String {
         return self.name
     }
@@ -84,4 +88,10 @@ extension Beverage: Product {
         let nowDate = Date()
         return expirationDate < nowDate
     }
+}
+extension Beverage: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(productName)
+    }
+    
 }
