@@ -12,12 +12,13 @@ typealias State = (balance: Money, inventory: Storable, history: History)
 
 protocol VendingMachinePresenterType: MoneyHandleable {
     var numOfRow: Int { get }
-    func configure(cell: ProductCellType, index: Int)
-    func setStrategy(_ strategy: StateHandleable?)
-    func execute() throws
+    func cellForItemAt(index: Int) -> ProductStatistic
+    mutating func setStrategy(_ strategy: StateHandleable?)
+    func searchItem(at index: Int) -> Beverage?
+    mutating func execute() throws
 }
 
-class VendingMachinePresenter {
+struct VendingMachinePresenter {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
@@ -34,12 +35,17 @@ class VendingMachinePresenter {
         self.history = history
     }
     
-    func setStrategy(_ strategy: StateHandleable?) {
+    func searchItem(at index: Int) -> Beverage? {
+        return inventory.search(at: index)
+    }
+    
+    mutating func setStrategy(_ strategy: StateHandleable?) {
         self.strategy = strategy
     }
     
-    func execute() throws {
+    mutating func execute() throws {
         let state = (balance: balance, inventory: inventory, history: history)
+        
         guard
             let result = strategy?.handle(state)
             else { return }
@@ -53,7 +59,7 @@ class VendingMachinePresenter {
         handler(strategy)
     }
     
-    func resultHandle(_ result: Result<State, Error>) throws {
+    mutating func resultHandle(_ result: Result<State, Error>) throws {
         switch result {
         case .success(let newState):
             (self.balance, self.inventory, self.history) = newState
@@ -85,10 +91,8 @@ extension VendingMachinePresenter: VendingMachinePresenterType {
         return inventory.statistic.count
     }
     
-    func configure(cell: ProductCellType, index: Int) {
-        let product = inventory.statistic[index]
-        cell.displayProductImage(imageName: product.productName)
-        cell.displayProductStock(quantity: product.productQuantity)
+    func cellForItemAt(index: Int) -> ProductStatistic {
+        return inventory.statistic[index]
     }
     
 }

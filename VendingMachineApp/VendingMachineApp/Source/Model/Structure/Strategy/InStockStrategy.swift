@@ -9,10 +9,10 @@
 import Foundation
 
 struct InStockStrategy: StateHandleable {
-    private let stockToAdd: Product
+    private let stockToAdd: Beverage
     private let completion: (String) -> Void
 
-    init(stockToAdd: Product,
+    init(stockToAdd: Beverage,
          completion: @escaping (String) -> Void) {
         self.stockToAdd = stockToAdd
         self.completion = completion

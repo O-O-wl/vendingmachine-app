@@ -16,17 +16,17 @@ struct BeverageFactory {
                                  EnergyDrink.self,
                                  StrawberryMilk.self]
 
-    static func createAll(quantity: Int) -> [Product] {
+    static func createAll(quantity: Int) -> [Beverage] {
         return Array.init(0..<quantity)
             .map { _ in
                 supportedTypes.map { $0.init() }
             }
-            .reduce(into: [Product]()) {
+            .reduce(into: [Beverage]()) {
                 $0.append(contentsOf: $1)
         }
     }
 
-    static func create(index: Int) -> Product? {
+    static func create(index: Int) -> Beverage? {
         guard
             index < supportedTypes.count
             else { return nil }
