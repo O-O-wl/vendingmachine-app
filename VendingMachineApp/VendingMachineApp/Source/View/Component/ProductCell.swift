@@ -20,7 +20,7 @@ class ProductCell: UICollectionViewCell {
     // MARK: Method
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.contentView.layer.edgeTrim()
+        self.contentView.layer.cornerRadius = self.contentView.frame.width/3
         self.contentView.backgroundColor = .white
         self.layer.masksToBounds = false
         self.layer.shadowColor = UIColor.black.cgColor
@@ -31,7 +31,7 @@ class ProductCell: UICollectionViewCell {
         setAutoLayout()
     }
     
-    func setAutoLayout() {
+    private func setAutoLayout() {
         NSLayoutConstraint.activate([productImageView
             .topAnchor
             .constraint(equalToSystemSpacingBelow: self.contentView.topAnchor,
@@ -74,5 +74,4 @@ class ProductCell: UICollectionViewCell {
         self.productImageView.image = UIImage(named: product.productName)
         self.productQuantityLabel.text = "\(product.productQuantity)개"
     }
-    
 }
