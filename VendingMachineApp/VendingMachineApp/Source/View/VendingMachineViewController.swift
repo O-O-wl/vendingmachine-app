@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol VendingMachineView {
+protocol VendingMachineViewType {
     func displayProducts()
     func displayBalance()
 }
@@ -49,17 +49,18 @@ class VendingMachineViewController: UIViewController {
     func setupCollectionView() {
         productsCollectionView.dataSource = self
         productsCollectionView.delegate = self
-        
         let productCellNib = UINib(nibName: ProductCell.nibName,
                                    bundle: .main)
         productsCollectionView.register(productCellNib,
                                         forCellWithReuseIdentifier: ProductCell.reuseId)
         productsCollectionView.isScrollEnabled = false
+        
+        displayBalance()
     }
     
 }
 // MARK: - + VendingMachineView
-extension VendingMachineViewController: VendingMachineView {
+extension VendingMachineViewController: VendingMachineViewType {
     
     func displayProducts() {
         productsCollectionView.reloadData()
@@ -69,18 +70,18 @@ extension VendingMachineViewController: VendingMachineView {
         presenter.handleMoney { self.balanceLabel.text = $0.description }
     }
 }
-
+// MARK: - + UICollectionView Delegate
 extension VendingMachineViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         guard
-            let selected = ProductFactory.create(index: indexPath.row)
+            let selected = presenter.searchItem(at: indexPath.item)
             else { return }
         presenter.setStrategy(InStockStrategy(stockToAdd: selected,
                                               completion: { _ in }))
         try? presenter.execute()
-        productsCollectionView.reloadData()
+        displayProducts()
     }
 }
 // MARK: - + UICollectionViewDataSource
@@ -98,8 +99,8 @@ extension VendingMachineViewController: UICollectionViewDataSource {
         guard
             let productCell = cell as? ProductCell
             else { return cell }
-        productCell.backgroundColor = .white
-        presenter.configure(cell: productCell, index: indexPath.row)
+        let model = presenter.cellForItemAt(index: indexPath.item)
+        productCell.configure(product: model)
         return productCell
     }
     
@@ -109,11 +110,22 @@ extension VendingMachineViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        let itemSide = collectionView.bounds.width/7
+        let insetY = (productsCollectionView.bounds.height - itemSide)/2
+        return UIEdgeInsets(top: insetY,
+                            left: 15,
+                            bottom: 0,
+                            right: 15)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfCellsInRow: CGFloat = CGFloat(collectionView.numberOfItems(inSection: indexPath.section)) + 1
         let side = collectionView.bounds.width/numberOfCellsInRow
-        
-        return CGSize(width: side, height: side)
+        return CGSize(width: side,
+                      height: side)
     }
 }
 
