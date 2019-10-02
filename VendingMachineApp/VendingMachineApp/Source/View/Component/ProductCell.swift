@@ -20,8 +20,7 @@ class ProductCell: UICollectionViewCell {
     // MARK: Method
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.edgeTrim()
-        self.clipsToBounds = true
+        self.layer.edgeTrim()
         self.contentView.backgroundColor = .white
         setAutoLayout()
     }
