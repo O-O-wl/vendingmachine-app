@@ -11,21 +11,12 @@ import Foundation
 protocol ProductDisplayable {
     var productName: String { get }
     var productPrice: String { get }
+    var productQuantity: Int { get }
 }
 
-struct ProductStatistic {
-    let index: Int
-    let productDescription: String
-    let productQuantity: Int
+struct ProductStatistic: ProductDisplayable {
+    var productName: String
+    var productPrice: String
+    var productQuantity: Int
 }
-extension ProductStatistic: ProductDisplayable {
-    
-    var productName: String {
-        return String(productDescription.split(separator: " ")[0])
-    }
 
-    var productPrice: String {
-       return String(productDescription.split(separator: " ")[1])
-    }
-
-}
