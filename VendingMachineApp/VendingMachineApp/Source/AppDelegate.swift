@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // MARK: Assemble MVP
-        let model = Inventory(products: ProductFactory.createAll(quantity: 0))
+        let model = Inventory(products: BeverageFactory.createAll(quantity: 1))
         let presenter = VendingMachinePresenter(balance: Money(value: 0),
                                                 inventory: model,
                                                 history: History())

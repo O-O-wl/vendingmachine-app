@@ -62,6 +62,8 @@ extension Dictionary where Key == String, Value == Int {
 
 extension UIView {
     func edgeTrim() {
-        self.layer.cornerRadius = 10
+        
+        self.layer.cornerRadius = self.frame.width/3
+
     }
 }

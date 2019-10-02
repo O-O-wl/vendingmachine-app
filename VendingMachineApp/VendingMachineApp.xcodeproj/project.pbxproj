@@ -39,7 +39,7 @@
 		0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB044D9233BA8EB00185ED5 /* ProductCell.swift */; };
 		0EB044DC233BA8EB00185ED5 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EB044DA233BA8EB00185ED5 /* ProductCell.xib */; };
 		0EB044DF233C929A00185ED5 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0EB044DE233C929A00185ED5 /* .swiftlint.yml */; };
-		0EF335E9233B1A770066AE3D /* ProductFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF335E5233B1A770066AE3D /* ProductFactory.swift */; };
+		0EF335E9233B1A770066AE3D /* BeverageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF335E5233B1A770066AE3D /* BeverageFactory.swift */; };
 		B60138D1C243FF3FC295B67B /* Pods_VendingMachineAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */; };
 		EDC3E1984518478AA45F0CBA /* Pods_VendingMachineApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */; };
 /* End PBXBuildFile section */
@@ -91,7 +91,7 @@
 		0EB044D9233BA8EB00185ED5 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		0EB044DA233BA8EB00185ED5 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		0EB044DE233C929A00185ED5 /* .swiftlint.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		0EF335E5233B1A770066AE3D /* ProductFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductFactory.swift; sourceTree = "<group>"; };
+		0EF335E5233B1A770066AE3D /* BeverageFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeverageFactory.swift; sourceTree = "<group>"; };
 		10846753226FA80B1FAFF3EF /* Pods_VendingMachineAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33623C97F163A9C195D6E374 /* Pods_VendingMachineApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VendingMachineApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FC2B93A554CD41BD253CCC /* Pods-VendingMachineAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VendingMachineAppTests.release.xcconfig"; path = "Target Support Files/Pods-VendingMachineAppTests/Pods-VendingMachineAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 		0EF335E3233B1A770066AE3D /* Factory */ = {
 			isa = PBXGroup;
 			children = (
-				0EF335E5233B1A770066AE3D /* ProductFactory.swift */,
+				0EF335E5233B1A770066AE3D /* BeverageFactory.swift */,
 			);
 			path = Factory;
 			sourceTree = "<group>";
@@ -492,7 +492,7 @@
 				0EA2EF2D2338FB2E0090555A /* Beverage.swift in Sources */,
 				0EA2EF2E2338FB2E0090555A /* StrawberryMilk.swift in Sources */,
 				0EA2EF342338FB2E0090555A /* CafeLatte.swift in Sources */,
-				0EF335E9233B1A770066AE3D /* ProductFactory.swift in Sources */,
+				0EF335E9233B1A770066AE3D /* BeverageFactory.swift in Sources */,
 				0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */,
 				0EA2EF4F2338FB680090555A /* Money.swift in Sources */,
 				0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */,
