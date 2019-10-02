@@ -20,8 +20,14 @@ class ProductCell: UICollectionViewCell {
     // MARK: Method
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.edgeTrim()
+        self.contentView.layer.edgeTrim()
         self.contentView.backgroundColor = .white
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 2,
+                                         height: 10)
+        self.layer.shadowRadius = 5
+        self.layer.shadowOpacity = 0.5
         setAutoLayout()
     }
     
