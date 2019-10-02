@@ -10,54 +10,49 @@ import Foundation
 
 protocol Storable {
     var statistic: [ProductStatistic] { get }
-
-    init(products: [Product])
-    mutating func addStock(_ product: Product)
-    func search(at index: Int) -> Product?
-    func filter(by option: Option) -> [Product]
-    mutating func takeOut(_ product: Product) -> Product?
-
+    
+    mutating func addStock(_ product: Beverage)
+    func search(at index: Int) -> Beverage?
+    func filter(by option: Option) -> [Beverage]
+    mutating func takeOut(_ product: Beverage) -> Beverage?
+    
 }
 
 struct Inventory: Storable {
-    private var stocks: [Product]
-
+    private var stock: [Beverage: [Beverage]] = [:]
+    
     var statistic: [ProductStatistic] {
-        var index = 0
-        return stocks
-            .countDictionary
-            .sortedList
+        return stock
             .map {
-                index += 1
-                return ProductStatistic(index: index,
-                                        productDescription: $0.0,
-                                        productQuantity: $0.1) }
+                ProductStatistic(productName: $0.key.productName,
+                                 productPrice: $0.key.productPrice.description,
+                                 productQuantity: $0.value.count)
+        }
     }
-
-    init(products: [Product]) {
-        self.stocks = products
+    
+    init(products category: [Beverage]) {
+        var category = category
+        while let product = category.popLast() {
+            stock[product] = []
+        }
     }
-
-    mutating func addStock(_ product: Product) {
-        stocks.append(product)
+    
+    mutating func addStock(_ product: Beverage) {
+        stock[product]?.append(product)
     }
-
-    func search(at index: Int) -> Product? {
-        guard index < statistic.count else { return nil }
-        let productDescription = statistic[index].productDescription
-        let product = stocks.last { $0.productDescription == productDescription }
-        return product
+    
+    func search(at index: Int) -> Beverage? {
+        return stock.map { $0 }[index].key
     }
-
-    func filter(by option: Option) -> [Product] {
-        return stocks.filter { option.condition($0) }
+    
+    func filter(by option: Option) -> [Beverage] {
+        return stock
+            .filter { option.condition($0.key) }
+            .map { $0.key }
     }
-
-    mutating func takeOut(_ product: Product) -> Product? {
-        guard
-            let index = stocks.firstIndex(where: { product.productName == $0.productName })
-            else { return nil }
-        return stocks.remove(at: index)
+    
+    mutating func takeOut(_ product: Beverage) -> Beverage? {
+        return stock[product]?.popLast()
     }
 }
 
@@ -66,8 +61,8 @@ enum Option {
     case available(balence: Money)
     case hot
     case due
-
-    var condition: (Product) -> Bool {
+    
+    var condition: (Beverage) -> Bool {
         switch self {
         case .all:
             return { _ in true }
@@ -78,6 +73,6 @@ enum Option {
         case .due:
             return { $0.isDue }
         }
-
+        
     }
 }
