@@ -18,7 +18,7 @@ protocol VendingMachinePresenterType: MoneyHandleable {
     mutating func execute() throws
 }
 
-struct VendingMachinePresenter {
+class VendingMachinePresenter: NSObject, NSCoding {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
@@ -35,15 +35,31 @@ struct VendingMachinePresenter {
         self.history = history
     }
     
+    required convenience init?(coder: NSCoder) {
+        let balance = coder.decodeObject(forKey: Keys.balance.rawValue) as! Money
+        let inventory = coder.decodeObject(forKey: Keys.inventory.rawValue) as! Inventory
+        let history = coder.decodeObject(forKey: Keys.history.rawValue) as! History
+        
+        self.init(balance: balance,
+                  inventory: inventory,
+                  history: history)
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(balance, forKey: Keys.balance.rawValue)
+        coder.encode(inventory, forKey: Keys.inventory.rawValue)
+        coder.encode(history, forKey: Keys.history.rawValue)
+    }
+    
     func searchItem(at index: Int) -> Beverage? {
         return inventory.search(at: index)
     }
     
-    mutating func setStrategy(_ strategy: StateHandleable?) {
+    func setStrategy(_ strategy: StateHandleable?) {
         self.strategy = strategy
     }
     
-    mutating func execute() throws {
+    func execute() throws {
         let state = (balance: balance, inventory: inventory, history: history)
         
         guard
@@ -59,7 +75,7 @@ struct VendingMachinePresenter {
         handler(strategy)
     }
     
-    mutating func resultHandle(_ result: Result<State, Error>) throws {
+    func resultHandle(_ result: Result<State, Error>) throws {
         switch result {
         case .success(let newState):
             (self.balance, self.inventory, self.history) = newState
@@ -95,4 +111,12 @@ extension VendingMachinePresenter: VendingMachinePresenterType {
         return inventory.statistic[index]
     }
     
+}
+// MARK: Keys
+extension VendingMachinePresenter {
+    enum Keys: String {
+        case balance = "Balance"
+        case inventory = "Inventory"
+        case history = "History"
+    }
 }
