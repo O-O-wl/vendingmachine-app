@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Money {
+class Money: NSCoding {
+    // MARK:  Unit
     enum Unit: CustomStringConvertible {
         case won
         case dollar
@@ -32,6 +33,21 @@ struct Money {
     init(value: Int) {
         self.value = value
     }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(value, forKey: Keys.value.rawValue)
+    }
+    
+    required convenience init?(coder: NSCoder) {
+        let value = coder.decodeInteger(forKey: Keys.value.rawValue)
+        self.init(value: value)
+    }
+    
+    // MARK: Keys
+    enum Keys: String {
+        case value = "Value"
+    }
+    
 }
 // MARK: - + CustomStringConvertible
 extension Money: CustomStringConvertible {
@@ -45,6 +61,11 @@ extension Money: CustomStringConvertible {
 }
 // MARK: - + Comparable
 extension Money: Comparable {
+    
+    static func == (lhs: Money, rhs: Money) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
 
     static func < (lhs: Money, rhs: Money) -> Bool {
         return lhs.value < rhs.value
