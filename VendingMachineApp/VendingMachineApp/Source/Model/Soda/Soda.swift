@@ -36,4 +36,18 @@ class Soda: Beverage {
         self.init(price: 0,
                   name: "Soda")
     }
+    
+    required init?(coder: NSCoder) {
+        self.isSugerFree = coder.decodeBool(forKey: Keys.isSugerFree.rawValue)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(isSugerFree, forKey: Keys.isSugerFree.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case isSugerFree  = "SugerFree"
+    }
 }
