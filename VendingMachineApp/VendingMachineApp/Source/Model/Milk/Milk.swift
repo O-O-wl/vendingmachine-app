@@ -50,6 +50,23 @@ class Milk: Beverage {
         self.init(price: 0,
                   name: "우유")
     }
+    
+    required init?(coder: NSCoder) {
+        self.fatContent = coder.decodeInteger(forKey: Keys.fatContent.rawValue)
+        self.lactaseContent = coder.decodeInteger(forKey: Keys.lactaseContent.rawValue)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(fatContent, forKey: Keys.fatContent.rawValue)
+        coder.encode(lactaseContent, forKey: Keys.lactaseContent.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case fatContent = "FatContent"
+        case lactaseContent = "LactaseContent"
+    }
 }
 
 protocol Sweetable {

@@ -12,12 +12,12 @@ class ChocolateMilk: Milk, Sweetable {
     // MARK: - Properties
     static let stanardChocolateContent = 30
     static let recommendedConsumerPrice = 1300
-
+    
     private let chocolateContent: Int
     var isSweet: Bool {
         return chocolateContent > ChocolateMilk.stanardChocolateContent
     }
-
+    
     // MARK: - Methods
     /// initialize instance of ChocolateMilk
     ///
@@ -51,9 +51,25 @@ class ChocolateMilk: Milk, Sweetable {
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
     }
-
+    
     required convenience init () {
         self.init(price: ChocolateMilk.recommendedConsumerPrice,
                   name: "ChocolateMilk")
     }
+    
+    required init?(coder: NSCoder) {
+        self.chocolateContent = coder.decodeInteger(forKey: Keys.chocolateContent.rawValue)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(chocolateContent, forKey: Keys.chocolateContent.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case chocolateContent  = "ChocolateContent"
+    }
+    
 }
+
