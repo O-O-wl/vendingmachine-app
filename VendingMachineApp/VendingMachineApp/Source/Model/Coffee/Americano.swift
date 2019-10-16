@@ -9,6 +9,7 @@
 import Foundation
 
 class Americano: Coffee {
+    
     // MARK: - Properties
     static let stanardWaterContent = 300
     static let recommendedConsumerPrice = 2500
@@ -57,6 +58,7 @@ class Americano: Coffee {
                   name: "Americano")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.waterContent = coder.decodeInteger(forKey: Keys.waterContent.rawValue)
         super.init(coder: coder)

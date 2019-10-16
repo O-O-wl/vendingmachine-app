@@ -51,6 +51,7 @@ class Milk: Beverage {
                   name: "우유")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.fatContent = coder.decodeInteger(forKey: Keys.fatContent.rawValue)
         self.lactaseContent = coder.decodeInteger(forKey: Keys.lactaseContent.rawValue)

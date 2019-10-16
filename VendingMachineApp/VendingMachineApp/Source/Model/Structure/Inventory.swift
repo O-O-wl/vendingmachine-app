@@ -18,7 +18,20 @@ protocol Storable {
     
 }
 
-struct Inventory: Storable {
+class Inventory: NSObject, NSCoding, Storable {
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(stock, forKey: Keys.stock.rawValue)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.stock = coder.decodeObject(forKey: Keys.stock.rawValue) as! [Beverage: [Beverage]]
+    }
+    
+    enum Keys: String {
+        case stock = "Stock"
+    }
+    
     private var stock: [Beverage: [Beverage]] = [:]
     
     var statistic: [ProductStatistic] {
@@ -37,7 +50,7 @@ struct Inventory: Storable {
         }
     }
     
-    mutating func addStock(_ product: Beverage) {
+    func addStock(_ product: Beverage) {
         stock[product]?.append(product)
     }
     
@@ -51,7 +64,7 @@ struct Inventory: Storable {
             .map { $0.key }
     }
     
-    mutating func takeOut(_ product: Beverage) -> Beverage? {
+    func takeOut(_ product: Beverage) -> Beverage? {
         return stock[product]?.popLast()
     }
 }

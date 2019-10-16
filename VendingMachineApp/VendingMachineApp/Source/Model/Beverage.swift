@@ -23,6 +23,7 @@ extension Product {
 
 class Beverage: NSObject, NSCoding {
     
+    
     // MARK: - Properties
     static let standardTemperature = 20
     
@@ -59,6 +60,8 @@ class Beverage: NSObject, NSCoding {
                   name: "음료")
     }
     
+    // MARK: NSCoding
+    
     required init?(coder: NSCoder) {
         self.brand = coder.decodeObject(forKey: Keys.brand.rawValue) as! String
         self.capacity = coder.decodeInteger(forKey: Keys.capacity.rawValue)
@@ -69,7 +72,6 @@ class Beverage: NSObject, NSCoding {
         self.temperature = coder.decodeInteger(forKey: Keys.temperature.rawValue)
     }
     
-    // MARK: NSCoding
     func encode(with coder: NSCoder) {
         coder.encode(brand,
                      forKey: Keys.brand.rawValue)
@@ -98,12 +100,22 @@ class Beverage: NSObject, NSCoding {
     }
     
 }
+
+// MARK: NSCopying
+extension Beverage: NSCopying {
+    
+    func copy(with zone: NSZone? = nil) -> Any {
+        return self
+    }
+}
+
 // MARK: - + CustomStringConvertible
 extension Beverage {
     override var description: String {
         return "\(brand), \(capacity)ml, \(price)원, \(name), \(productDate.text)"
     }
 }
+
 // MARK: - + CustomStringConvertible
 extension Beverage: Product {
     

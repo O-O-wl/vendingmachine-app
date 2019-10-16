@@ -57,6 +57,7 @@ class ChocolateMilk: Milk, Sweetable {
                   name: "ChocolateMilk")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.chocolateContent = coder.decodeInteger(forKey: Keys.chocolateContent.rawValue)
         super.init(coder: coder)

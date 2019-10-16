@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    /// - Todo: 반복되는 로직 제거 / 저장하는 객체 생성 고민
+    
     var money: Money?
     // MARK: Assemble MVP
     var model: Inventory?
@@ -20,22 +22,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var presenter: VendingMachinePresenter?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        if let encodedData = UserDefaults.standard.data(forKey: "Balance") {
-                   money =  try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as! Money
-               } else {
-                   money = Money(value: 0)
-               }
-               
-               model = Inventory(products: BeverageFactory.createAll(quantity: 1))
-               presenter = VendingMachinePresenter(balance: money!,
-                                                   inventory: model!,
-                                                   history: History())
-               //        let presenter = VendingMachinePresenter(balance: money,
-               //                                                inventory: model,
-               //                                                history: History())
-               let view = window?.rootViewController as? VendingMachineViewController
-               
-               view?.presenter = presenter
+        
+        /// - Todo: 반복되는 로직 제거
+        
+        
+        if let encodedData = UserDefaults.standard.data(forKey: "VendingMachinePresenter") {
+            presenter =  try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as! VendingMachinePresenter
+        } else {
+            money = Money(value: 0)
+            
+            model = Inventory(products: BeverageFactory.createAll(quantity: 1))
+            presenter = VendingMachinePresenter(balance: money!,
+                                                inventory: model!,
+                                                history: History())
+            //        let presenter = VendingMachinePresenter(balance: money,
+            //                                                inventory: model,
+            //                                                history: History())
+            
+            
+        }
+        let view = window?.rootViewController as? VendingMachineViewController
+        view?.presenter = presenter
         return true
     }
     
@@ -47,29 +54,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        let encodedData = try! NSKeyedArchiver.archivedData(withRootObject: presenter!.balance,
+        guard
+            let savingPresenter = presenter
+            else { return }
+        let encodedData = try! NSKeyedArchiver.archivedData(withRootObject: savingPresenter,
                                                             requiringSecureCoding: false)
-        UserDefaults.standard.set(encodedData, forKey: "Balance")
+        UserDefaults.standard.set(encodedData, forKey: "VendingMachinePresenter")
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        if let encodedData = UserDefaults.standard.data(forKey: "Balance") {
-            money =  try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as! Money
-        } else {
-            money = Money(value: 0)
-        }
         
-        model = Inventory(products: BeverageFactory.createAll(quantity: 1))
-        presenter = VendingMachinePresenter(balance: money!,
-                                            inventory: model!,
-                                            history: History())
-        //        let presenter = VendingMachinePresenter(balance: money,
-        //                                                inventory: model,
-        //                                                history: History())
+        /// - Todo: 반복되는 로직 제거 / 저장하는 객체 생성 고민
+        
+        guard
+            let encodedData = UserDefaults.standard.data(forKey: "VendingMachinePresenter"),
+            let data = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData),
+            let loadedPresenter = data as? VendingMachinePresenter
+            else { return }
         let view = window?.rootViewController as? VendingMachineViewController
+        view?.presenter = loadedPresenter
         
-        view?.presenter = presenter
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

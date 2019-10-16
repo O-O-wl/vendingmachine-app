@@ -57,6 +57,7 @@ class CafeLatte: Coffee {
                   name: "CafeLatte")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.milkContent = coder.decodeInteger(forKey: Keys.milkContent.rawValue)
         super.init(coder: coder)
