@@ -22,7 +22,7 @@ class VendingMachinePresenter: NSObject, NSCoding {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
-    private var balance: Money
+     var balance: Money
     private var inventory: Storable
     private var history: History
     private var strategy: StateHandleable?
@@ -34,7 +34,8 @@ class VendingMachinePresenter: NSObject, NSCoding {
         self.inventory = inventory
         self.history = history
     }
-    
+
+    // MARK: NSCoding
     required convenience init?(coder: NSCoder) {
         let balance = coder.decodeObject(forKey: Keys.balance.rawValue) as! Money
         let inventory = coder.decodeObject(forKey: Keys.inventory.rawValue) as! Inventory
