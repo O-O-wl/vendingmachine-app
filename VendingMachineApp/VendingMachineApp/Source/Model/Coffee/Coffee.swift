@@ -45,13 +45,13 @@ class Coffee: Beverage {
                   name: "Coffee")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
-        self.coffeeBean = coder.decodeObject(forKey: Keys.coffeeBean.rawValue) as! CoffeeBean
+        self.coffeeBean = .arabica
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
-        coder.encode(coffeeBean, forKey: Keys.coffeeBean.rawValue)
         super.encode(with: coder)
     }
     

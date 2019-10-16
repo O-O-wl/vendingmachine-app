@@ -53,11 +53,13 @@ class StrawberryMilk: Milk, Sweetable {
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
     }
+    
     required convenience init () {
         self.init(price: StrawberryMilk.recommendedConsumerPrice,
                   name: "StrawberryMilk")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.strawberryContent = coder.decodeInteger(forKey: Keys.strawberryContent.rawValue)
         super.init(coder: coder)

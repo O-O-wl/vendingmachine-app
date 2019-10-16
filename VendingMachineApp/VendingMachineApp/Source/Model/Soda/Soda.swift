@@ -37,6 +37,7 @@ class Soda: Beverage {
                   name: "Soda")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.isSugerFree = coder.decodeBool(forKey: Keys.isSugerFree.rawValue)
         super.init(coder: coder)

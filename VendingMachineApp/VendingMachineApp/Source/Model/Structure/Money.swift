@@ -49,7 +49,6 @@ class Money: NSObject, NSCoding {
         case value = "Value"
     }
     
-
 // MARK: - + CustomStringConvertible
 
     override var description: String {

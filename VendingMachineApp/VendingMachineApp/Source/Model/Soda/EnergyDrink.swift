@@ -57,6 +57,7 @@ class EnergyDrink: Soda {
                   name: "EnergyDrink")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.caffeineContent = coder.decodeInteger(forKey: Keys.caffeineContent.rawValue)
         super.init(coder: coder)

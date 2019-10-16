@@ -57,6 +57,7 @@ class Cola: Soda {
                   name: "Cola")
     }
     
+    // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.cocaberryContent = coder.decodeInteger(forKey: Keys.cocaberryContent.rawValue)
         super.init(coder: coder)

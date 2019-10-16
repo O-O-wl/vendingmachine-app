@@ -22,7 +22,7 @@ class VendingMachinePresenter: NSObject, NSCoding {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
-     var balance: Money
+    private var balance: Money
     private var inventory: Storable
     private var history: History
     private var strategy: StateHandleable?
