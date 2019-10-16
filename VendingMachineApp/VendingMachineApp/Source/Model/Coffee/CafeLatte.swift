@@ -12,15 +12,15 @@ class CafeLatte: Coffee {
     // MARK: - Properties
     static let stanardMilkContent = 200
     static let recommendedConsumerPrice = 3000
-
+    
     private let milkContent: Int
-
+    
     var isSoft: Bool {
         return milkContent > CafeLatte.stanardMilkContent
     }
-
+    
     // MARK: - Methods
-
+    
     /// initialize instance of Americano
     ///
     /// - Parameter brand: brand name. default is "제조사".
@@ -41,7 +41,7 @@ class CafeLatte: Coffee {
          coffeeBean: CoffeeBean = .arabica,
          milkContent: Int = stanardMilkContent) {
         self.milkContent = milkContent > capacity ? capacity : milkContent
-
+        
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,
@@ -51,9 +51,24 @@ class CafeLatte: Coffee {
                    temperature: temperature,
                    coffeeBean: coffeeBean)
     }
-
+    
     required convenience init () {
         self.init(price: CafeLatte.recommendedConsumerPrice,
                   name: "CafeLatte")
     }
+    
+    required init?(coder: NSCoder) {
+        self.milkContent = coder.decodeInteger(forKey: Keys.milkContent.rawValue)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(milkContent, forKey: Keys.milkContent.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case milkContent = "MilkContent"
+    }
+    
 }

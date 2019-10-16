@@ -9,12 +9,14 @@
 import Foundation
 
 class Coffee: Beverage {
+    
     // MARK: Nested enum CoffeeBean
     enum CoffeeBean {
         case arabica
         case robusta
         case luwak
     }
+    
     // MARK: - Properties
     private let coffeeBean: CoffeeBean
 
@@ -41,5 +43,19 @@ class Coffee: Beverage {
     required convenience init () {
         self.init(price: 0,
                   name: "Coffee")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.coffeeBean = coder.decodeObject(forKey: Keys.coffeeBean.rawValue) as! CoffeeBean
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(coffeeBean, forKey: Keys.coffeeBean.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case coffeeBean = "CoffeeBean"
     }
 }
