@@ -53,10 +53,23 @@ class StrawberryMilk: Milk, Sweetable {
                    fatContent: fatContent,
                    lactaseContent: lactaseContent)
     }
-
     required convenience init () {
         self.init(price: StrawberryMilk.recommendedConsumerPrice,
                   name: "StrawberryMilk")
+    }
+    
+    required init?(coder: NSCoder) {
+        self.strawberryContent = coder.decodeInteger(forKey: Keys.strawberryContent.rawValue)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(strawberryContent, forKey: Keys.strawberryContent.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case strawberryContent = "StrawberryContent"
     }
 
 }
