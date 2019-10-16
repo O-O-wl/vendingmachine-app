@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Money: NSCoding {
-    // MARK:  Unit
+class Money: NSObject, NSCoding {
+    // MARK: Unit
     enum Unit: CustomStringConvertible {
         case won
         case dollar
@@ -34,13 +34,14 @@ class Money: NSCoding {
         self.value = value
     }
     
+    // MARK: NSCoding
     func encode(with coder: NSCoder) {
         coder.encode(value, forKey: Keys.value.rawValue)
     }
     
-    required convenience init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         let value = coder.decodeInteger(forKey: Keys.value.rawValue)
-        self.init(value: value)
+        self.value = value
     }
     
     // MARK: Keys
@@ -48,10 +49,10 @@ class Money: NSCoding {
         case value = "Value"
     }
     
-}
+
 // MARK: - + CustomStringConvertible
-extension Money: CustomStringConvertible {
-    var description: String {
+
+    override var description: String {
         let numberFormmater = NumberFormatter()
         numberFormmater.numberStyle = .decimal
         let price = numberFormmater.string(from: NSNumber(value: value)) ?? "\(value)"
@@ -66,7 +67,6 @@ extension Money: Comparable {
         return lhs.value == rhs.value
     }
     
-
     static func < (lhs: Money, rhs: Money) -> Bool {
         return lhs.value < rhs.value
     }

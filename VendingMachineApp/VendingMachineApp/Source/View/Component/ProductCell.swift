@@ -28,7 +28,7 @@ class ProductCell: UICollectionViewCell {
                                          height: 10)
         self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 0.5
-        setAutoLayout()
+//        setAutoLayout()
     }
     
     private func setAutoLayout() {

@@ -8,15 +8,34 @@
 
 import Foundation
 
-struct History {
-    private var soldProducts = [Product]()
-
-    mutating func record(soldProduct: Product) {
+class History: NSObject, NSCoding {
+    
+    private var soldProducts = [Beverage]()
+    
+    // MARK: NSCoding
+    func encode(with coder: NSCoder) {
+        coder.encode(soldProducts, forKey: Keys.soldProducts.rawValue)
+    }
+    
+    init(_ soldProducts: [Beverage] = []) {
+        self.soldProducts = soldProducts
+    }
+    
+    required init?(coder: NSCoder) {
+        self.soldProducts = coder.decodeObject(forKey: Keys.soldProducts.rawValue) as! [Beverage]
+    }
+    
+    // MARK: Methods
+    func record(soldProduct: Beverage) {
         soldProducts.append(soldProduct)
     }
-
-    mutating func eraseAll(product: Product) {
+    
+    func eraseAll(product: Beverage) {
         soldProducts.removeAll()
     }
-
+    
+    enum Keys: String {
+        case soldProducts = "SoldProducts"
+    }
+    
 }
