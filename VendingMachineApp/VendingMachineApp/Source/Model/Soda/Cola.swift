@@ -56,4 +56,19 @@ class Cola: Soda {
         self.init(price: Cola.recommendedConsumerPrice,
                   name: "Cola")
     }
+    
+    required init?(coder: NSCoder) {
+        self.cocaberryContent = coder.decodeInteger(forKey: Keys.cocaberryContent.rawValue)
+        super.init(coder: coder)
+    }
+    
+    override func encode(with coder: NSCoder) {
+        coder.encode(cocaberryContent, forKey: Keys.cocaberryContent.rawValue)
+        super.encode(with: coder)
+    }
+    
+    enum Keys: String {
+        case cocaberryContent  = "CocaberryContent"
+    }
+    
 }
