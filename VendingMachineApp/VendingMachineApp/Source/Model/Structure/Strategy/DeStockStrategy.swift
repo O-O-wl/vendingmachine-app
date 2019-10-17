@@ -20,7 +20,7 @@ struct DeStockStrategy: StateHandleable {
     }
 
     mutating func handle(_ before: State) -> Result<State, Error> {
-        var state = before
+        let state = before
         guard
             let stockToRemove = state.inventory.search(at: indexOfStockToRemove)
             else { return .failure(RemoveError.noStock)}

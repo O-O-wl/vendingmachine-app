@@ -20,8 +20,8 @@ struct PurchaseStrategy: StateHandleable {
     }
 
     mutating func handle(_ before: State) -> Result<State, Error> {
-        var inventory = before.inventory
-        var history = before.history
+        let inventory = before.inventory
+        let history = before.history
         guard
             let productToPurchase = inventory.search(at: productToPurchaseIndex)
             else { return .failure(PurchaseError.outOfStock) }

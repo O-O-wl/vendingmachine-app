@@ -60,7 +60,6 @@ class Beverage: NSObject, NSCoding {
     }
     
     // MARK: NSCoding
-    
     required init?(coder: NSCoder) {
         self.brand = coder.decodeObject(forKey: Keys.brand.rawValue) as! String
         self.capacity = coder.decodeInteger(forKey: Keys.capacity.rawValue)
