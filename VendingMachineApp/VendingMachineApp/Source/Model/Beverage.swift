@@ -23,7 +23,6 @@ extension Product {
 
 class Beverage: NSObject, NSCoding {
     
-    
     // MARK: - Properties
     static let standardTemperature = 20
     
