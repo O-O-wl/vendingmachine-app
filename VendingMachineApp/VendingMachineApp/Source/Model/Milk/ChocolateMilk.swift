@@ -41,6 +41,7 @@ class ChocolateMilk: Milk, Sweetable {
          lactaseContent: Int = stanardLactaseContent,
          chocolateContent: Int = stanardChocolateContent) {
         self.chocolateContent = chocolateContent > capacity ? capacity : chocolateContent
+        
         super.init(brand: brand,
                    capacity: capacity,
                    price: price,

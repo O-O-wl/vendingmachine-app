@@ -36,14 +36,10 @@ class VendingMachinePresenter: NSObject, NSCoding {
     }
 
     // MARK: NSCoding
-    required convenience init?(coder: NSCoder) {
-        let balance = coder.decodeObject(forKey: Keys.balance.rawValue) as! Money
-        let inventory = coder.decodeObject(forKey: Keys.inventory.rawValue) as! Inventory
-        let history = coder.decodeObject(forKey: Keys.history.rawValue) as! History
-        
-        self.init(balance: balance,
-                  inventory: inventory,
-                  history: history)
+    required init?(coder: NSCoder) {
+        self.balance = coder.decodeObject(forKey: Keys.balance.rawValue) as! Money
+        self.inventory = coder.decodeObject(forKey: Keys.inventory.rawValue) as! Inventory
+        self.history = coder.decodeObject(forKey: Keys.history.rawValue) as! History
     }
     
     func encode(with coder: NSCoder) {
