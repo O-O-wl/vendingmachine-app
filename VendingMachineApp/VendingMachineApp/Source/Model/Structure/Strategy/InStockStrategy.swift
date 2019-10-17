@@ -19,7 +19,7 @@ struct InStockStrategy: StateHandleable {
     }
 
     func handle(_ before: State) -> Result<State, Error> {
-        var state = before
+        let state = before
         state.inventory.addStock(stockToAdd)
 
         return .success(state)

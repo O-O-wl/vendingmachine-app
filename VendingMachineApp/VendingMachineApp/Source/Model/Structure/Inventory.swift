@@ -11,26 +11,14 @@ import Foundation
 protocol Storable {
     var statistic: [ProductStatistic] { get }
     
-    mutating func addStock(_ product: Beverage)
+    func addStock(_ product: Beverage)
     func search(at index: Int) -> Beverage?
     func filter(by option: Option) -> [Beverage]
-    mutating func takeOut(_ product: Beverage) -> Beverage?
+    func takeOut(_ product: Beverage) -> Beverage?
     
 }
 
 class Inventory: NSObject, NSCoding, Storable {
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(stock, forKey: Keys.stock.rawValue)
-    }
-    
-    required init?(coder: NSCoder) {
-        self.stock = coder.decodeObject(forKey: Keys.stock.rawValue) as! [Beverage: [Beverage]]
-    }
-    
-    enum Keys: String {
-        case stock = "Stock"
-    }
     
     private var stock: [Beverage: [Beverage]] = [:]
     
@@ -48,6 +36,19 @@ class Inventory: NSObject, NSCoding, Storable {
         while let product = category.popLast() {
             stock[product] = []
         }
+    }
+    
+    // MARK: NSCoding
+    func encode(with coder: NSCoder) {
+        coder.encode(stock, forKey: Keys.stock.rawValue)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.stock = coder.decodeObject(forKey: Keys.stock.rawValue) as! [Beverage: [Beverage]]
+    }
+    
+    enum Keys: String {
+        case stock = "Stock"
     }
     
     func addStock(_ product: Beverage) {

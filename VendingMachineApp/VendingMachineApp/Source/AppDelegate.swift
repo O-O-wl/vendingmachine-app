@@ -13,21 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    /// - Todo: 반복되는 로직 제거 / 저장하는 객체 생성 고민
-    
     var money: Money?
-    // MARK: Assemble MVP
-    var model: Inventory?
+    var model: Storable?
+    var presenter: VendingMachinePresenterType?
     
-    var presenter: VendingMachinePresenter?
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         load()
         return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
@@ -35,8 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        /// - Todo: 반복되는 로직 제거 / 저장하는 객체 생성 고민
-        
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -48,17 +42,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     func save() {
-        
         guard
             let savingPresenter = presenter,
             let encodedData = try? NSKeyedArchiver.archivedData(withRootObject: savingPresenter,
                                                                 requiringSecureCoding: false)
-            else { return  }
+            else { return }
+        
         UserDefaults.standard.set(encodedData, forKey: "VendingMachinePresenter")
     }
     
     func load() {
-        /// - Todo: 반복되는 로직 제거
+        guard
+            let view = window?.rootViewController as? VendingMachineViewController
+            else { return }
         if
             let encodedData = UserDefaults.standard.data(forKey: "VendingMachinePresenter"),
             let loadedPresenter = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(encodedData) as?  VendingMachinePresenter {
@@ -71,7 +67,6 @@ extension AppDelegate {
                                                 inventory: model!,
                                                 history: History())
         }
-        let view = window?.rootViewController as? VendingMachineViewController
-        view?.presenter = presenter
+        view.presenter = presenter
     }
 }

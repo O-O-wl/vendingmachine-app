@@ -9,6 +9,7 @@
 import Foundation
 
 struct ErrorHandler {
+    
     private let error: Error
 
     init(error: Error) {
