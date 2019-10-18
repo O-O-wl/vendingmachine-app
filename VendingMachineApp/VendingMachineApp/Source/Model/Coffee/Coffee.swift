@@ -52,11 +52,16 @@ class Coffee: Beverage {
         guard
             let coder = coder as? NSKeyedUnarchiver
             else { return nil }
-        self.coffeeBean = coder.decodeDecodable(CoffeeBean.self, forKey: Keys.coffeeBean.rawValue) ?? .arabica
+        self.coffeeBean = coder.decodeDecodable(CoffeeBean.self,
+                                                forKey: Keys.coffeeBean.rawValue) ?? .arabica
         super.init(coder: coder)
     }
     
     override func encode(with coder: NSCoder) {
+        guard
+            let coder = coder as? NSKeyedArchiver
+            else { return }
+        try? coder.encodeEncodable(self.coffeeBean, forKey: Keys.coffeeBean.rawValue)
         super.encode(with: coder)
     }
     

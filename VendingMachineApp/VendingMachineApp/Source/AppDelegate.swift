@@ -13,8 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
-    var money: Money?
-    var model: Storable?
     var presenter: VendingMachinePresenterType?
     
     func application(_ application: UIApplication,
@@ -61,12 +59,14 @@ extension AppDelegate {
             presenter = loadedPresenter
             
         } else {
-            money = Money(value: 0)
-            model = Inventory(products: BeverageFactory.createAll(quantity: 1))
-            presenter = VendingMachinePresenter(balance: money!,
-                                                inventory: model!,
+            let money = Money(value: 0)
+            let model = Inventory(products: BeverageFactory.createAll(quantity: 1))
+            presenter = VendingMachinePresenter(balance: money,
+                                                inventory: model,
                                                 history: History())
+            
         }
         view.presenter = presenter
     }
+    
 }
