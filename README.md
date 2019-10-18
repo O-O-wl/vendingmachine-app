@@ -154,7 +154,7 @@ MVP 패턴을 자판기 앱에 적용하면서 느낀 점은 내가 이전에 �
 
 ## Step3
 
-![archieveing](/Users/ldcpaul/Downloads/gif/archieveing.gif)
+![Oct-18-2019 15-39-15](https://user-images.githubusercontent.com/39197978/67071445-842a7a00-f1bd-11e9-8a8f-3a9d4f0a1bdd.gif)
 
 
 
