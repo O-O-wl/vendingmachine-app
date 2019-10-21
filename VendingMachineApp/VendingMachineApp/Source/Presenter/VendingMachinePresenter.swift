@@ -18,11 +18,7 @@ protocol VendingMachinePresenterType: MoneyHandleable {
     mutating func execute() throws
 }
 
-class VendingMachinePresenter: NSObject, NSCoding, Saveable {
-    
-    static var key: String {
-        return String(describing: self)
-    }
+class VendingMachinePresenter: NSObject, NSCoding {
     
     static let shared: VendingMachinePresenter = {
         if
@@ -114,6 +110,7 @@ extension VendingMachinePresenter: ProductStatisticHandleable {
         handler(inventory.statistic)
     }
 }
+// MARK: -  + VendingMachinePresenterType
 extension VendingMachinePresenter: VendingMachinePresenterType {
     
     var numOfRow: Int {
@@ -122,6 +119,14 @@ extension VendingMachinePresenter: VendingMachinePresenterType {
     
     func cellForItemAt(index: Int) -> ProductStatistic {
         return inventory.statistic[index]
+    }
+    
+}
+// MARK: - + Saveable
+extension VendingMachinePresenter: Saveable {
+    
+    static var key: String {
+        return String(describing: self)
     }
     
 }

@@ -262,7 +262,6 @@ let 깊은복사 = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(아카
 실제 `NSDictionary`를 보니 `init(coder:)`메소드에서  아래의` init`이 불렸으며 `key`들은 `copy`를 했다.
 
 ```swift
-
 public required init(objects: UnsafePointer<AnyObject>!, forKeys keys: UnsafePointer<NSObject>!, count cnt: Int) {
         _storage = [NSObject : AnyObject](minimumCapacity: cnt)
         for idx in 0..<cnt {
@@ -275,4 +274,8 @@ public required init(objects: UnsafePointer<AnyObject>!, forKeys keys: UnsafePoi
 ```
 
 **key로 사용하는 객체는 안정적이어야해서 얕은복사이지만 immutable한 객체로 구현되어 있는 듯하다.**
+
+
+
+## Step4
 
