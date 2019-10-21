@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
 		0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFC2338E7470090555A /* AppDelegate.swift */; };
 		0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */; };
 		0EA2EF022338E7470090555A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF002338E7470090555A /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0EA2EEF92338E7470090555A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EEFC2338E7470090555A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				0EA2EF412338FB680090555A /* History.swift */,
 				0EA2EF472338FB680090555A /* ProductStatistic.swift */,
 				0EA2EF482338FB680090555A /* Strategy */,
+				0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */,
 			);
 			path = Structure;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				0EA2EF2E2338FB2E0090555A /* StrawberryMilk.swift in Sources */,
 				0EA2EF342338FB2E0090555A /* CafeLatte.swift in Sources */,
 				0EF335E9233B1A770066AE3D /* BeverageFactory.swift in Sources */,
+				0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */,
 				0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */,
 				0EA2EF4F2338FB680090555A /* Money.swift in Sources */,
 				0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */,

@@ -9,6 +9,8 @@
 import UIKit
 
 protocol VendingMachineViewType {
+    var presenter: VendingMachinePresenterType! { get set }
+    
     func displayProducts()
     func displayBalance()
 }
