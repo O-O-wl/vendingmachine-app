@@ -18,7 +18,23 @@ protocol VendingMachinePresenterType: MoneyHandleable {
     mutating func execute() throws
 }
 
-class VendingMachinePresenter: NSObject, NSCoding {
+class VendingMachinePresenter: NSObject, NSCoding, Saveable {
+    
+    static var key: String {
+        return String(describing: self)
+    }
+    
+    static let shared: VendingMachinePresenter = {
+        if
+            let loaded = UserDefaultsManager.load(type: VendingMachinePresenter.self) {
+            return loaded
+        } else {
+            return .init(balance: Money(value: 0),
+                         inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
+                         history: History())
+        }
+    }()
+    
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
@@ -27,14 +43,14 @@ class VendingMachinePresenter: NSObject, NSCoding {
     private var history: History
     private var strategy: StateHandleable?
     
-    init(balance: Money,
-         inventory: Storable,
-         history: History) {
+    private init(balance: Money,
+                 inventory: Storable,
+                 history: History) {
         self.balance = balance
         self.inventory = inventory
         self.history = history
     }
-
+    
     // MARK: NSCoding
     required init?(coder: NSCoder) {
         self.balance = coder.decodeObject(forKey: Keys.balance.rawValue) as! Money
