@@ -10,26 +10,28 @@ import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
 
-protocol VendingMachinePresenterType: MoneyHandleable {
+protocol VendingMachinePresenterType: class, MoneyHandleable {
     var numOfRow: Int { get }
     func cellForItemAt(index: Int) -> ProductStatistic
-    mutating func setStrategy(_ strategy: StateHandleable?)
+    func setStrategy(_ strategy: StateHandleable?)
     func searchItem(at index: Int) -> Beverage?
-    mutating func execute() throws
+    func execute() throws
 }
 
 class VendingMachinePresenter: NSObject, NSCoding {
     
-    static let shared: VendingMachinePresenter = {
-        if
-            let loaded = UserDefaultsManager.load(type: VendingMachinePresenter.self) {
-            return loaded
+    private static var _shared: VendingMachinePresenter?
+    
+    static var shared: VendingMachinePresenter {
+        if let shared = _shared {
+            return shared
         } else {
-            return .init(balance: Money(value: 0),
-                         inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
-                         history: History())
+            _shared = UserDefaultsManager.load(type: VendingMachinePresenter.self)
         }
-    }()
+        return _shared ?? .init(balance: Money(value: 0),
+                                inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
+                                history: History())
+    }
     
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
@@ -52,6 +54,10 @@ class VendingMachinePresenter: NSObject, NSCoding {
         self.balance = coder.decodeObject(forKey: Keys.balance.rawValue) as! Money
         self.inventory = coder.decodeObject(forKey: Keys.inventory.rawValue) as! Inventory
         self.history = coder.decodeObject(forKey: Keys.history.rawValue) as! History
+    }
+    
+    static func destory() {
+        _shared = nil
     }
     
     func encode(with coder: NSCoder) {
@@ -110,7 +116,7 @@ extension VendingMachinePresenter: ProductStatisticHandleable {
         handler(inventory.statistic)
     }
 }
-// MARK: -  + VendingMachinePresenterType
+// MARK: - + VendingMachinePresenterType
 extension VendingMachinePresenter: VendingMachinePresenterType {
     
     var numOfRow: Int {
