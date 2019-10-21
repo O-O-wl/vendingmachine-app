@@ -27,13 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         UserDefaultsManager.save(object: VendingMachinePresenter.shared)
+        VendingMachinePresenter.destory()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        guard
+            var view = window?.rootViewController as? VendingMachineViewType
+            else { return }
+        view.presenter = VendingMachinePresenter.shared
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         UserDefaultsManager.save(object: VendingMachinePresenter.shared)
+        VendingMachinePresenter.destory()
     }
     
 }

@@ -24,7 +24,7 @@ struct UserDefaultsManager {
         return value
     }
     
-    static func save<T: Saveable>(object: T) {
+   static func save<T: Saveable>(object: T) {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: object,
                                                          requiringSecureCoding: false)

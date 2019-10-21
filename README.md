@@ -279,3 +279,121 @@ public required init(objects: UnsafePointer<AnyObject>!, forKeys keys: UnsafePoi
 
 ## Step4
 
+`VendingmahcinePresenter` 를 싱글턴으로 구현했다.
+
+근데 구현을 하면서 느낀점은 **자기 자신의 생성을 자신이 책임**을 지다보니 너무 메소드가 커지는 것을 느꼈다.
+
+그리고 이 경우에는 언아카이빙과 아카이빙에 대한 로직이 생성과 관련되어서 더욱 생성자가 커져서 언/아카이빙을 분리하고 싶었다.
+
+그래서` UserDefaultsManager` 라는 `UserDefaults` 를 핸들링하는 객체 분리해냈다.
+
+싱글턴을 객체와 구조체로 구현해보았다.
+
+구조체는 엄밀히 말해서는 한 개의 인스턴스를 가지지는 않기에, 싱글턴이라고 말하기는 모호하지만, 비슷한 형태로 구현했다.
+
+사실 전역메소드를 특정 네임스페이스에 가둬둔 형태로 구현했다.
+
+```swift
+protocol Saveable {
+    static var key: String { get }
+}
+
+struct UserDefaultsManager {
+    
+    private init() {}
+    
+    static func load<T: Saveable>(type: T.Type) -> T? {
+        guard
+            let data = UserDefaults.standard.data(forKey: type.key),
+            let value = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? T
+            else { return nil }
+        return value
+    }
+    
+   static func save<T: Saveable>(object: T) {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: object,
+                                                         requiringSecureCoding: false)
+            UserDefaults.standard.set(data, forKey: T.key)
+        } catch let error {
+            print("UserDefault Save Failure: \(error.localizedDescription)")
+        }
+        
+    }
+}
+```
+
+(언)아카이빙을 담당하는 구조체를 두었고, 또 다른 싱글턴 객체를 구현했다.
+
+
+
+```swift
+class VendingMachinePresenter: NSObject, NSCoding, Saveable {
+	static var key: String {
+	      return String(describing: self)
+		 }
+
+  static let shared: VendingMachinePresenter = {
+     if
+         let loaded = UserDefaultsManager.load(type: VendingMachinePresenter.self) {
+         return loaded
+     } else {
+         return .init(balance: Money(value: 0),
+                      inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
+                      history: History())
+     }
+ }()
+```
+그래서 조금 더 로직을 분리해냈다.
+
+---
+
+### Step4 - 피드백 및 개선
+
+- #### 피드백 #1 🤔
+
+[![@godrm](https://avatars0.githubusercontent.com/u/278988?s=60&v=4)](https://github.com/godrm) **godrm**
+
+> `view.presenter = VendingMachinePresenter.shared`
+> 이렇게 싱글톤 객체를 외부에서 넣어주면,
+> 백그라운드에 들어갔다가 나올 때마다 `view.presenter` 와 `VendingMachinePresenter.shared`달라지지 않나요?
+> 자판기 객체가 계속 바뀌는 현상이 생기지 않는지 확인해보세요.
+
+- **나의 생각과 고민  💬**
+
+  - 개인적으로 싱글턴객체가 중간에 reset 되야한다는 생각을 해본 적이 없었다. 하지만 충분히 가능한 상황들이 있을 것 같았다.
+
+  - ```swift   
+    
+    class VendingMachinePresenter: NSObject, NSCoding {
+        
+        private static var _shared: VendingMachinePresenter?
+        
+        static var shared: VendingMachinePresenter {
+            if let shared = _shared {
+                return shared
+            } else {
+                _shared = UserDefaultsManager.load(type: VendingMachinePresenter.self)
+            }
+            return _shared ?? .init(balance: Money(value: 0),
+                                    inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
+                                    history: History())
+        }
+      
+      
+        static func destory() {
+            _shared = nil
+        }
+        
+    ```
+
+  - 위와 같이 개선했다. 하지만 실제 객체그래프를 찍어보니, Presenter가 살아있었다.
+
+  - ```swift
+    class VendingMachineViewController: UIViewController {
+        
+        // MARK: Properties
+        weak var presenter: VendingMachinePresenterType!
+    ```
+
+  - 위와 같이 싱글턴 객체는 자기 자신이 메모리관리를 하게하기위해서, 다른 부분에서는 weak 하게 참조하게 개선하였다.

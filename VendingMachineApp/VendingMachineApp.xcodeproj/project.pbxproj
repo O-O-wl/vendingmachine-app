@@ -206,6 +206,7 @@
 		0EA2EF372338FB520090555A /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */,
 				0EA2EF382338FB520090555A /* Extensions.swift */,
 			);
 			path = Util;
@@ -222,7 +223,6 @@
 				0EA2EF412338FB680090555A /* History.swift */,
 				0EA2EF472338FB680090555A /* ProductStatistic.swift */,
 				0EA2EF482338FB680090555A /* Strategy */,
-				0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */,
 			);
 			path = Structure;
 			sourceTree = "<group>";

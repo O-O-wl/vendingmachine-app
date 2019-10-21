@@ -18,7 +18,7 @@ protocol VendingMachineViewType {
 class VendingMachineViewController: UIViewController {
     
     // MARK: Properties
-    var presenter: VendingMachinePresenterType!
+    weak var presenter: VendingMachinePresenterType!
     
     // MARK: IBOutlet
     @IBOutlet weak var productsCollectionView: UICollectionView!
@@ -46,6 +46,7 @@ class VendingMachineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+         
     }
     
     func setupCollectionView() {
