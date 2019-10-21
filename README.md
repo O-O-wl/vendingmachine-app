@@ -393,7 +393,8 @@ class VendingMachinePresenter: NSObject, NSCoding, Saveable {
     class VendingMachineViewController: UIViewController {
         
         // MARK: Properties
-        weak var presenter: VendingMachinePresenterType!
+        unowned var presenter: VendingMachinePresenterType!
     ```
 
-  - 위와 같이 싱글턴 객체는 자기 자신이 메모리관리를 하게하기위해서, 다른 부분에서는 weak 하게 참조하게 개선하였다.
+  - 위와 같이 싱글턴 객체는 자기 자신이 메모리관리를 하게하기위해서, 다른 부분에서는 unowned 하게 참조하게 개선하였다.
+

@@ -18,7 +18,7 @@ protocol VendingMachineViewType {
 class VendingMachineViewController: UIViewController {
     
     // MARK: Properties
-    weak var presenter: VendingMachinePresenterType!
+    unowned var presenter: VendingMachinePresenterType!
     
     // MARK: IBOutlet
     @IBOutlet weak var productsCollectionView: UICollectionView!
