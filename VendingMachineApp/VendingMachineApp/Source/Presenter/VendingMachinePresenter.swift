@@ -36,9 +36,24 @@ class VendingMachinePresenter: NSObject, NSCoding {
     var isOnSale: Bool {
         return !inventory.filter(by: .all).isEmpty
     }
-    private var balance: Money
-    private var inventory: Storable
-    private var history: History
+    private var balance: Money {
+        didSet {
+            NotificationCenter.default.post(name: AppEvent.balanceDidChanged.name,
+                                            object: nil)
+        }
+    }
+    private var inventory: Storable {
+           didSet {
+               NotificationCenter.default.post(name: AppEvent.productsDidChanged.name,
+                                               object: nil)
+           }
+       }
+    private var history: History {
+        didSet {
+            NotificationCenter.default.post(name: AppEvent.historyDidChanged.name,
+                                            object: nil)
+        }
+    }
     private var strategy: StateHandleable?
     
     private init(balance: Money,
