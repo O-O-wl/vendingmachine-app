@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
+		0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB5BC2360724100301EAC /* AppEvent.swift */; };
 		0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFC2338E7470090555A /* AppDelegate.swift */; };
 		0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */; };
 		0EA2EF022338E7470090555A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF002338E7470090555A /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		0E4AB5BC2360724100301EAC /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
 		0EA2EEF92338E7470090555A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EEFC2338E7470090555A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				0EA2EF212338FB2E0090555A /* Milk */,
 				0EA2EF252338FB2E0090555A /* Soda */,
 				0EA2EF292338FB2E0090555A /* Coffee */,
+				0E4AB5BC2360724100301EAC /* AppEvent.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */,
 				0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */,
 				0EA2EF362338FB2E0090555A /* Americano.swift in Sources */,
+				0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */,
 				0EA2EF332338FB2E0090555A /* EnergyDrink.swift in Sources */,
 				0EA2EF2F2338FB2E0090555A /* Milk.swift in Sources */,
 			);

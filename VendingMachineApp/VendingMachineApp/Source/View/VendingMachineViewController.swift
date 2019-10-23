@@ -21,7 +21,11 @@ class VendingMachineViewController: UIViewController {
     unowned var presenter: VendingMachinePresenterType!
     
     // MARK: IBOutlet
-    @IBOutlet weak var productsCollectionView: UICollectionView!
+    @IBOutlet weak var productsCollectionView: UICollectionView! {
+        didSet {
+            setupCollectionView()
+        }
+    }
     @IBOutlet weak var add1000WonButton: UIButton!
     @IBOutlet weak var add5000WonButton: UIButton!
     @IBOutlet weak var balanceLabel: UILabel!
@@ -39,14 +43,21 @@ class VendingMachineViewController: UIViewController {
                                            completion: { _ in ()})
         presenter.setStrategy(strategy)
         try? presenter.execute()
-        displayBalance()
+        //        displayBalance()
     }
     
     // MARK: ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
-         
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayBalance),
+                                               name: AppEvent.balanceDidChanged.name,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayProducts),
+                                               name: AppEvent.productsDidChanged.name,
+                                               object: nil)
     }
     
     func setupCollectionView() {
@@ -65,10 +76,12 @@ class VendingMachineViewController: UIViewController {
 // MARK: - + VendingMachineView
 extension VendingMachineViewController: VendingMachineViewType {
     
+    @objc
     func displayProducts() {
         productsCollectionView.reloadData()
     }
     
+    @objc
     func displayBalance() {
         presenter.handleMoney { self.balanceLabel.text = $0.description }
     }
@@ -84,7 +97,7 @@ extension VendingMachineViewController: UICollectionViewDelegate {
         presenter.setStrategy(InStockStrategy(stockToAdd: selected,
                                               completion: { _ in }))
         try? presenter.execute()
-        displayProducts()
+//        displayProducts()
     }
 }
 // MARK: - + UICollectionViewDataSource
@@ -131,4 +144,3 @@ extension VendingMachineViewController: UICollectionViewDelegateFlowLayout {
                       height: side)
     }
 }
-
