@@ -36,6 +36,10 @@ class VendingMachineViewController: UIViewController {
         super.init(coder: coder)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     // MARK: IBAction
     @IBAction func addBalanceButton(_ sender: UIButton) {
         let amount = Int(sender.titleLabel!.text!)
@@ -43,7 +47,6 @@ class VendingMachineViewController: UIViewController {
                                            completion: { _ in ()})
         presenter.setStrategy(strategy)
         try? presenter.execute()
-        //        displayBalance()
     }
     
     // MARK: ViewController Life cycle
@@ -97,7 +100,6 @@ extension VendingMachineViewController: UICollectionViewDelegate {
         presenter.setStrategy(InStockStrategy(stockToAdd: selected,
                                               completion: { _ in }))
         try? presenter.execute()
-//        displayProducts()
     }
 }
 // MARK: - + UICollectionViewDataSource

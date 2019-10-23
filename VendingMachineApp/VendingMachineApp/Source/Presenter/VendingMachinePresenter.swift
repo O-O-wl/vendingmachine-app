@@ -43,11 +43,11 @@ class VendingMachinePresenter: NSObject, NSCoding {
         }
     }
     private var inventory: Storable {
-           didSet {
-               NotificationCenter.default.post(name: AppEvent.productsDidChanged.name,
-                                               object: nil)
-           }
-       }
+        didSet {
+            NotificationCenter.default.post(name: AppEvent.productsDidChanged.name,
+                                            object: nil)
+        }
+    }
     private var history: History {
         didSet {
             NotificationCenter.default.post(name: AppEvent.historyDidChanged.name,

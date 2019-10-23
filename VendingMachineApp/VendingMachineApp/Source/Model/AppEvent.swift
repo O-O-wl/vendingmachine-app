@@ -21,4 +21,3 @@ enum AppEvent: String, NotificationConvertable {
         return NSNotification.Name(self.rawValue)
     }
 }
-
