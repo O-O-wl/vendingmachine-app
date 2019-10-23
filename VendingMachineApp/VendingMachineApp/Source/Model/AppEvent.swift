@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol NotificationConvertable {
+protocol NotificationConvertible {
     var name: NSNotification.Name { get }
 }
 
-enum AppEvent: String, NotificationConvertable {
+enum AppEvent: String, NotificationConvertible {
     case productsDidChanged
     case balanceDidChanged
     case historyDidChanged
