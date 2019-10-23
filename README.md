@@ -398,3 +398,55 @@ class VendingMachinePresenter: NSObject, NSCoding, Saveable {
 
   - 위와 같이 싱글턴 객체는 자기 자신이 메모리관리를 하게하기위해서, 다른 부분에서는 unowned 하게 참조하게 개선하였다.
 
+
+
+### Step5 
+
+---
+
+`NotificationCenter`를 이용해서  `ViewController`에서 바로 값을 가저와서 적용하게 하지 않고, 
+
+특정 Notification을 관찰하게 구현을 했다.
+
+```swift
+// 구독하기
+NotificationCenter.default.addObserver(self, 
+                                       selector: #selector(eventDidOccured)
+                                       name: NSNotociation.Name("event"), 
+                                       object: nil)
+// 알리기
+NotificationCenter.default.post(name: NSNotociation.Name("event"), 
+                                object: nil)
+
+
+```
+
+의 형태로 구현을 하는 데,  name이 구독과 알림을 결정하는 중요한 키가 된다.
+하지만 `String`형태로 구현되어 있으면 미스타이핑이 충분히 일어날 수 있고, 또 수정시 `addObserver/ post` 부분의 키워드를 모두 변경해야하는  불안한 형태의 코드라고 생각되어 이 부분만 조금 개선해보았다.
+
+```swift
+protocol NotificationConvertable {
+    var name: NSNotification.Name { get }
+}
+
+enum AppEvent: String, NotificationConvertable {
+    case productsDidChanged
+    case balanceDidChanged
+    case historyDidChanged
+    
+    var name: NSNotification.Name {
+        return NSNotification.Name(self.rawValue)
+    }
+}
+```
+
+열거형으로 구현함으로써, `Notification.Name`키워드의 변경을 한 곳에서 관리할 수 있게 변경했다.
+
+
+
+**KVO vs Delegation vs NotificationCenter** 
+
+다른 두 객체간의 소통 방법을 구현하는 방식인데 작은 차이들이 있어 이 부분은 추후 공부해아할 것 같다. 
+
+
+
