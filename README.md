@@ -417,12 +417,10 @@ NotificationCenter.default.addObserver(self,
 // 알리기
 NotificationCenter.default.post(name: NSNotociation.Name("event"), 
                                 object: nil)
-
-
 ```
 
 의 형태로 구현을 하는 데,  name이 구독과 알림을 결정하는 중요한 키가 된다.
-하지만 `String`형태로 구현되어 있으면 미스타이핑이 충분히 일어날 수 있고, 또 수정시 `addObserver/ post` 부분의 키워드를 모두 변경해야하는  불안한 형태의 코드라고 생각되어 이 부분만 조금 개선해보았다.
+하지만 `String`형태로 구현되어 있으면 미스타이핑이 충분히 일어날 수 있고, 또 수정시 `addObserver / post` 부분의 키워드를 모두 변경해야하는  불안한 형태의 코드라고 생각되어 이 부분만 조금 개선해보았다.
 
 ```swift
 protocol NotificationConvertable {
@@ -446,7 +444,7 @@ enum AppEvent: String, NotificationConvertable {
 
 **KVO vs Delegation vs NotificationCenter** 
 
-다른 두 객체간의 소통 방법을 구현하는 방식인데 작은 차이들이 있어 이 부분은 추후 공부해아할 것 같다. 
+다른 두 객체간의 소통 방법을 구현하는 방식인데 작은 차이들이 있어 이 부분은 추후 공부해야할 것 같다. 
 
 
 
