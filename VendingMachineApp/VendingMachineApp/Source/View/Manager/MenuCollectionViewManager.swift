@@ -1,5 +1,5 @@
 //
-//  SoldProductCellData.swift
+//  MenuCollectionViewManager.swift
 //  VendingMachineApp
 //
 //  Created by 이동영 on 25/10/2019.
