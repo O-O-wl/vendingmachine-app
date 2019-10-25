@@ -29,10 +29,16 @@
                         <state key="normal" title="구매하기">
                             <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
+                        <connections>
+                            <action selector="purchaseButtonDidTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PB6-iL-KFK"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58q-tl-5TJ">
                         <rect key="frame" x="62.5" y="0.0" width="25" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <action selector="addButtonDidTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="SV1-VS-LeB"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07Z-rY-jEB">
                         <rect key="frame" x="0.0" y="103.5" width="150" height="20.5"/>
@@ -46,10 +52,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="297" height="306"/>
             <connections>
-                <outlet property="addButton" destination="58q-tl-5TJ" id="ftn-mI-JJc"/>
                 <outlet property="productImageView" destination="3Eq-PU-WkB" id="0LV-sm-C8g"/>
                 <outlet property="productQuantityLabel" destination="07Z-rY-jEB" id="2bo-bi-T9h"/>
-                <outlet property="purchaseButton" destination="lbV-hR-q7Y" id="erJ-us-rYE"/>
             </connections>
             <point key="canvasLocation" x="64.74609375" y="123.86530014641288"/>
         </collectionViewCell>
