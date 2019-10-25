@@ -14,7 +14,7 @@ protocol ProductDisplayable {
     var productQuantity: Int { get }
 }
 
-struct ProductStatistic: ProductDisplayable {
+struct ProductCellData: ProductDisplayable {
     var productName: String
     var productPrice: String
     var productQuantity: Int

@@ -11,11 +11,16 @@ import Foundation
 typealias State = (balance: Money, inventory: Storable, history: History)
 
 protocol VendingMachineServiceType: class, MoneyHandleable {
-    var numOfRow: Int { get }
-    func cellForItemAt(index: Int) -> ProductStatistic
+    var numOfMenu: Int { get }
+    func cellForProductAt(index: Int) -> ProductCellData
     func setStrategy(_ strategy: StateHandleable?)
     func searchItem(at index: Int) -> Beverage?
     func execute() throws
+}
+
+protocol SoldHistoryServiceType: class {
+    var numOfSoldItem: Int { get }
+    func cellForSoldItemAt(index: Int) -> SoldProductCellData
 }
 
 class VendingMachineService: NSObject, NSCoding {
@@ -26,11 +31,15 @@ class VendingMachineService: NSObject, NSCoding {
         if let shared = _shared {
             return shared
         } else {
-            _shared = UserDefaultsManager.load(type: VendingMachineService.self)
-        }
-        return _shared ?? .init(balance: Money(value: 0),
-                                inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
+            if let loaded = UserDefaultsManager.load(type: VendingMachineService.self) {
+                _shared = loaded
+            } else {
+                _shared = .init(balance: Money(value: 0),
+                                inventory: Inventory(products: BeverageFactory.createAll(quantity: 1)),
                                 history: History())
+            }
+        }
+        return _shared!
     }
     
     var isOnSale: Bool {
@@ -127,19 +136,31 @@ extension VendingMachineService: MoneyHandleable {
 // MARK: - + MoneyHandleable
 extension VendingMachineService: ProductStatisticHandleable {
     
-    func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void) {
+    func handleProductStatistic(_ handler: ([ProductCellData]) -> Void) {
         handler(inventory.statistic)
     }
 }
 // MARK: - + VendingMachinePresenterType
 extension VendingMachineService: VendingMachineServiceType {
     
-    var numOfRow: Int {
+    var numOfMenu: Int {
         return inventory.statistic.count
     }
     
-    func cellForItemAt(index: Int) -> ProductStatistic {
+    func cellForProductAt(index: Int) -> ProductCellData {
         return inventory.statistic[index]
+    }
+    
+}
+// MARK: - + VendingMachinePresenterType
+extension VendingMachineService: SoldHistoryServiceType {
+    var numOfSoldItem: Int {
+        return history.soldProducts.count
+    }
+    
+    func cellForSoldItemAt(index: Int) -> SoldProductCellData {
+        let assetName = history.soldProducts[index].productName
+        return SoldProductCellData(soldProductAssetName: assetName)
     }
     
 }
