@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard
             var view = window?.rootViewController as? VendingMachineViewType
             else { return true }
-        view.presenter = VendingMachinePresenter.shared
+        view.service = VendingMachineService.shared
         return true
     }
     
@@ -26,20 +26,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-        UserDefaultsManager.save(object: VendingMachinePresenter.shared)
-        VendingMachinePresenter.destory()
+        UserDefaultsManager.save(object: VendingMachineService.shared)
+        VendingMachineService.destory()
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         guard
             var view = window?.rootViewController as? VendingMachineViewType
             else { return }
-        view.presenter = VendingMachinePresenter.shared
+        view.service = VendingMachineService.shared
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        UserDefaultsManager.save(object: VendingMachinePresenter.shared)
-        VendingMachinePresenter.destory()
+        UserDefaultsManager.save(object: VendingMachineService.shared)
+        VendingMachineService.destory()
     }
     
 }

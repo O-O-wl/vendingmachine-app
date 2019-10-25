@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Storable {
-    var statistic: [ProductStatistic] { get }
+    var statistic: [ProductCellData] { get }
     
     func addStock(_ product: Beverage)
     func search(at index: Int) -> Beverage?
@@ -22,10 +22,10 @@ class Inventory: NSObject, NSCoding, Storable {
     
     private var stock: [Beverage: [Beverage]] = [:]
     
-    var statistic: [ProductStatistic] {
+    var statistic: [ProductCellData] {
         return stock
             .map {
-                ProductStatistic(productName: $0.key.productName,
+                ProductCellData(productName: $0.key.productName,
                                  productPrice: $0.key.productPrice.description,
                                  productQuantity: $0.value.count)
         }

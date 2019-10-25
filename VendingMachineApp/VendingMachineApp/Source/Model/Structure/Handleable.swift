@@ -13,5 +13,10 @@ protocol MoneyHandleable {
 }
 
 protocol ProductStatisticHandleable {
-    func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void)
+    func handleProductStatistic(_ handler: ([ProductCellData]) -> Void)
 }
+
+protocol HistoryHandleable {
+    func handleHistory(_ handler: (History) -> Void)
+}
+
