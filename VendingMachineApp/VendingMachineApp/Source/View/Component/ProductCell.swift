@@ -17,6 +17,8 @@ class ProductCell: UICollectionViewCell {
     // MARK: IBOutlet
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productQuantityLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var purchaseButton: UIButton!
     // MARK: Method
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,47 +30,6 @@ class ProductCell: UICollectionViewCell {
                                          height: 10)
         self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 0.5
-        self.translatesAutoresizingMaskIntoConstraints = false
-        setAutoLayout()
-    }
-    
-    private func setAutoLayout() {
-        NSLayoutConstraint.activate([productImageView
-            .topAnchor
-            .constraint(equalToSystemSpacingBelow: self.contentView.topAnchor,
-                        multiplier: 0),
-        productImageView
-            .leadingAnchor
-            .constraint(equalToSystemSpacingAfter: self.contentView.leadingAnchor,
-                        multiplier: 0),
-        productImageView
-            .trailingAnchor
-            .constraint(equalToSystemSpacingAfter: self.contentView.trailingAnchor,
-                        multiplier: 0),
-        productImageView
-            .widthAnchor
-            .constraint(equalTo: self.contentView.widthAnchor,
-                        multiplier: 0.8),
-        productImageView
-            .heightAnchor
-            .constraint(equalTo: productImageView.widthAnchor, multiplier: 1),
-        productQuantityLabel
-            .topAnchor
-            .constraint(equalToSystemSpacingBelow: productImageView.topAnchor,
-                        multiplier: 0),
-        productQuantityLabel
-            .leadingAnchor
-            .constraint(equalToSystemSpacingAfter: self.contentView.leadingAnchor,
-                        multiplier: 0),
-        productQuantityLabel
-            .trailingAnchor
-            .constraint(equalToSystemSpacingAfter: self.contentView.trailingAnchor,
-                        multiplier: 0),
-        productQuantityLabel
-            .bottomAnchor
-            .constraint(equalTo: self.contentView.bottomAnchor,
-                        constant: -10)
-        ])
     }
     
     func configure(product: ProductStatistic) {
