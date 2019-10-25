@@ -9,8 +9,9 @@
 import UIKit
 
 protocol VendingMachineViewType {
-    var presenter: VendingMachinePresenterType! { get set }
+    var service: VendingMachineServiceType! { get set }
     
+    func displayHistory()
     func displayProducts()
     func displayBalance()
 }
@@ -18,23 +19,37 @@ protocol VendingMachineViewType {
 class VendingMachineViewController: UIViewController {
     
     // MARK: Properties
-    unowned var presenter: VendingMachinePresenterType!
+    unowned var service: VendingMachineServiceType!
+    lazy var errorHandler = ErrorHandler { [weak self] error in
+        let errorAlert = UIAlertController(error: error)
+        self?.present(errorAlert,
+                      animated: true)
+    }
+    
+    let menuCollectionViewManager = MenuCollectionViewManager()
+    let historyCollectionViewManager = HistoryCollectionViewManager()
     
     // MARK: IBOutlet
-    @IBOutlet weak var productsCollectionView: UICollectionView! {
+    @IBOutlet weak var menuCollectionView: UICollectionView! {
         didSet {
-            setupCollectionView()
+            setupMenuCollectionView()
+        }
+    }
+    
+    @IBOutlet weak var historyCollectionView: UICollectionView! {
+        didSet {
+            setupHistoryCollectionView()
         }
     }
     @IBOutlet weak var add1000WonButton: UIButton!
     @IBOutlet weak var add5000WonButton: UIButton!
-    @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var balanceLabel: UILabel! {
+        didSet {
+            displayBalance()
+        }
+    }
     
     // MARK: Methods
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -45,14 +60,18 @@ class VendingMachineViewController: UIViewController {
         let amount = Int(sender.titleLabel!.text!)
         let strategy = MoneyInsertStrategy(moneyToAdd: Money(value: amount!),
                                            completion: { _ in ()})
-        presenter.setStrategy(strategy)
-        try? presenter.execute()
+        service.setStrategy(strategy)
+        do {
+            try service.execute()
+        } catch let error {
+            errorHandler.handle(error)
+        }
     }
     
     // MARK: ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        menuCollectionViewManager.errorHandler = errorHandler
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(displayBalance),
                                                name: AppEvent.balanceDidChanged.name,
@@ -61,18 +80,40 @@ class VendingMachineViewController: UIViewController {
                                                selector: #selector(displayProducts),
                                                name: AppEvent.productsDidChanged.name,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayHistory),
+                                               name: AppEvent.historyDidChanged.name,
+                                               object: nil)
     }
     
-    func setupCollectionView() {
-        productsCollectionView.dataSource = self
-        productsCollectionView.delegate = self
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    private func setupMenuCollectionView() {
+        menuCollectionView.dataSource = menuCollectionViewManager
+        menuCollectionView.delegate = menuCollectionViewManager
+        
         let productCellNib = UINib(nibName: ProductCell.nibName,
                                    bundle: .main)
-        productsCollectionView.register(productCellNib,
-                                        forCellWithReuseIdentifier: ProductCell.reuseId)
-        productsCollectionView.isScrollEnabled = false
+        menuCollectionView.register(productCellNib,
+                                    forCellWithReuseIdentifier: ProductCell.reuseId)
+        menuCollectionView.isScrollEnabled = false
+    }
+    
+    private func setupHistoryCollectionView() {
+        historyCollectionView.dataSource = historyCollectionViewManager
+        historyCollectionView.delegate = historyCollectionViewManager
+
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = -20
+        historyCollectionView.collectionViewLayout = layout
         
-        displayBalance()
+        let soldProductCellNib = UINib(nibName: SoldProductCell.nibName,
+                                       bundle: .main)
+        historyCollectionView.register(soldProductCellNib,
+                                       forCellWithReuseIdentifier: SoldProductCell.reuseId)
+        historyCollectionView.isScrollEnabled = false
     }
     
 }
@@ -81,68 +122,16 @@ extension VendingMachineViewController: VendingMachineViewType {
     
     @objc
     func displayProducts() {
-        productsCollectionView.reloadData()
+        menuCollectionView.reloadData()
     }
     
     @objc
     func displayBalance() {
-        presenter.handleMoney { self.balanceLabel.text = $0.description }
-    }
-}
-// MARK: - + UICollectionView Delegate
-extension VendingMachineViewController: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        didSelectItemAt indexPath: IndexPath) {
-        guard
-            let selected = presenter.searchItem(at: indexPath.item)
-            else { return }
-        presenter.setStrategy(InStockStrategy(stockToAdd: selected,
-                                              completion: { _ in }))
-        try? presenter.execute()
-    }
-}
-// MARK: - + UICollectionViewDataSource
-extension VendingMachineViewController: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        return presenter.numOfRow
+        service.handleMoney { self.balanceLabel.text = $0.description }
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCell.reuseId,
-                                                      for: indexPath)
-        guard
-            let productCell = cell as? ProductCell
-            else { return cell }
-        let model = presenter.cellForItemAt(index: indexPath.item)
-        productCell.configure(product: model)
-        return productCell
-    }
-    
-}
-// MARK: - + UICollectionViewDelegateFlowLayout
-extension VendingMachineViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-        let itemSide = collectionView.bounds.width/7
-        let insetY = (productsCollectionView.bounds.height - itemSide)/2
-        return UIEdgeInsets(top: insetY,
-                            left: 15,
-                            bottom: 0,
-                            right: 15)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfCellsInRow: CGFloat = CGFloat(collectionView.numberOfItems(inSection: indexPath.section)) + 1
-        let side = collectionView.bounds.width/numberOfCellsInRow
-        return CGSize(width: side,
-                      height: side)
+    @objc
+    func displayHistory() {
+        historyCollectionView.reloadData()
     }
 }
