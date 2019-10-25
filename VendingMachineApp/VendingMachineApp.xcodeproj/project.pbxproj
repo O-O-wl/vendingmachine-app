@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
 		0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB5BC2360724100301EAC /* AppEvent.swift */; };
+		0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB65D2363289100301EAC /* SoldProductCell.swift */; };
+		0E4AB6602363289100301EAC /* SoldProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E4AB65E2363289100301EAC /* SoldProductCell.xib */; };
+		0E4AB6622363292600301EAC /* BaseProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6612363292600301EAC /* BaseProductCell.swift */; };
+		0E4AB66423632D5900301EAC /* SoldProductCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB66323632D5900301EAC /* SoldProductCellData.swift */; };
+		0E4AB6682363434C00301EAC /* MenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */; };
+		0E4AB66A2363435F00301EAC /* HistoryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */; };
 		0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFC2338E7470090555A /* AppDelegate.swift */; };
 		0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */; };
 		0EA2EF022338E7470090555A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF002338E7470090555A /* Main.storyboard */; };
@@ -30,9 +36,9 @@
 		0EA2EF4F2338FB680090555A /* Money.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3C2338FB680090555A /* Money.swift */; };
 		0EA2EF512338FB680090555A /* Handleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3E2338FB680090555A /* Handleable.swift */; };
 		0EA2EF522338FB680090555A /* Inventory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF3F2338FB680090555A /* Inventory.swift */; };
-		0EA2EF532338FB680090555A /* VendingMachinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF402338FB680090555A /* VendingMachinePresenter.swift */; };
+		0EA2EF532338FB680090555A /* VendingMachineService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF402338FB680090555A /* VendingMachineService.swift */; };
 		0EA2EF542338FB680090555A /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF412338FB680090555A /* History.swift */; };
-		0EA2EF592338FB680090555A /* ProductStatistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF472338FB680090555A /* ProductStatistic.swift */; };
+		0EA2EF592338FB680090555A /* ProductCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF472338FB680090555A /* ProductCellData.swift */; };
 		0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF492338FB680090555A /* InStockStrategy.swift */; };
 		0EA2EF5B2338FB680090555A /* DeStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4A2338FB680090555A /* DeStockStrategy.swift */; };
 		0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4B2338FB680090555A /* StateHandleable.swift */; };
@@ -59,6 +65,12 @@
 /* Begin PBXFileReference section */
 		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0E4AB5BC2360724100301EAC /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
+		0E4AB65D2363289100301EAC /* SoldProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldProductCell.swift; sourceTree = "<group>"; };
+		0E4AB65E2363289100301EAC /* SoldProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SoldProductCell.xib; sourceTree = "<group>"; };
+		0E4AB6612363292600301EAC /* BaseProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseProductCell.swift; sourceTree = "<group>"; };
+		0E4AB66323632D5900301EAC /* SoldProductCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldProductCellData.swift; sourceTree = "<group>"; };
+		0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewManager.swift; sourceTree = "<group>"; };
+		0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewManager.swift; sourceTree = "<group>"; };
 		0EA2EEF92338E7470090555A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EEFC2338E7470090555A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
@@ -84,9 +96,9 @@
 		0EA2EF3C2338FB680090555A /* Money.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Money.swift; sourceTree = "<group>"; };
 		0EA2EF3E2338FB680090555A /* Handleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Handleable.swift; sourceTree = "<group>"; };
 		0EA2EF3F2338FB680090555A /* Inventory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Inventory.swift; sourceTree = "<group>"; };
-		0EA2EF402338FB680090555A /* VendingMachinePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachinePresenter.swift; sourceTree = "<group>"; };
+		0EA2EF402338FB680090555A /* VendingMachineService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VendingMachineService.swift; sourceTree = "<group>"; };
 		0EA2EF412338FB680090555A /* History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
-		0EA2EF472338FB680090555A /* ProductStatistic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductStatistic.swift; sourceTree = "<group>"; };
+		0EA2EF472338FB680090555A /* ProductCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCellData.swift; sourceTree = "<group>"; };
 		0EA2EF492338FB680090555A /* InStockStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InStockStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4A2338FB680090555A /* DeStockStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeStockStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4B2338FB680090555A /* StateHandleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHandleable.swift; sourceTree = "<group>"; };
@@ -124,6 +136,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E4AB66523632F5D00301EAC /* CellData */ = {
+			isa = PBXGroup;
+			children = (
+				0EA2EF472338FB680090555A /* ProductCellData.swift */,
+				0E4AB66323632D5900301EAC /* SoldProductCellData.swift */,
+			);
+			path = CellData;
+			sourceTree = "<group>";
+		};
+		0E4AB6662363432C00301EAC /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */,
+				0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		0EA2EEF02338E7470090555A = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +254,6 @@
 				0EA2EF3E2338FB680090555A /* Handleable.swift */,
 				0EA2EF3F2338FB680090555A /* Inventory.swift */,
 				0EA2EF412338FB680090555A /* History.swift */,
-				0EA2EF472338FB680090555A /* ProductStatistic.swift */,
 				0EA2EF482338FB680090555A /* Strategy */,
 			);
 			path = Structure;
@@ -245,24 +274,25 @@
 		0EA2EF73233A47DD0090555A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0EB044DD233BA8F500185ED5 /* Component */,
+				0E4AB6662363432C00301EAC /* Manager */,
+				0EB044DD233BA8F500185ED5 /* Cell */,
 				0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		0EA2EF74233A47E80090555A /* Presenter */ = {
+		0EA2EF74233A47E80090555A /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				0EA2EF402338FB680090555A /* VendingMachinePresenter.swift */,
+				0EA2EF402338FB680090555A /* VendingMachineService.swift */,
 			);
-			path = Presenter;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		0EA2EF75233A47F30090555A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0EA2EF74233A47E80090555A /* Presenter */,
+				0EA2EF74233A47E80090555A /* Service */,
 				0EA2EF73233A47DD0090555A /* View */,
 				0EA2EF372338FB520090555A /* Util */,
 				0EA2EF1F2338FB2E0090555A /* Model */,
@@ -282,13 +312,17 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		0EB044DD233BA8F500185ED5 /* Component */ = {
+		0EB044DD233BA8F500185ED5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				0E4AB66523632F5D00301EAC /* CellData */,
 				0EB044D9233BA8EB00185ED5 /* ProductCell.swift */,
 				0EB044DA233BA8EB00185ED5 /* ProductCell.xib */,
+				0E4AB65D2363289100301EAC /* SoldProductCell.swift */,
+				0E4AB65E2363289100301EAC /* SoldProductCell.xib */,
+				0E4AB6612363292600301EAC /* BaseProductCell.swift */,
 			);
-			path = Component;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0EF335E3233B1A770066AE3D /* Factory */ = {
@@ -408,6 +442,7 @@
 				0EB044DC233BA8EB00185ED5 /* ProductCell.xib in Resources */,
 				0EA2EF042338E7480090555A /* Assets.xcassets in Resources */,
 				0EA2EF022338E7470090555A /* Main.storyboard in Resources */,
+				0E4AB6602363289100301EAC /* SoldProductCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +525,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA2EF312338FB2E0090555A /* Soda.swift in Sources */,
+				0E4AB6682363434C00301EAC /* MenuCollectionViewManager.swift in Sources */,
+				0E4AB66423632D5900301EAC /* SoldProductCellData.swift in Sources */,
 				0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */,
 				0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */,
 				0EA2EF352338FB2E0090555A /* Coffee.swift in Sources */,
@@ -500,13 +537,15 @@
 				0EA2EF342338FB2E0090555A /* CafeLatte.swift in Sources */,
 				0EF335E9233B1A770066AE3D /* BeverageFactory.swift in Sources */,
 				0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */,
+				0E4AB66A2363435F00301EAC /* HistoryCollectionViewManager.swift in Sources */,
 				0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */,
 				0EA2EF4F2338FB680090555A /* Money.swift in Sources */,
 				0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */,
 				0EA2EF322338FB2E0090555A /* Cola.swift in Sources */,
+				0E4AB6622363292600301EAC /* BaseProductCell.swift in Sources */,
 				0EA2EF302338FB2E0090555A /* ChocolateMilk.swift in Sources */,
-				0EA2EF532338FB680090555A /* VendingMachinePresenter.swift in Sources */,
-				0EA2EF592338FB680090555A /* ProductStatistic.swift in Sources */,
+				0EA2EF532338FB680090555A /* VendingMachineService.swift in Sources */,
+				0EA2EF592338FB680090555A /* ProductCellData.swift in Sources */,
 				0EA2EF392338FB530090555A /* Extensions.swift in Sources */,
 				0EA2EF522338FB680090555A /* Inventory.swift in Sources */,
 				0EA2EF542338FB680090555A /* History.swift in Sources */,
@@ -514,6 +553,7 @@
 				0EA2EF5B2338FB680090555A /* DeStockStrategy.swift in Sources */,
 				0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */,
 				0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */,
+				0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */,
 				0EA2EF362338FB2E0090555A /* Americano.swift in Sources */,
 				0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */,
 				0EA2EF332338FB2E0090555A /* EnergyDrink.swift in Sources */,

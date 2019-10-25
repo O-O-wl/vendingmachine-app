@@ -446,5 +446,9 @@ enum AppEvent: String, NotificationConvertable {
 
 다른 두 객체간의 소통 방법을 구현하는 방식인데 작은 차이들이 있어 이 부분은 추후 공부해야할 것 같다. 
 
+<br>
 
+## Step6
+
+![Oct-26-2019 01-00-03](https://user-images.githubusercontent.com/39197978/67586228-20d7b380-f78c-11e9-960e-9cb8a14a5975.gif)
 
