@@ -44,7 +44,7 @@ extension Array where Element == Product {
                  EnergyDrink().productDescription: 0,
                  Americano().productDescription: 0,
                  CafeLatte().productDescription: 0] }
-
+    
     var countDictionary: [String: Int] {
         var temp = allProductDictionary
         for product in self {
@@ -60,6 +60,13 @@ extension Dictionary where Key == String, Value == Int {
     }
 }
 
-extension CALayer {
-    
+extension UIAlertController {
+    convenience init(error: Error) {
+        self.init(title: "Error",
+                  message: error.localizedDescription,
+                  preferredStyle: .alert)
+        self.addAction(UIAlertAction(title: "확인",
+                                style: .default,
+                                handler: nil))
+    }
 }
