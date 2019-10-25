@@ -10,7 +10,7 @@ import Foundation
 
 class History: NSObject, NSCoding {
     
-    private var soldProducts = [Beverage]()
+    var soldProducts = [Beverage]()
     
     // MARK: NSCoding
     func encode(with coder: NSCoder) {
