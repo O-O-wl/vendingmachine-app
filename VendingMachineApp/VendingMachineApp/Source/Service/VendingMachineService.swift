@@ -10,7 +10,7 @@ import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
 
-protocol VendingMachinePresenterType: class, MoneyHandleable {
+protocol VendingMachineServiceType: class, MoneyHandleable {
     var numOfRow: Int { get }
     func cellForItemAt(index: Int) -> ProductStatistic
     func setStrategy(_ strategy: StateHandleable?)
@@ -18,15 +18,15 @@ protocol VendingMachinePresenterType: class, MoneyHandleable {
     func execute() throws
 }
 
-class VendingMachinePresenter: NSObject, NSCoding {
+class VendingMachineService: NSObject, NSCoding {
     
-    private static var _shared: VendingMachinePresenter?
+    private static var _shared: VendingMachineService?
     
-    static var shared: VendingMachinePresenter {
+    static var shared: VendingMachineService {
         if let shared = _shared {
             return shared
         } else {
-            _shared = UserDefaultsManager.load(type: VendingMachinePresenter.self)
+            _shared = UserDefaultsManager.load(type: VendingMachineService.self)
         }
         return _shared ?? .init(balance: Money(value: 0),
                                 inventory: Inventory(products: BeverageFactory.createAll(quantity: 0)),
@@ -117,7 +117,7 @@ class VendingMachinePresenter: NSObject, NSCoding {
     
 }
 // MARK: - + MoneyHandleable
-extension VendingMachinePresenter: MoneyHandleable {
+extension VendingMachineService: MoneyHandleable {
     
     func handleMoney(_ handler: (Money) -> Void) {
         handler(balance)
@@ -125,14 +125,14 @@ extension VendingMachinePresenter: MoneyHandleable {
     
 }
 // MARK: - + MoneyHandleable
-extension VendingMachinePresenter: ProductStatisticHandleable {
+extension VendingMachineService: ProductStatisticHandleable {
     
     func handleProductStatistic(_ handler: ([ProductStatistic]) -> Void) {
         handler(inventory.statistic)
     }
 }
 // MARK: - + VendingMachinePresenterType
-extension VendingMachinePresenter: VendingMachinePresenterType {
+extension VendingMachineService: VendingMachineServiceType {
     
     var numOfRow: Int {
         return inventory.statistic.count
@@ -144,7 +144,7 @@ extension VendingMachinePresenter: VendingMachinePresenterType {
     
 }
 // MARK: - + Saveable
-extension VendingMachinePresenter: Saveable {
+extension VendingMachineService: Saveable {
     
     static var key: String {
         return String(describing: self)
@@ -152,7 +152,7 @@ extension VendingMachinePresenter: Saveable {
     
 }
 // MARK: Keys
-extension VendingMachinePresenter {
+extension VendingMachineService {
     enum Keys: String {
         case balance = "Balance"
         case inventory = "Inventory"

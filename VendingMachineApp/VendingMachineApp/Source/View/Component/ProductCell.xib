@@ -11,18 +11,31 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProductCell" id="gTV-IL-0wX" customClass="ProductCell" customModule="VendingMachineApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="127" height="139"/>
+            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="127" height="139"/>
+                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Eq-PU-WkB">
-                        <rect key="frame" x="12.5" y="18.5" width="102" height="102"/>
+                        <rect key="frame" x="35.5" y="24" width="79.5" height="79.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbV-hR-q7Y">
+                        <rect key="frame" x="49" y="125" width="55" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                        <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                        <state key="normal" title="구매하기">
+                            <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="58q-tl-5TJ">
+                        <rect key="frame" x="62.5" y="0.0" width="25" height="24"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07Z-rY-jEB">
-                        <rect key="frame" x="0.0" y="120.5" width="127" height="18.5"/>
+                        <rect key="frame" x="0.0" y="103.5" width="150" height="20.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -31,12 +44,14 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="127" height="139"/>
+            <size key="customSize" width="297" height="306"/>
             <connections>
+                <outlet property="addButton" destination="58q-tl-5TJ" id="ftn-mI-JJc"/>
                 <outlet property="productImageView" destination="3Eq-PU-WkB" id="0LV-sm-C8g"/>
                 <outlet property="productQuantityLabel" destination="07Z-rY-jEB" id="2bo-bi-T9h"/>
+                <outlet property="purchaseButton" destination="lbV-hR-q7Y" id="erJ-us-rYE"/>
             </connections>
-            <point key="canvasLocation" x="91.69921875" y="179.42898975109807"/>
+            <point key="canvasLocation" x="64.74609375" y="123.86530014641288"/>
         </collectionViewCell>
     </objects>
 </document>
