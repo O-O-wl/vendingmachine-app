@@ -452,3 +452,10 @@ enum AppEvent: String, NotificationConvertable {
 
 ![Oct-26-2019 01-00-03](https://user-images.githubusercontent.com/39197978/67586228-20d7b380-f78c-11e9-960e-9cb8a14a5975.gif)
 
+
+
+해당 스탭에서 구매한 물품을 뷰로 보여줘야하는 요구사항이 추가되었고,
+
+메인 `View`에 `CollectionView` 가 2개나 되는 형태가 되어서,  메인 `ViewController`가 두개의 `CollectionView`에 대한 `Delegate / DataSource` 역할을 다 하게하니 해당 메소드들이 커졌다.
+
+그래서 이 부분을 개선하기 위해서 각각의 뷰를 핸들링하는 관리자 객체를 분리했다.
