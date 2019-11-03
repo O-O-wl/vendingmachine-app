@@ -8,9 +8,8 @@
 
 import UIKit
 
-protocol ProductCellDelegate: class {
-    func add(_ indexPath: IndexPath)
-    func purchase(_ indexPath: IndexPath)
+protocol CellButtonDelegate: class {
+    func cellButton(_ button: UIButton, didSelectItemAt indexPath: IndexPath)
 }
 
 class ProductCell: BaseProductCell {
@@ -19,32 +18,38 @@ class ProductCell: BaseProductCell {
     static let reuseId = "ProductCell"
     static let nibName = URL(fileURLWithPath: #file).deletingPathExtension().lastPathComponent
     
-    weak var delegate: ProductCellDelegate?
+    weak var delegate: CellButtonDelegate?
     var indexPath: IndexPath?
     
     // MARK: IBOutlet
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productQuantityLabel: UILabel!
+    @IBOutlet weak var cellButton: UIButton!
     
     // MARK: Method
     
     func configure(product: ProductCellData) {
+        
         productImageView.image = UIImage(named: product.productName)
         productQuantityLabel.text = "\(product.productQuantity)개"
     }
     // MARK: IBActions
     
-    @IBAction func addButtonDidTap(_ sender: Any) {
-        guard
-            let indexPath = indexPath
-            else { return }
-        delegate?.add(indexPath)
+    @IBAction func cellButtonDidTap(_ sender: Any) {
+        guard let indexPath = indexPath else { return }
+        
+        delegate?.cellButton(cellButton, didSelectItemAt: indexPath)
     }
     
-    @IBAction func purchaseButtonDidTap(_ sender: Any) {
-        guard
-            let indexPath = indexPath
-            else { return }
-        delegate?.purchase(indexPath)
+    func setStyle(style: CellStyle) {
+        cellButton.setTitle(style.buttonTitle, for: .normal)
     }
+}
+
+struct CellStyle {
+    let buttonTitle: String
+}
+extension CellStyle {
+    static var customer = CellStyle(buttonTitle: "구매하기")
+    static var admin = CellStyle(buttonTitle: "재고 추가")
 }

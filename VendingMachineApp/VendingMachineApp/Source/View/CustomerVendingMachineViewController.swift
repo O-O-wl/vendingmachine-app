@@ -25,8 +25,7 @@ class VendingMachineViewController: UIViewController {
         self?.present(errorAlert,
                       animated: true)
     }
-    
-    let menuCollectionViewManager = MenuCollectionViewManager()
+    let menuCollectionViewManager = UserMenuCollectionViewManager()
     let historyCollectionViewManager = HistoryCollectionViewManager()
     
     // MARK: IBOutlet
@@ -35,7 +34,6 @@ class VendingMachineViewController: UIViewController {
             setupMenuCollectionView()
         }
     }
-    
     @IBOutlet weak var historyCollectionView: UICollectionView! {
         didSet {
             setupHistoryCollectionView()
@@ -46,6 +44,13 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet weak var balanceLabel: UILabel! {
         didSet {
             displayBalance()
+        }
+    }
+    @IBOutlet weak var balanceDisplayView: UIView! {
+        didSet {
+            balanceDisplayView.layer.shadowOpacity = 1
+            balanceDisplayView.layer.shadowOffset = .init(width: -5, height: -5)
+            balanceDisplayView.layer.shadowRadius = 15
         }
     }
     
