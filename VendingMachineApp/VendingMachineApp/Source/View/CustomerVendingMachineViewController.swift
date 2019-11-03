@@ -111,11 +111,11 @@ class CustomerVendingMachineViewController: UIViewController {
     }
     
     private func setupMenuCollectionView() {
-        menuCollectionView.dataSource = menuCollectionViewManager
-        menuCollectionView.delegate = menuCollectionViewManager
-        
         let productCellNib = UINib(nibName: ProductCell.nibName,
                                    bundle: .main)
+        
+        menuCollectionView.dataSource = menuCollectionViewManager
+        menuCollectionView.delegate = menuCollectionViewManager
         menuCollectionView.register(productCellNib,
                                     forCellWithReuseIdentifier: ProductCell.reuseId)
         menuCollectionView.isScrollEnabled = false
@@ -124,7 +124,7 @@ class CustomerVendingMachineViewController: UIViewController {
     private func setupHistoryCollectionView() {
         historyCollectionView.dataSource = historyCollectionViewManager
         historyCollectionView.delegate = historyCollectionViewManager
-
+        
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = -20
         historyCollectionView.collectionViewLayout = layout
@@ -136,22 +136,32 @@ class CustomerVendingMachineViewController: UIViewController {
         historyCollectionView.isScrollEnabled = false
     }
     
-}
-// MARK: - + VendingMachineView
-extension VendingMachineViewController: VendingMachineViewType {
-    
-    @objc
-    func displayProducts() {
-        menuCollectionView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if var vendingMachineVC = segue.destination as? VendingMachineViewType {
+            vendingMachineVC.service = self.service
+        }
     }
     
-    @objc
-    func displayBalance() {
+}
+// MARK: - + VendingMachineViewType
+extension CustomerVendingMachineViewController: VendingMachineViewType {
+    
+    @objc func displayProducts() {
+        menuCollectionView.reloadData()
+    }
+}
+// MARK: - + BalanceDisplayable
+extension CustomerVendingMachineViewController: BalanceDisplayable {
+    
+    @objc func displayBalance() {
         service.handleMoney { self.balanceLabel.text = $0.description }
     }
     
-    @objc
-    func displayHistory() {
+}
+// MARK: - + HistoryDisplayble
+extension CustomerVendingMachineViewController: HistoryDisplayble {
+    
+    @objc func displayHistory() {
         historyCollectionView.reloadData()
     }
 }
