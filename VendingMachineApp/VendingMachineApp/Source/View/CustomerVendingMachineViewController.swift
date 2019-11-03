@@ -7,13 +7,25 @@
 //
 
 import UIKit
-
-protocol VendingMachineViewType {
-    var service: VendingMachineServiceType! { get set }
+// MARK: - ProductListDisplayable
+protocol ProductListDisplayable {
+    
+    func displayProducts()
+}
+// MARK: - BalanceDisplayable
+protocol BalanceDisplayable {
+    
+    func displayBalance()
+}
+// MARK: - HistoryDisplayble
+protocol HistoryDisplayble {
     
     func displayHistory()
-    func displayProducts()
-    func displayBalance()
+}
+// MARK: - VendingMachineViewType
+protocol VendingMachineViewType: ProductListDisplayable {
+    
+    var service: VendingMachineServiceType! { get set }
 }
 
 class VendingMachineViewController: UIViewController {
