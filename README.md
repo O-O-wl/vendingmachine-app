@@ -459,3 +459,132 @@ enum AppEvent: String, NotificationConvertable {
 메인 `View`에 `CollectionView` 가 2개나 되는 형태가 되어서,  메인 `ViewController`가 두개의 `CollectionView`에 대한 `Delegate / DataSource` 역할을 다 하게하니 해당 메소드들이 커졌다.
 
 그래서 이 부분을 개선하기 위해서 각각의 뷰를 핸들링하는 관리자 객체를 분리했다.
+
+
+
+#### 피드백 #1 🤔
+
+> 델리게이트를 호출할 때는 늘 sender가 누군지 명확하게 구분해줘야 합니다.
+> Cell 과 Delegate 관계가 1:n 관계라서 어떤 cell 인지 구분도 필요하니까요.
+>
+> &
+>
+> 델리게이트를 직접 생성할 때도 애플 프레임워크 규칙에 맞춰서 만들어보세요.
+
+- **나의 생각과 고민  💬**
+
+  ```swift
+  protocol ProductCellDelegate: class {
+       func add(_ indexPath: IndexPath)
+       func purchase(_ indexPath: IndexPath)
+   }
+  ```
+
+  
+
+  ```swift
+  protocol CellButtonDelegate: class {
+    
+      func cellButton(_ button: UIButton, didSelectItemAt indexPath: IndexPath)
+  }
+  ```
+
+  프레임워크에 맞게 sender에 맞는 규칙 적용을 해서 sender를 알수 있게끔하였다.
+
+<br>
+
+## Step7
+
+
+
+> ### 프로그래밍 요구사항
+>
+> - 스토리보드에서 Button을 추가하고, Attributes에서 Type을 Info Light로 설정한다.
+>
+> - 새로운 ViewController를 옆에 추가하고, Button에서 Segue를 연결한다.
+>
+> - Segue를 선택하고 Kind를 Present Modally로 지정하고, Transition을 Flip Horizontal로 설정한다.
+>
+> - 새롭게 추가한 화면을 관리자 모드로 동작하도록 개선한다.
+>
+>    
+>
+>   - 이미지와 재고 추가 버튼을 복사해서 관리자 화면으로 복사하고, 동작하도록 코드를 수정한다.
+>   - 재고 추가 버튼은 기존 화면에서 삭제한다. 
+>   - 관리자 화면에 [닫기] 버튼을 추가하고, 버튼을 누르면 dissmiss()를 호출한다.
+>
+> - 다른 동작은 이전 단계와 동일하게 동작해야 한다.
+
+
+
+![Nov-03-2019 20-08-17](https://user-images.githubusercontent.com/39197978/68084189-ba325400-fe75-11e9-88cf-fcce3735b9d1.gif)
+
+
+
+
+
+**Dev Log**
+
+두개의 뷰 컨트롤러에서 각각의 콜렉션 뷰의  셀버튼의 액션을 제외하고는 동일했다.
+
+이전의 두개의 기능을 하던 셀에서 하나의 기능을 가진 셀로 변경됨에 따라 `CellButtonDelegate`가 바뀌어야함을 느꼈다.
+
+ ```swift
+protocol CellButtonDelegate: class {
+  
+    func cellButton(_ button: UIButton, didSelectItemAt indexPath: IndexPath)
+}
+ ```
+
+더 작은 셀 버튼 델리게이트를 만들게 되었다. 
+
+DataSource는 동일했기에, 상속과 다형성으로 
+
+>- `MenuCollectionViewManager`
+>  -  `CustomerMenuCollectionViewManager`
+>  - `AdminMenuCollectionViewManager`
+
+구현을 아래로 재사용하게 하였다.
+
+
+
+또 요구사항의 변경에서 `VendingMachineViewType` 에서 많은 메시지 명세의 구현을 강제하고 있었는데,
+
+생각보다 많은 것들을 강제하고 있었다고 느껴, 작은 프로토콜들로 분리하였다.
+
+
+
+```swift
+protocol VendingMachineViewType {
+    var service: VendingMachineServiceType! { get set }
+    
+    func displayHistory()
+    func displayProducts()
+    func displayBalance()
+}
+```
+
+```swift
+
+// MARK: - ProductListDisplayable
+protocol ProductListDisplayable {
+    
+    func displayProducts()
+}
+// MARK: - BalanceDisplayable
+protocol BalanceDisplayable {
+    
+    func displayBalance()
+}
+// MARK: - HistoryDisplayble
+protocol HistoryDisplayble {
+    
+    func displayHistory()
+}
+// MARK: - VendingMachineViewType
+protocol VendingMachineViewType: ProductListDisplayable {
+    
+    var service: VendingMachineServiceType! { get set }
+}
+```
+
