@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class UserMenuCollectionViewManager: MenuCollectionViewManager {
+class CustomerMenuCollectionViewManager: MenuCollectionViewManager {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -22,7 +22,7 @@ class UserMenuCollectionViewManager: MenuCollectionViewManager {
     
 }
 // MARK: + CellButtonDelegate
-extension UserMenuCollectionViewManager: CellButtonDelegate {
+extension CustomerMenuCollectionViewManager: CellButtonDelegate {
     
     func cellButton(_ button: UIButton, didSelectItemAt indexPath: IndexPath) {
         let strategy = PurchaseStrategy(productToPurchaseIndex: indexPath.row,

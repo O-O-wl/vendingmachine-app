@@ -39,7 +39,7 @@ class CustomerVendingMachineViewController: UIViewController {
         self?.present(errorAlert,
                       animated: true)
     }
-    lazy var menuCollectionViewManager = UserMenuCollectionViewManager(service: self.service, handler: errorHandler)
+    lazy var menuCollectionViewManager = CustomerMenuCollectionViewManager(service: self.service, handler: errorHandler)
     lazy var historyCollectionViewManager = HistoryCollectionViewManager()
     
     // MARK: IBOutlet
