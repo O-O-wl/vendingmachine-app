@@ -16,6 +16,7 @@ class AdminMenuCollectionViewManager: MenuCollectionViewManager {
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
         if let cell = cell as? ProductCell {
             cell.delegate = self
+            cell.setStyle(style: .admin)
         }
         return cell
     }
@@ -32,7 +33,7 @@ extension AdminMenuCollectionViewManager: CellButtonDelegate {
         do {
             try service.execute()
         } catch let error {
-            errorHandler?.handle(error)
+            errorHandler.handle(error)
         }
     }
 }

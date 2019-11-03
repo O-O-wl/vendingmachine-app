@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E382FA6236ECC5E001285C2 /* UserMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA5236ECC5E001285C2 /* UserMenuCollectionViewManager.swift */; };
+		0E382FA8236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */; };
+		0E382FAA236ED182001285C2 /* AdminVendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */; };
 		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
 		0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB5BC2360724100301EAC /* AppEvent.swift */; };
 		0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB65D2363289100301EAC /* SoldProductCell.swift */; };
@@ -16,7 +19,7 @@
 		0E4AB6682363434C00301EAC /* MenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */; };
 		0E4AB66A2363435F00301EAC /* HistoryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */; };
 		0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFC2338E7470090555A /* AppDelegate.swift */; };
-		0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */; };
+		0EA2EEFF2338E7470090555A /* CustomerVendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* CustomerVendingMachineViewController.swift */; };
 		0EA2EF022338E7470090555A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF002338E7470090555A /* Main.storyboard */; };
 		0EA2EF042338E7480090555A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF032338E7480090555A /* Assets.xcassets */; };
 		0EA2EF072338E7480090555A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF052338E7480090555A /* LaunchScreen.storyboard */; };
@@ -63,6 +66,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E382FA5236ECC5E001285C2 /* UserMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuCollectionViewManager.swift; sourceTree = "<group>"; };
+		0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuCollectionViewManager.swift; sourceTree = "<group>"; };
+		0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendingMachineViewController.swift; sourceTree = "<group>"; };
 		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0E4AB5BC2360724100301EAC /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
 		0E4AB65D2363289100301EAC /* SoldProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldProductCell.swift; sourceTree = "<group>"; };
@@ -73,7 +79,7 @@
 		0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewManager.swift; sourceTree = "<group>"; };
 		0EA2EEF92338E7470090555A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EEFC2338E7470090555A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VendingMachineViewController.swift; sourceTree = "<group>"; };
+		0EA2EEFE2338E7470090555A /* CustomerVendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerVendingMachineViewController.swift; sourceTree = "<group>"; };
 		0EA2EF012338E7470090555A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EA2EF032338E7480090555A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EA2EF062338E7480090555A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -136,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E382FA4236ECBE5001285C2 /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				0E382FA5236ECC5E001285C2 /* UserMenuCollectionViewManager.swift */,
+				0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */,
+			);
+			path = Mode;
+			sourceTree = "<group>";
+		};
 		0E4AB66523632F5D00301EAC /* CellData */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +163,7 @@
 		0E4AB6662363432C00301EAC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				0E382FA4236ECBE5001285C2 /* Mode */,
 				0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */,
 				0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */,
 			);
@@ -276,7 +292,8 @@
 			children = (
 				0E4AB6662363432C00301EAC /* Manager */,
 				0EB044DD233BA8F500185ED5 /* Cell */,
-				0EA2EEFE2338E7470090555A /* VendingMachineViewController.swift */,
+				0EA2EEFE2338E7470090555A /* CustomerVendingMachineViewController.swift */,
+				0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -529,6 +546,7 @@
 				0E4AB66423632D5900301EAC /* SoldProductCellData.swift in Sources */,
 				0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */,
 				0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */,
+				0E382FA6236ECC5E001285C2 /* UserMenuCollectionViewManager.swift in Sources */,
 				0EA2EF352338FB2E0090555A /* Coffee.swift in Sources */,
 				0EA2EF512338FB680090555A /* Handleable.swift in Sources */,
 				0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */,
@@ -536,11 +554,12 @@
 				0EA2EF2E2338FB2E0090555A /* StrawberryMilk.swift in Sources */,
 				0EA2EF342338FB2E0090555A /* CafeLatte.swift in Sources */,
 				0EF335E9233B1A770066AE3D /* BeverageFactory.swift in Sources */,
+				0E382FAA236ED182001285C2 /* AdminVendingMachineViewController.swift in Sources */,
 				0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */,
 				0E4AB66A2363435F00301EAC /* HistoryCollectionViewManager.swift in Sources */,
 				0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */,
 				0EA2EF4F2338FB680090555A /* Money.swift in Sources */,
-				0EA2EEFF2338E7470090555A /* VendingMachineViewController.swift in Sources */,
+				0EA2EEFF2338E7470090555A /* CustomerVendingMachineViewController.swift in Sources */,
 				0EA2EF322338FB2E0090555A /* Cola.swift in Sources */,
 				0E4AB6622363292600301EAC /* BaseProductCell.swift in Sources */,
 				0EA2EF302338FB2E0090555A /* ChocolateMilk.swift in Sources */,
@@ -555,6 +574,7 @@
 				0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */,
 				0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */,
 				0EA2EF362338FB2E0090555A /* Americano.swift in Sources */,
+				0E382FA8236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift in Sources */,
 				0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */,
 				0EA2EF332338FB2E0090555A /* EnergyDrink.swift in Sources */,
 				0EA2EF2F2338FB2E0090555A /* Milk.swift in Sources */,
