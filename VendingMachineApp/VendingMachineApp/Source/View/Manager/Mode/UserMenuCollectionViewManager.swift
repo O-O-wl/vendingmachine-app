@@ -31,7 +31,7 @@ extension UserMenuCollectionViewManager: CellButtonDelegate {
         do {
             try service.execute()
         } catch let error {
-            errorHandler?.handle(error)
+            errorHandler.handle(error)
         }
     }
 }

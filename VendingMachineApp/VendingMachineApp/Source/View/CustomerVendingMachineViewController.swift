@@ -143,14 +143,14 @@ class CustomerVendingMachineViewController: UIViewController {
     }
     
 }
-// MARK: - + VendingMachineViewType
+// MARK: - VendingMachineViewType
 extension CustomerVendingMachineViewController: VendingMachineViewType {
     
     @objc func displayProducts() {
         menuCollectionView.reloadData()
     }
 }
-// MARK: - + BalanceDisplayable
+// MARK: - BalanceDisplayable
 extension CustomerVendingMachineViewController: BalanceDisplayable {
     
     @objc func displayBalance() {
@@ -158,7 +158,7 @@ extension CustomerVendingMachineViewController: BalanceDisplayable {
     }
     
 }
-// MARK: - + HistoryDisplayble
+// MARK: - HistoryDisplayble
 extension CustomerVendingMachineViewController: HistoryDisplayble {
     
     @objc func displayHistory() {
