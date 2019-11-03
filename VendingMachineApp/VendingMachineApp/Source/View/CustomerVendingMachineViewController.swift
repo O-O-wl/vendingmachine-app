@@ -28,19 +28,35 @@ protocol VendingMachineViewType: ProductListDisplayable {
     var service: VendingMachineServiceType! { get set }
 }
 
-class VendingMachineViewController: UIViewController {
+// MARK: - CustomerVendingMachineViewController
+class CustomerVendingMachineViewController: UIViewController {
     
     // MARK: Properties
-    unowned var service: VendingMachineServiceType!
+    var service: VendingMachineServiceType!
+    
     lazy var errorHandler = ErrorHandler { [weak self] error in
         let errorAlert = UIAlertController(error: error)
         self?.present(errorAlert,
                       animated: true)
     }
-    let menuCollectionViewManager = UserMenuCollectionViewManager()
-    let historyCollectionViewManager = HistoryCollectionViewManager()
+    lazy var menuCollectionViewManager = UserMenuCollectionViewManager(service: self.service, handler: errorHandler)
+    lazy var historyCollectionViewManager = HistoryCollectionViewManager()
     
     // MARK: IBOutlet
+    @IBOutlet weak var balanceDisplayView: UIView! {
+        didSet {
+            balanceDisplayView.layer.shadowOpacity = 1
+            balanceDisplayView.layer.shadowOffset = .init(width: -5, height: -5)
+            balanceDisplayView.layer.shadowRadius = 15
+        }
+    }
+    @IBOutlet weak var balanceLabel: UILabel! {
+        didSet {
+            displayBalance()
+        }
+    }
+    @IBOutlet weak var add1000WonButton: UIButton!
+    @IBOutlet weak var add5000WonButton: UIButton!
     @IBOutlet weak var menuCollectionView: UICollectionView! {
         didSet {
             setupMenuCollectionView()
@@ -49,20 +65,6 @@ class VendingMachineViewController: UIViewController {
     @IBOutlet weak var historyCollectionView: UICollectionView! {
         didSet {
             setupHistoryCollectionView()
-        }
-    }
-    @IBOutlet weak var add1000WonButton: UIButton!
-    @IBOutlet weak var add5000WonButton: UIButton!
-    @IBOutlet weak var balanceLabel: UILabel! {
-        didSet {
-            displayBalance()
-        }
-    }
-    @IBOutlet weak var balanceDisplayView: UIView! {
-        didSet {
-            balanceDisplayView.layer.shadowOpacity = 1
-            balanceDisplayView.layer.shadowOffset = .init(width: -5, height: -5)
-            balanceDisplayView.layer.shadowRadius = 15
         }
     }
     
@@ -88,6 +90,7 @@ class VendingMachineViewController: UIViewController {
     // MARK: ViewController Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         menuCollectionViewManager.errorHandler = errorHandler
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(displayBalance),
