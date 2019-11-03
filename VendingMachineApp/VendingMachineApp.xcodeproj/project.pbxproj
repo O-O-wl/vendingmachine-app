@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E382FA6236ECC5E001285C2 /* UserMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA5236ECC5E001285C2 /* UserMenuCollectionViewManager.swift */; };
+		0E382FA6236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */; };
 		0E382FA8236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */; };
 		0E382FAA236ED182001285C2 /* AdminVendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */; };
 		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
@@ -66,7 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E382FA5236ECC5E001285C2 /* UserMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuCollectionViewManager.swift; sourceTree = "<group>"; };
+		0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMenuCollectionViewManager.swift; sourceTree = "<group>"; };
 		0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuCollectionViewManager.swift; sourceTree = "<group>"; };
 		0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendingMachineViewController.swift; sourceTree = "<group>"; };
 		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		0E382FA4236ECBE5001285C2 /* Mode */ = {
 			isa = PBXGroup;
 			children = (
-				0E382FA5236ECC5E001285C2 /* UserMenuCollectionViewManager.swift */,
+				0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */,
 				0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */,
 			);
 			path = Mode;
@@ -546,7 +546,7 @@
 				0E4AB66423632D5900301EAC /* SoldProductCellData.swift in Sources */,
 				0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */,
 				0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */,
-				0E382FA6236ECC5E001285C2 /* UserMenuCollectionViewManager.swift in Sources */,
+				0E382FA6236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift in Sources */,
 				0EA2EF352338FB2E0090555A /* Coffee.swift in Sources */,
 				0EA2EF512338FB680090555A /* Handleable.swift in Sources */,
 				0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */,
