@@ -111,12 +111,10 @@ class CustomerVendingMachineViewController: UIViewController {
     }
     
     private func setupMenuCollectionView() {
-        let productCellNib = UINib(nibName: ProductCell.nibName,
-                                   bundle: .main)
         
         menuCollectionView.dataSource = menuCollectionViewManager
         menuCollectionView.delegate = menuCollectionViewManager
-        menuCollectionView.register(productCellNib,
+        menuCollectionView.register(ProductCell.nib,
                                     forCellWithReuseIdentifier: ProductCell.reuseId)
         menuCollectionView.isScrollEnabled = false
     }
@@ -129,9 +127,7 @@ class CustomerVendingMachineViewController: UIViewController {
         layout.minimumInteritemSpacing = -20
         historyCollectionView.collectionViewLayout = layout
         
-        let soldProductCellNib = UINib(nibName: SoldProductCell.nibName,
-                                       bundle: .main)
-        historyCollectionView.register(soldProductCellNib,
+        historyCollectionView.register(SoldProductCell.nib,
                                        forCellWithReuseIdentifier: SoldProductCell.reuseId)
         historyCollectionView.isScrollEnabled = false
     }

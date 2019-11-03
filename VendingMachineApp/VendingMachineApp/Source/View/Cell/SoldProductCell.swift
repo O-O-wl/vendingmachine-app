@@ -10,10 +10,14 @@ import UIKit
 
 class SoldProductCell: BaseProductCell {
     
+    // MARK: - Properties
     static let reuseId = "SoldProductCell"
-    static let nibName = URL(fileURLWithPath: #file).deletingPathExtension().lastPathComponent
+    static let nib = UINib(nibName: "SoldProductCell", bundle: nil)
+    
+    // MARK: - IBOutlet
     @IBOutlet weak var productImageView: UIImageView!
     
+    // MARK: - Methods
     func configure(model: SoldProductCellData) {
         productImageView.image = UIImage(named: model.soldProductAssetName)
     }

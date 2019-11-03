@@ -14,9 +14,9 @@ protocol CellButtonDelegate: class {
 
 class ProductCell: BaseProductCell {
     
-    // MARK: Properties
+    // MARK: - Properties
     static let reuseId = "ProductCell"
-    static let nibName = URL(fileURLWithPath: #file).deletingPathExtension().lastPathComponent
+    static let nib = UINib(nibName: "ProductCell", bundle: nil)
     
     weak var delegate: CellButtonDelegate?
     var indexPath: IndexPath?

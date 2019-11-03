@@ -9,5 +9,6 @@
 import Foundation
 
 struct SoldProductCellData {
+    
     let soldProductAssetName: String
 }
