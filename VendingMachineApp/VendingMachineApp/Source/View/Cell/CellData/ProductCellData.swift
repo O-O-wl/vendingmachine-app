@@ -9,12 +9,14 @@
 import Foundation
 
 protocol ProductDisplayable {
+    
     var productName: String { get }
     var productPrice: String { get }
     var productQuantity: Int { get }
 }
 
 struct ProductCellData: ProductDisplayable {
+    
     var productName: String
     var productPrice: String
     var productQuantity: Int

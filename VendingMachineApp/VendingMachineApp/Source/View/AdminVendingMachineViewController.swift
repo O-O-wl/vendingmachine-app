@@ -43,11 +43,9 @@ class AdminVendingMachineViewController: UIViewController, VendingMachineViewTyp
     }
     
     private func setUpCollectionView() {
-        let productCellNib = UINib(nibName: ProductCell.nibName, bundle: .main)
-        
         productCollectionView.dataSource = productCollectionViewManager
         productCollectionView.delegate = productCollectionViewManager
-        productCollectionView.register(productCellNib,
+        productCollectionView.register(ProductCell.nib,
                                        forCellWithReuseIdentifier: ProductCell.reuseId)
         productCollectionView.isScrollEnabled = false
     }
