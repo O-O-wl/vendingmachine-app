@@ -9,10 +9,19 @@
 import Foundation
 import UIKit
 
-class MenuCollectionViewManager: NSObject, UICollectionViewDataSource, ProductCellDelegate {
-    unowned var service = VendingMachineService.shared
+class MenuCollectionViewManager: NSObject, UICollectionViewDataSource {
+   
+    // MARK: - Properties
     
-    var errorHandler: ErrorHandler?
+    // MARK: Dependencies
+    var service: VendingMachineServiceType
+    var errorHandler: ErrorHandler
+    
+    // MARK: - Methods
+    init(service: VendingMachineServiceType, handler: ErrorHandler) {
+        self.service = service
+        self.errorHandler = handler
+    }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
