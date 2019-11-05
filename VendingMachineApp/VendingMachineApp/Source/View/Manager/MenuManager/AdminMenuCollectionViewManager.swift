@@ -10,16 +10,7 @@ import Foundation
 import UIKit
 
 class AdminMenuCollectionViewManager: MenuCollectionViewManager {
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
-        if let cell = cell as? ProductCell {
-            cell.delegate = self
-            cell.setStyle(style: .admin)
-        }
-        return cell
-    }
+    override var style: CellStyle { return .admin }
 }
 // MARK: + CellButtonDelegate
 extension AdminMenuCollectionViewManager: CellButtonDelegate {
