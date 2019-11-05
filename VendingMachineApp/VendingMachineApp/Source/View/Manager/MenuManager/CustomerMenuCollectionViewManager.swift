@@ -9,17 +9,7 @@ import UIKit
 import Foundation
 
 class CustomerMenuCollectionViewManager: MenuCollectionViewManager {
-    
-    override func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = super.collectionView(collectionView, cellForItemAt: indexPath)
-        if let cell = cell as? ProductCell {
-            cell.delegate = self
-            cell.setStyle(style: .customer)
-        }
-        return cell
-    }
-    
+    override var style: CellStyle { return .customer }
 }
 // MARK: + CellButtonDelegate
 extension CustomerMenuCollectionViewManager: CellButtonDelegate {

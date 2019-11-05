@@ -12,7 +12,7 @@ import UIKit
 class MenuCollectionViewManager: NSObject, UICollectionViewDataSource {
    
     // MARK: - Properties
-    
+    var style: CellStyle { return .default }
     // MARK: Dependencies
     var service: VendingMachineServiceType
     var errorHandler: ErrorHandler
@@ -38,6 +38,10 @@ class MenuCollectionViewManager: NSObject, UICollectionViewDataSource {
         
         productCell.indexPath = indexPath
         productCell.configure(product: model)
+        productCell.setStyle(style: style)
+        if let delegate = self as? CellButtonDelegate {
+            productCell.delegate = delegate
+        }
         
         return productCell
     }

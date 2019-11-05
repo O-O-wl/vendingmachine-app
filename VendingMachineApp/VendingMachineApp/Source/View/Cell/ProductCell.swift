@@ -50,6 +50,7 @@ struct CellStyle {
     let buttonTitle: String
 }
 extension CellStyle {
+    static var `default` = CellStyle(buttonTitle: "---")
     static var customer = CellStyle(buttonTitle: "구매하기")
     static var admin = CellStyle(buttonTitle: "재고 추가")
 }

@@ -142,13 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E382FA4236ECBE5001285C2 /* Mode */ = {
+		0E382FA4236ECBE5001285C2 /* MenuManager */ = {
 			isa = PBXGroup;
 			children = (
+				0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */,
 				0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */,
 				0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */,
 			);
-			path = Mode;
+			path = MenuManager;
 			sourceTree = "<group>";
 		};
 		0E4AB66523632F5D00301EAC /* CellData */ = {
@@ -163,8 +164,7 @@
 		0E4AB6662363432C00301EAC /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				0E382FA4236ECBE5001285C2 /* Mode */,
-				0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */,
+				0E382FA4236ECBE5001285C2 /* MenuManager */,
 				0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */,
 			);
 			path = Manager;
