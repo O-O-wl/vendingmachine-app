@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MoneyInsertStrategy: MoneyHandStrategy {
+struct MoneyInsertStrategy: MoneyHandleStrategy {
     
     private let moneyToAdd: Money
     private let completion: (Money) -> Void

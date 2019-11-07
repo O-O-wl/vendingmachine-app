@@ -39,7 +39,10 @@ class CustomerVendingMachineViewController: UIViewController {
         self?.present(errorAlert,
                       animated: true)
     }
-    lazy var menuCollectionViewManager = CustomerMenuCollectionViewManager(service: self.service, handler: errorHandler)
+    lazy var menuCollectionViewManager = MenuCollectionViewManager(service: self.service,
+                                                                   strategy: PurchaseStrategy(purchasingIndex: 0),
+                                                                   style: .customer,
+                                                                   handler: errorHandler)
     lazy var historyCollectionViewManager = HistoryCollectionViewManager()
     
     // MARK: IBOutlet
@@ -79,8 +82,9 @@ class CustomerVendingMachineViewController: UIViewController {
         let amount = Int(sender.titleLabel!.text!)
         let strategy = MoneyInsertStrategy(moneyToAdd: Money(value: amount!),
                                            completion: { _ in ()})
-        service.setStrategy(strategy)
+        
         do {
+            try service.handleBalance(strategy)
             try service.execute()
         } catch let error {
             errorHandler.handle(error)
@@ -91,7 +95,6 @@ class CustomerVendingMachineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuCollectionViewManager.errorHandler = errorHandler
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(displayBalance),
                                                name: AppEvent.balanceDidChanged.name,
