@@ -12,14 +12,20 @@ import UIKit
 class MenuCollectionViewManager: NSObject, UICollectionViewDataSource {
    
     // MARK: - Properties
-    var style: CellStyle { return .default }
     // MARK: Dependencies
-    var service: VendingMachineServiceType
-    var errorHandler: ErrorHandler
+    private var service: VendingMachineServiceType
+    private var strategy: StateHandleStrategy
+    private let style: CellStyle
+    private let errorHandler: ErrorHandler
     
     // MARK: - Methods
-    init(service: VendingMachineServiceType, handler: ErrorHandler) {
+    init(service: VendingMachineServiceType,
+         strategy: StateHandleStrategy,
+         style: CellStyle,
+         handler: ErrorHandler) {
         self.service = service
+        self.strategy = strategy
+        self.style = style
         self.errorHandler = handler
     }
     
@@ -39,9 +45,7 @@ class MenuCollectionViewManager: NSObject, UICollectionViewDataSource {
         productCell.indexPath = indexPath
         productCell.configure(product: model)
         productCell.setStyle(style: style)
-        if let delegate = self as? CellButtonDelegate {
-            productCell.delegate = delegate
-        }
+        productCell.delegate = self
         
         return productCell
     }
@@ -54,6 +58,20 @@ extension MenuCollectionViewManager: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numberOfCellsInRow = CGFloat(collectionView.numberOfItems(inSection: indexPath.section)) + 1
         let side = collectionView.bounds.width/numberOfCellsInRow
+        
         return CGSize(width: side, height: side)
+    }
+}
+// MARK: - + UICollectionViewDelegateFlowLayout
+extension MenuCollectionViewManager: CellButtonDelegate {
+
+    func cellButton(_ button: UIButton, didSelectItemAt indexPath: IndexPath) {
+        self.strategy.setItemIndex(at: indexPath.row)
+        service.setStateStrategy(self.strategy)
+        do {
+            try service.execute()
+        } catch let error {
+            errorHandler.handle(error)
+        }
     }
 }

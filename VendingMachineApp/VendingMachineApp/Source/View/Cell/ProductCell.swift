@@ -27,14 +27,13 @@ class ProductCell: BaseProductCell {
     @IBOutlet weak var cellButton: UIButton!
     
     // MARK: Method
-    
     func configure(product: ProductCellData) {
         
         productImageView.image = UIImage(named: product.productName)
         productQuantityLabel.text = "\(product.productQuantity)개"
     }
-    // MARK: IBActions
     
+    // MARK: IBActions
     @IBAction func cellButtonDidTap(_ sender: Any) {
         guard let indexPath = indexPath else { return }
         
@@ -47,10 +46,11 @@ class ProductCell: BaseProductCell {
 }
 
 struct CellStyle {
+    
     let buttonTitle: String
 }
 extension CellStyle {
-    static var `default` = CellStyle(buttonTitle: "---")
+    
     static var customer = CellStyle(buttonTitle: "구매하기")
     static var admin = CellStyle(buttonTitle: "재고 추가")
 }
