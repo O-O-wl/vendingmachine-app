@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct DeStockStrategy: StateHandleable {
-    private let indexOfStockToRemove: Int
+struct DeStockStrategy: StateHandleStrategy {
+    private var indexOfStockToRemove: Int
     private let completion: (String) -> Void
     private var removedStock: Product?
 
@@ -19,6 +19,10 @@ struct DeStockStrategy: StateHandleable {
         self.completion = completion
     }
 
+    mutating func setItemIndex(at index: Int) {
+        indexOfStockToRemove = index
+    }
+    
     mutating func handle(_ before: State) -> Result<State, Error> {
         let state = before
         guard
