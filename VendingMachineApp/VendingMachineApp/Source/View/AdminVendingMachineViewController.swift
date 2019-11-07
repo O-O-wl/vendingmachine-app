@@ -16,14 +16,17 @@ class AdminVendingMachineViewController: UIViewController, VendingMachineViewTyp
         self?.present(errorAlert,
                       animated: true)
     }
-    lazy var productCollectionViewManager = AdminMenuCollectionViewManager(service: self.service,
-                                                                           handler: errorHandler)
+    lazy var productCollectionViewManager = MenuCollectionViewManager(service: self.service,
+                                                                      strategy: InStockStrategy(stockToAddIndex: 0),
+                                                                      style: .admin,
+                                                                      handler: errorHandler)
     
     // MARK: - Dependencies
     var service: VendingMachineServiceType!
     
     // MARK: IBOIutlet
-    @IBOutlet weak var productCollectionView: UICollectionView! { didSet {
+    @IBOutlet weak var productCollectionView: UICollectionView! {
+        didSet {
         setUpCollectionView()
         }
     }

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E382FA6236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */; };
-		0E382FA8236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */; };
 		0E382FAA236ED182001285C2 /* AdminVendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */; };
 		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
 		0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB5BC2360724100301EAC /* AppEvent.swift */; };
@@ -44,7 +42,7 @@
 		0EA2EF592338FB680090555A /* ProductCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF472338FB680090555A /* ProductCellData.swift */; };
 		0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF492338FB680090555A /* InStockStrategy.swift */; };
 		0EA2EF5B2338FB680090555A /* DeStockStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4A2338FB680090555A /* DeStockStrategy.swift */; };
-		0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4B2338FB680090555A /* StateHandleable.swift */; };
+		0EA2EF5C2338FB680090555A /* StateHandleStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4B2338FB680090555A /* StateHandleStrategy.swift */; };
 		0EA2EF5D2338FB680090555A /* MoneyInsertStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */; };
 		0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */; };
 		0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB044D9233BA8EB00185ED5 /* ProductCell.swift */; };
@@ -66,8 +64,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerMenuCollectionViewManager.swift; sourceTree = "<group>"; };
-		0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuCollectionViewManager.swift; sourceTree = "<group>"; };
 		0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendingMachineViewController.swift; sourceTree = "<group>"; };
 		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0E4AB5BC2360724100301EAC /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
@@ -107,7 +103,7 @@
 		0EA2EF472338FB680090555A /* ProductCellData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCellData.swift; sourceTree = "<group>"; };
 		0EA2EF492338FB680090555A /* InStockStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InStockStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4A2338FB680090555A /* DeStockStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeStockStrategy.swift; sourceTree = "<group>"; };
-		0EA2EF4B2338FB680090555A /* StateHandleable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHandleable.swift; sourceTree = "<group>"; };
+		0EA2EF4B2338FB680090555A /* StateHandleStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateHandleStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoneyInsertStrategy.swift; sourceTree = "<group>"; };
 		0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseStrategy.swift; sourceTree = "<group>"; };
 		0EB044D9233BA8EB00185ED5 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
@@ -146,8 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */,
-				0E382FA5236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift */,
-				0E382FA7236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift */,
 			);
 			path = MenuManager;
 			sourceTree = "<group>";
@@ -280,7 +274,7 @@
 			children = (
 				0EA2EF492338FB680090555A /* InStockStrategy.swift */,
 				0EA2EF4A2338FB680090555A /* DeStockStrategy.swift */,
-				0EA2EF4B2338FB680090555A /* StateHandleable.swift */,
+				0EA2EF4B2338FB680090555A /* StateHandleStrategy.swift */,
 				0EA2EF4C2338FB680090555A /* MoneyInsertStrategy.swift */,
 				0EA2EF4D2338FB680090555A /* PurchaseStrategy.swift */,
 			);
@@ -545,8 +539,7 @@
 				0E4AB6682363434C00301EAC /* MenuCollectionViewManager.swift in Sources */,
 				0E4AB66423632D5900301EAC /* SoldProductCellData.swift in Sources */,
 				0EA2EF5E2338FB680090555A /* PurchaseStrategy.swift in Sources */,
-				0EA2EF5C2338FB680090555A /* StateHandleable.swift in Sources */,
-				0E382FA6236ECC5E001285C2 /* CustomerMenuCollectionViewManager.swift in Sources */,
+				0EA2EF5C2338FB680090555A /* StateHandleStrategy.swift in Sources */,
 				0EA2EF352338FB2E0090555A /* Coffee.swift in Sources */,
 				0EA2EF512338FB680090555A /* Handleable.swift in Sources */,
 				0EB044DB233BA8EB00185ED5 /* ProductCell.swift in Sources */,
@@ -574,7 +567,6 @@
 				0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */,
 				0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */,
 				0EA2EF362338FB2E0090555A /* Americano.swift in Sources */,
-				0E382FA8236ECC6C001285C2 /* AdminMenuCollectionViewManager.swift in Sources */,
 				0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */,
 				0EA2EF332338FB2E0090555A /* EnergyDrink.swift in Sources */,
 				0EA2EF2F2338FB2E0090555A /* Milk.swift in Sources */,
