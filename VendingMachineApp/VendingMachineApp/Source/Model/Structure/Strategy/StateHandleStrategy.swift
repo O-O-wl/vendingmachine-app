@@ -8,7 +8,13 @@
 
 import Foundation
 
-protocol StateHandleable {
+protocol MoneyHandleStrategy {
+    func handle(_ before: Money) -> Result<Money, Error>
+    func complete()
+}
+
+protocol StateHandleStrategy {
     mutating func handle(_ before: State) -> Result<State, Error>
+    mutating func setItemIndex(at index: Int)
     func complete()
 }
