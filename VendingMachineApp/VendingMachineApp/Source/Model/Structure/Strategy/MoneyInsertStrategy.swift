@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MoneyInsertStrategy: StateHandleable {
+struct MoneyInsertStrategy: MoneyHandStrategy {
+    
     private let moneyToAdd: Money
     private let completion: (Money) -> Void
 
@@ -16,11 +17,11 @@ struct MoneyInsertStrategy: StateHandleable {
         self.moneyToAdd = moneyToAdd
         self.completion = completion
     }
+    
+    func handle(_ before: Money) -> Result<Money, Error> {
+        let balence  = before + moneyToAdd
 
-    func handle(_ before: State) -> Result<State, Error> {
-        let balence  = before.balance + moneyToAdd
-
-        return .success((balence, before.inventory, before.history))
+        return .success(balence)
     }
 
     func complete() {
