@@ -13,7 +13,8 @@ typealias State = (balance: Money, inventory: Storable, history: History)
 protocol VendingMachineServiceType: class, MoneyHandleable {
     var numOfMenu: Int { get }
     func cellForProductAt(index: Int) -> ProductCellData
-    func setStrategy(_ strategy: StateHandleable?)
+    func handleBalance(_ strategy: MoneyHandleStrategy) throws
+    func setStateStrategy(_ strategy: StateHandleStrategy?)
     func searchItem(at index: Int) -> Beverage?
     func execute() throws
 }
@@ -63,7 +64,7 @@ class VendingMachineService: NSObject, NSCoding {
                                             object: nil)
         }
     }
-    private var strategy: StateHandleable?
+    private var strategy: StateHandleStrategy?
     
     private init(balance: Money,
                  inventory: Storable,
@@ -94,24 +95,32 @@ class VendingMachineService: NSObject, NSCoding {
         return inventory.search(at: index)
     }
     
-    func setStrategy(_ strategy: StateHandleable?) {
+    func setStateStrategy(_ strategy: StateHandleStrategy?) {
         self.strategy = strategy
     }
     
     func execute() throws {
         let state = (balance: balance, inventory: inventory, history: history)
         
-        guard
-            let result = strategy?.handle(state)
+        guard let result = strategy?.handle(state)
             else { return }
         try resultHandle(result)
     }
     
-    func handleStrategy(_ handler: (StateHandleable) -> Void) {
-        guard
-            let strategy = strategy
+    func handleStrategy(_ handler: (StateHandleStrategy) -> Void) {
+        guard let strategy = strategy
             else { return }
         handler(strategy)
+    }
+    
+    func handleBalance(_ strategy: MoneyHandleStrategy) throws {
+        let result = strategy.handle(balance)
+        switch result {
+        case .success(let newBalance):
+            balance = newBalance
+        case .failure(let error):
+            throw error
+        }
     }
     
     func resultHandle(_ result: Result<State, Error>) throws {
@@ -141,8 +150,7 @@ extension VendingMachineService: ProductStatisticHandleable {
     }
 }
 // MARK: - + VendingMachinePresenterType
-extension VendingMachineService: VendingMachineServiceType {
-    
+extension VendingMachineService: VendingMachineServiceType {    
     var numOfMenu: Int {
         return inventory.statistic.count
     }
