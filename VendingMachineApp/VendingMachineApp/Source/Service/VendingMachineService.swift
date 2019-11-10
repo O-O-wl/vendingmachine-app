@@ -58,7 +58,7 @@ class VendingMachineService: NSObject, NSCoding {
                                             object: nil)
         }
     }
-    private var history: History {
+    var history: History {
         didSet {
             NotificationCenter.default.post(name: AppEvent.historyDidChanged.name,
                                             object: nil)

@@ -10,7 +10,11 @@ import Foundation
 
 class History: NSObject, NSCoding {
     
-    var soldProducts = [Beverage]()
+    var soldProducts = [Beverage]() {
+        didSet {
+            NotificationCenter.default.post(name: AppEvent.historyDidChanged.name, object: nil)
+        }
+    }
     
     // MARK: NSCoding
     func encode(with coder: NSCoder) {
