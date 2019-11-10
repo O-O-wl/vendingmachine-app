@@ -27,12 +27,18 @@ class AdminVendingMachineViewController: UIViewController, VendingMachineViewTyp
     // MARK: IBOIutlet
     @IBOutlet weak var productCollectionView: UICollectionView! {
         didSet {
-        setUpCollectionView()
+            setUpCollectionView()
         }
     }
     @IBOutlet weak var closeButton: UIButton! {
         didSet {
             closeButton.layer.cornerRadius = closeButton.bounds.width/2
+        }
+    }
+    
+    @IBOutlet weak var pieGraphView: PieGraphView! {
+        didSet {
+            displayHistory()
         }
     }
     
@@ -43,6 +49,16 @@ class AdminVendingMachineViewController: UIViewController, VendingMachineViewTyp
                                                selector: #selector(displayProducts),
                                                name: AppEvent.productsDidChanged.name,
                                                object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(displayHistory),
+                                               name: AppEvent.historyDidChanged.name,
+                                               object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        displayHistory()
     }
     
     private func setUpCollectionView() {
@@ -62,5 +78,8 @@ extension AdminVendingMachineViewController {
     
     @objc func displayProducts() {
         productCollectionView.reloadData()
+    }
+    @objc func displayHistory() {
+        pieGraphView.history = VendingMachineService.shared.history.soldProducts
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E382FAA236ED182001285C2 /* AdminVendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */; };
+		0E382FED237512AC001285C2 /* PieGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E382FEC237512AC001285C2 /* PieGraphView.swift */; };
 		0E4AB593235D91FA00301EAC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */; };
 		0E4AB5BD2360724100301EAC /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB5BC2360724100301EAC /* AppEvent.swift */; };
 		0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB65D2363289100301EAC /* SoldProductCell.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		0E382FA9236ED182001285C2 /* AdminVendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminVendingMachineViewController.swift; sourceTree = "<group>"; };
+		0E382FEC237512AC001285C2 /* PieGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphView.swift; sourceTree = "<group>"; };
 		0E4AB592235D91FA00301EAC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		0E4AB5BC2360724100301EAC /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
 		0E4AB65D2363289100301EAC /* SoldProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldProductCell.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 				0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		0E78B14B23788B3E00777684 /* PieGraphView */ = {
+			isa = PBXGroup;
+			children = (
+				0E382FEC237512AC001285C2 /* PieGraphView.swift */,
+			);
+			path = PieGraphView;
 			sourceTree = "<group>";
 		};
 		0EA2EEF02338E7470090555A = {
@@ -284,6 +294,7 @@
 		0EA2EF73233A47DD0090555A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0E78B14B23788B3E00777684 /* PieGraphView */,
 				0E4AB6662363432C00301EAC /* Manager */,
 				0EB044DD233BA8F500185ED5 /* Cell */,
 				0EA2EEFE2338E7470090555A /* CustomerVendingMachineViewController.swift */,
@@ -563,6 +574,7 @@
 				0EA2EF542338FB680090555A /* History.swift in Sources */,
 				0EA2EF5D2338FB680090555A /* MoneyInsertStrategy.swift in Sources */,
 				0EA2EF5B2338FB680090555A /* DeStockStrategy.swift in Sources */,
+				0E382FED237512AC001285C2 /* PieGraphView.swift in Sources */,
 				0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */,
 				0EA2EF5A2338FB680090555A /* InStockStrategy.swift in Sources */,
 				0E4AB65F2363289100301EAC /* SoldProductCell.swift in Sources */,
