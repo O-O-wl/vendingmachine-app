@@ -10,7 +10,7 @@ import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
 
-protocol VendingMachineServiceType: class, MoneyHandleable {
+protocol VendingMachineServiceType: MoneyHandleable, PieGraphViewDateSource {
     var numOfMenu: Int { get }
     func cellForProductAt(index: Int) -> ProductCellData
     func handleBalance(_ strategy: MoneyHandleStrategy) throws

@@ -17,6 +17,7 @@
 		0E4AB66423632D5900301EAC /* SoldProductCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB66323632D5900301EAC /* SoldProductCellData.swift */; };
 		0E4AB6682363434C00301EAC /* MenuCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */; };
 		0E4AB66A2363435F00301EAC /* HistoryCollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */; };
+		0E78B196237969C100777684 /* PieGraphViewDateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78B195237969C100777684 /* PieGraphViewDateSource.swift */; };
 		0EA2EEFD2338E7470090555A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFC2338E7470090555A /* AppDelegate.swift */; };
 		0EA2EEFF2338E7470090555A /* CustomerVendingMachineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA2EEFE2338E7470090555A /* CustomerVendingMachineViewController.swift */; };
 		0EA2EF022338E7470090555A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA2EF002338E7470090555A /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		0E4AB66323632D5900301EAC /* SoldProductCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoldProductCellData.swift; sourceTree = "<group>"; };
 		0E4AB6672363434C00301EAC /* MenuCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewManager.swift; sourceTree = "<group>"; };
 		0E4AB6692363435F00301EAC /* HistoryCollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewManager.swift; sourceTree = "<group>"; };
+		0E78B195237969C100777684 /* PieGraphViewDateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieGraphViewDateSource.swift; sourceTree = "<group>"; };
 		0EA2EEF92338E7470090555A /* VendingMachineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VendingMachineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA2EEFC2338E7470090555A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA2EEFE2338E7470090555A /* CustomerVendingMachineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerVendingMachineViewController.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				0E382FEC237512AC001285C2 /* PieGraphView.swift */,
+				0E78B195237969C100777684 /* PieGraphViewDateSource.swift */,
 			);
 			path = PieGraphView;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				0E4AB66A2363435F00301EAC /* HistoryCollectionViewManager.swift in Sources */,
 				0EA2EF4E2338FB680090555A /* Errorhandler.swift in Sources */,
 				0EA2EF4F2338FB680090555A /* Money.swift in Sources */,
+				0E78B196237969C100777684 /* PieGraphViewDateSource.swift in Sources */,
 				0EA2EEFF2338E7470090555A /* CustomerVendingMachineViewController.swift in Sources */,
 				0EA2EF322338FB2E0090555A /* Cola.swift in Sources */,
 				0E4AB6622363292600301EAC /* BaseProductCell.swift in Sources */,

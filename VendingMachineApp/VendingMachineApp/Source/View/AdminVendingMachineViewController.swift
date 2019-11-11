@@ -38,6 +38,7 @@ class AdminVendingMachineViewController: UIViewController, VendingMachineViewTyp
     
     @IBOutlet weak var pieGraphView: PieGraphView! {
         didSet {
+            pieGraphView.dataSource = service
             displayHistory()
         }
     }
