@@ -13,6 +13,7 @@ typealias Ratio = (name: String, ratio: CGFloat)
 class PieGraphView: UIView {
     
     private let colorSet: [UIColor] = [.brown, .blue, .red, .systemGreen, .magenta, .orange]
+    weak var dataSource: PieGraphViewDateSource?
     
     var history = [Beverage]() {
         didSet {
@@ -29,41 +30,50 @@ class PieGraphView: UIView {
     }
     
     private func drawPieGraph() {
-        let total = CGFloat(history.count)
         
-        let ratios = history
-            .reduce(into: [String: Int]()) { $0[$1.productName] = ($0[$1.productName] ?? 0) + 1  }
-            .map { (name: $0.key, ratio: CGFloat($0.value)/total) }
-        
-        drawPie(ratios)
-        drawTitles(ratios)
+        drawPie()
+        drawTitles()
     }
     
-    private func drawPie (_ ratios: [Ratio]) {
+    private func drawPie () {
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         var colorIndex = 0
         
-        ratios.forEach {
-            endAngle += $0.ratio * CGFloat.pi
+        guard let dataSource = dataSource else { return }
+        
+        let numOfItem = dataSource.pieGraphView(self, numOfItems: 0)
+        
+        for index in 0..<numOfItem {
+            let ratio = dataSource.pieGraphView(self, ratioForTotal: index)
+            endAngle += ratio.ratio * CGFloat.pi
+            
             drawPiece(color: colorSet[colorIndex % colorSet.count],
                       from: startAngle,
                       to: endAngle)
+            
             startAngle = endAngle
             colorIndex += 1
         }
     }
     
-    private func drawTitles (_ ratios: [Ratio]) {
+    private func drawTitles () {
         
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         
-        ratios.forEach {
-            endAngle += $0.ratio * CGFloat.pi
-            drawText(name: $0.name,
+        guard let dataSource = dataSource else { return }
+        
+        let numOfItem = dataSource.pieGraphView(self, numOfItems: 0)
+        
+        for index in 0..<numOfItem {
+            let ratio = dataSource.pieGraphView(self, ratioForTotal: index)
+            endAngle += ratio.ratio * CGFloat.pi
+            
+            drawText(name: ratio.name,
                      from: startAngle,
                      to: endAngle)
+            
             startAngle = endAngle
         }
     }
@@ -75,12 +85,14 @@ class PieGraphView: UIView {
         let radius = self.bounds.width/2
         
         let path = UIBezierPath()
+        
         path.move(to: center)
         path.addArc(withCenter: center,
                     radius: radius,
                     startAngle: startAngle * 2,
                     endAngle: endAngle * 2,
                     clockwise: true)
+        
         path.close()
         color.setFill()
         path.stroke()
