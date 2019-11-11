@@ -5,7 +5,7 @@
 //  Created by 이동영 on 16/08/2019.
 //  Copyright © 2019 JK. All rights reserved.
 //
-
+import CoreGraphics
 import Foundation
 
 typealias State = (balance: Money, inventory: Storable, history: History)
@@ -186,5 +186,27 @@ extension VendingMachineService {
         case balance = "Balance"
         case inventory = "Inventory"
         case history = "History"
+    }
+}
+// MARK: - PieGraphDateSource
+extension VendingMachineService: PieGraphViewDateSource {
+    
+    func pieGraphView(_ tableView: PieGraphView, numOfItems index: Int) -> Int {
+        return history
+            .soldProducts
+            .reduce(into: [String: Int]()) { $0[$1.productName] = ($0[$1.productName] ?? 0) + 1  }
+            .count
+    }
+    
+    func pieGraphView(_ tableView: PieGraphView, ratioForTotal index: Int) -> Ratio {
+        let total = CGFloat(history.soldProducts.count)
+        
+        let ratios = history
+            .soldProducts
+            .reduce(into: [String: Int]()) { $0[$1.productName] = ($0[$1.productName] ?? 0) + 1  }
+            .sortedList
+            .map { (name: $0, ratio: CGFloat($1)/total) }
+        
+        return ratios[index]
     }
 }
