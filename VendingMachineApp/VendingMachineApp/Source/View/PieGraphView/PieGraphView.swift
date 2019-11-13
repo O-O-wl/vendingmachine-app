@@ -8,7 +8,7 @@
 
 import UIKit
 
-typealias Ratio = (name: String, ratio: CGFloat)
+typealias Statistic = (name: String, quantity: Int)
 
 class PieGraphView: UIView {
     
@@ -36,17 +36,18 @@ class PieGraphView: UIView {
     }
     
     private func drawPie () {
+        guard let dataSource = dataSource else { return }
+        
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         var colorIndex = 0
         
-        guard let dataSource = dataSource else { return }
+        let numOfCategories = dataSource.numOfCategory(in: self)
+        let numOfTotal = dataSource.numOfTotal(in: self)
         
-        let numOfItem = dataSource.pieGraphView(self, numOfItems: 0)
-        
-        for index in 0..<numOfItem {
-            let ratio = dataSource.pieGraphView(self, ratioForTotal: index)
-            endAngle += ratio.ratio * CGFloat.pi
+        for index in 0..<numOfCategories {
+            let statistic = dataSource.pieGraphView(self, statisticOfItem: index)
+            endAngle += CGFloat(statistic.quantity)/CGFloat(numOfTotal) * CGFloat.pi
             
             drawPiece(color: colorSet[colorIndex % colorSet.count],
                       from: startAngle,
@@ -58,19 +59,19 @@ class PieGraphView: UIView {
     }
     
     private func drawTitles () {
+        guard let dataSource = dataSource else { return }
         
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         
-        guard let dataSource = dataSource else { return }
+        let numOfCategories = dataSource.numOfCategory(in: self)
+        let numOfTotal = dataSource.numOfTotal(in: self)
         
-        let numOfItem = dataSource.pieGraphView(self, numOfItems: 0)
-        
-        for index in 0..<numOfItem {
-            let ratio = dataSource.pieGraphView(self, ratioForTotal: index)
-            endAngle += ratio.ratio * CGFloat.pi
+        for index in 0..<numOfCategories {
+            let statistic = dataSource.pieGraphView(self, statisticOfItem: index)
+            endAngle += CGFloat(statistic.quantity)/CGFloat(numOfTotal) * CGFloat.pi
             
-            drawText(name: ratio.name,
+            drawText(name: statistic.name,
                      from: startAngle,
                      to: endAngle)
             
