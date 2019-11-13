@@ -11,6 +11,6 @@ import Foundation
 protocol PieGraphViewDateSource: AnyObject {
     
     func numOfTotal(in pieGraphView: PieGraphView) -> Int
-    func numOfCategory(in pieGraphView: PieGraphView) -> Int
+    func numOfCategories(in pieGraphView: PieGraphView) -> Int
     func pieGraphView(_ pieGraphView: PieGraphView, statisticOfItem index: Int) -> Statistic
 }

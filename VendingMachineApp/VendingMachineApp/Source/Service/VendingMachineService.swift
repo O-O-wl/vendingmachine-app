@@ -194,7 +194,7 @@ extension VendingMachineService: PieGraphViewDateSource {
         return history.soldProducts.count
     }
     
-    func numOfCategory(in pieGraphView: PieGraphView) -> Int {
+    func numOfCategories(in pieGraphView: PieGraphView) -> Int {
          return history
                    .soldProducts
                    .reduce(into: [String: Int]()) { $0[$1.productName] = ($0[$1.productName] ?? 0) + 1  }

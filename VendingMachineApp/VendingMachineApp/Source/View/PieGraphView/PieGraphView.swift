@@ -42,7 +42,7 @@ class PieGraphView: UIView {
         var endAngle: CGFloat = 0
         var colorIndex = 0
         
-        let numOfCategories = dataSource.numOfCategory(in: self)
+        let numOfCategories = dataSource.numOfCategories(in: self)
         let numOfTotal = dataSource.numOfTotal(in: self)
         
         for index in 0..<numOfCategories {
@@ -64,7 +64,7 @@ class PieGraphView: UIView {
         var startAngle: CGFloat = 0
         var endAngle: CGFloat = 0
         
-        let numOfCategories = dataSource.numOfCategory(in: self)
+        let numOfCategories = dataSource.numOfCategories(in: self)
         let numOfTotal = dataSource.numOfTotal(in: self)
         
         for index in 0..<numOfCategories {
