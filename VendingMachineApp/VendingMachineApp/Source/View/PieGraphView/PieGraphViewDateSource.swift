@@ -10,6 +10,7 @@ import Foundation
 
 protocol PieGraphViewDateSource: AnyObject {
     
-    func pieGraphView(_ tableView: PieGraphView, numOfItems index: Int) -> Int
-    func pieGraphView(_ tableView: PieGraphView, ratioForTotal index: Int) -> Ratio
+    func numOfTotal(in pieGraphView: PieGraphView) -> Int
+    func numOfCategory(in pieGraphView: PieGraphView) -> Int
+    func pieGraphView(_ pieGraphView: PieGraphView, statisticOfItem index: Int) -> Statistic
 }
